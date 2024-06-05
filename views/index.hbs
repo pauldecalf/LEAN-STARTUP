@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap');
+
+        :root {
+            --Color-Neutral-Carbon-100: #092643;
+        }
+
+        .font-bricolage {
+            font-family: 'Bricolage Grotesque', serif;
+        }
+        .font-nunito {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .primary-color {
+            color: #092643;
+        }
+
+        body {
+            background-color: #FFFCF1;
+        }
+        input::placeholder {
+            flex: 1 0 0;
+            color: #6B7D8E;
+            /* Paragraph/MD/Normal */
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+        }
+        input:active {
+            border: 1px solid #CED4D9;
+        }
+        input:focus {
+            border: 1px solid #CED4D9;
+        }
+    </style>
+
+</head>
+<body>
+    <header id="header" style="background-color: #FFFCF1;" class="fixed top-0 left-0 w-full py-3 flex justify-between px-4 min-h-16 z-50">
+        <div id="logo" class="my-auto">
+            <img src="/img/Smoozy.png" alt="logo">
+        </div>
+        <div id="menu-burger" class="my-auto cursor-pointer">
+            <img src="/img/fi-rr-menu-burger.png" alt="menu-burger" id="burger-icon">
+        </div>
+    </header>
+
+    <!-- Fullscreen menu -->
+    <nav id="fullscreen-menu" style="background-color: #FFFCF1;" class="fixed inset-0 hidden z-40">
+        <div class="mt-48 mb-12 ml-4 flex">
+            <span class="mr-4 font-bricolage" style="color:#092643;font-size: 32px;font-style: normal;font-weight: 600;line-height: 120%; /* 38.4px */">À propos</span>
+            <img src="/img/fi-rr-caret-down.png" alt="icon triangle vers le bas">
+        </div>
+        <div class="mb-12 ml-4">
+            <span class=" font-bricolage" style="color:#092643;font-size: 32px;font-style: normal;font-weight: 600;line-height: 120%; /* 38.4px */">Blog</span>
+        </div>
+        <div class="mb-12 ml-4">
+            <span class=" font-bricolage" style="color:#092643;font-size: 32px;font-style: normal;font-weight: 600;line-height: 120%; /* 38.4px */">Contact</span>
+        </div>
+        <form action="#">
+            <button class="ml-4 font-nunito py-5 px-6" style="
+                display: flex;
+                width: 280px;
+                padding: 20px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                border-radius: 8px;
+                background: #092643;
+            ">
+                    <span class="font-nunito" style="
+                        color: #FFFCF1;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 140%; /* 28px */
+                    ">S'inscrire à la waitlist</span>
+            </button>
+        </form>
+    </nav>
+
+    <!-- Popup -->
+    <div class="hidden rounded-lg mx-3 my-48 p-4" style="border: 1px solid black; background-color: #FFFCF1;">
+        <div class="flex justify-end">
+            <img src="/img/CTA-close.png" class="" alt="icon close popup">
+        </div>
+        <p class="font-bricolage mt-2 mb-6 px-5" style="color: #092643;text-align: center; font-size: 24px; font-style: normal; font-weight: 600; line-height: 120%; /* 28.8px */">
+            Inscrivez-vous dès aujourd'hui et soyez parmi les premiers à découvrir Smoozy ! 🔥
+        </p>
+        <p class="font-nunito mb-3" style="color: #092643;text-align: center;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%; /* 22.4px */">Soyez les premiers informés et profitez d'un accès exclusif en avant-première !</p>
+        <form action="#">
+            <input type="email" class="my-3 rounded-lg py-3 px-3.5 w-full font-nunito"
+                   style="display: flex;padding: 12px 14px;align-items: center;gap: 48px;flex: 1 0 0;align-self: stretch;border-radius: 8px;border: 1px solid #CED4D9;background: #FFF;"
+                   placeholder="Entrez votre adresse e-mail">
+            <button class="font-nunito py-5 px-6" style="
+                    display: flex;
+padding:  20px 24px;
+justify-content: center;
+align-items: center;
+gap:  20px;
+align-self: stretch;
+border-radius: 8px;
+background: #092643;
+width: -webkit-fill-available;
+                ">
+                    <span style="
+                        color: #FFFCF1;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 140%; /* 28px */"
+                    >S’inscrire sur la waitlist</span>
+                <img src="/img/fi-rr-arrow-small-right.png" alt="arrow-right">
+            </button>
+        </form>
+    </div>
+
+    <div class="mt-40 font-bricolage center my-auto font-extrabold mx-4 primary-color">
+            <h1  style="
+                text-align: center;
+                font-size: 36px;
+                font-style: normal;
+                line-height: 120%;
+            ">Gérez votre vie comme un jeu pour créer un foyer harmonieux!</h1>
+
+            <p class="pt-6 mx-5 font-nunito" style="
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+            ">Vous rêvez d'une atsmosphère familiale où chaque membre se sent aimé, respecté et valorisé ? Smoozy est l'application qui vous aidera à y arriver !</p>
+
+            <p class="mt-12 font-nunito primary-color center " style="
+                text-align: center;
+                font-size:  16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%;
+            ">
+                Soyez les premiers informés et profitez d'un accès exclusif en avant-première ! 🔥
+            </p>
+
+
+            <form action="#">
+                <input type="email" class="my-3 rounded-lg py-3 px-3.5 w-full font-nunito"
+                       style="
+                        display: flex;
+                        align-items: center;
+                        gap: 48px;
+                        flex: 1 0 0;
+                        align-self: stretch;
+                        background-color: #FFFFFF;
+                        border-radius:  8px;
+                        border: 1px solid #CED4D9;
+                        color: #6B7D8E;
+                        /* Paragraph/MD/Normal */
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%; /* 22.4px */"
+                       placeholder="Entrez votre adresse e-mail">
+                <button class="font-nunito py-5 px-6" style="
+                    width: -webkit-fill-available;
+                    border-radius: 8px;
+                    background: #092643;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    align-self: stretch;
+                ">
+                    <span style="
+                        color: #FFFCF1;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 140%; /* 28px */"
+                    >S’inscrire sur la waitlist</span>
+                    <img src="/img/fi-rr-arrow-small-right.png" alt="arrow-right">
+                </button>
+            </form>
+
+            <div class="mt-24" style="
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            ">
+                <p class="font-nunito mb-2" style="
+                    color: #092643;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120%; /* 19.2px */
+                    text-transform: uppercase;
+                ">notre mission</p>
+                <p class="font-bricolage" style="
+                color: #092643;
+                text-align: center;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%; /* 28.8px */
+                ">
+                    À travers des expériences positives communes, nous transformons le quotidien des familles recomposées en moments de joie partagée
+                </p>
+            </div>
+
+            <div class="mt-14 p-6" style="border-radius: 24px;background: #FFF;">
+                <img src="/img/fi-rr-messages.png" class="mb-6" alt="illustration-message">
+                <div>
+                    <p class="font-bricolage mb-3" style="
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 120%;
+                    ">
+                        Facilitez la communication
+                    </p>
+                    <p class="font-nunito" style="
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%;
+                     ">
+                        Brisez la glace et favorisez le dialogue au sein du foyer pour mieux se connaître et de se comprendre
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-10 p-6" style="border-radius: 24px;background: #F0EDFF;">
+                <img src="/img/fi-rr-channel.png" class="mb-6" alt="illustration-message">
+                <div>
+                    <p class="font-bricolage mb-3" style="
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 120%;
+                    ">
+                        Créez des liens solides et durables
+                    </p>
+                    <p class="font-nunito" style="
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%;
+                     ">
+                        Développez un sentiment d'appartenance à travers des expériences positives communes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-10 mb-36 p-6" style="border-radius: 24px;background:#CFE3DF;">
+                <img src="/img/fi-rr-hands-heart.png" class="mb-6" alt="illustration-message">
+                <div>
+                    <p class="font-bricolage mb-3" style="
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 120%;
+                    ">
+                        Favorisez un climat de respect et de soutien
+                    </p>
+                    <p class="font-nunito" style="
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%;
+                     ">
+                        Concentrez-vous sur les moments importants et profitez pleinement de votre vie familiale.
+                    </p>
+                </div>
+            </div>
+
+    </div>
+    <div style="background: #F0EDFF;" class="py-20 px-4">
+        <p  class="font-nunito" style="
+            color: #092643;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120%; /* 19.2px */
+            text-transform: uppercase;
+        ">comment ça fonctionne?</p>
+        <p style="
+        color: #092643;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%; /* 28.8px */
+        " class="font-bricolage py-6">
+            Votre application partenaire pour une vie de famille recomposée heureuse et épanouie.
+        </p>
+
+        <form action="#" class="pb-10">
+            <button class="font-nunito py-3 px-4" style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                border-radius: 8px;
+                border: 2px solid #092643;
+            ">
+                <span class="font-nunito" style="
+                    color: #092643;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 140%; /* 28px */
+"               >En savoir plus</span>
+                <img src="/img/fi-rr-arrow-small-right-black.png" alt="arrow-right">
+            </button>
+        </form>
+        <img class="w-full" style="
+            border-radius: 10px;
+        " src="/img/Rectangle 84.png" alt="Image d'une famille">
+        <div class="py-16">
+            <div class="flex pb-4">
+                <img src="/img/Frame 24.png" class="mr-6" alt="icon card">
+                <p class="font-bricolage my-auto" style="
+                color: #092643;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%; /* 31.2px */
+                letter-spacing: -1px;
+                vertical-align: center;
+                ">Profils personnalisés</p>
+            </div>
+            <p class="font-nunito" style="
+                color: #092643;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+            ">Créez des profils amusants et informatifs pour chaque membre de la famille, avec des détails sur leurs loisirs, leurs passions, et apprenez à mieux vous connaître.</p>
+        </div>
+
+        <div class="pb-16">
+            <div class="flex pb-4">
+                <img src="/img/Frame 25.png" class="mr-6" alt="icon card">
+                <p class="font-bricolage my-auto" style="
+                color: #092643;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%; /* 31.2px */
+                letter-spacing: -1px;
+                vertical-align: center;
+                ">Gamification du quotidien</p>
+            </div>
+            <p class="font-nunito" style="
+                color: #092643;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+            ">Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.</p>
+        </div>
+
+        <div class="pb-16">
+            <div class="flex pb-4">
+                <img src="/img/fi-rr-puzzle.png" class="mr-6" alt="icon card">
+                <p class="font-bricolage my-auto" style="
+                color: #092643;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%; /* 31.2px */
+                letter-spacing: -1px;
+                vertical-align: center;
+                ">Mini-jeux et activités familiales</p>
+            </div>
+            <p class="font-nunito" style="
+                color: #092643;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+            ">Renforcez les liens familiaux en jouant ensemble à des jeux et en participant à des activités amusantes adaptées à tous les âges et à tous les goûts.</p>
+        </div>
+
+        <div class="">
+            <div class="flex pb-4">
+                <img src="/img/Frame 26.png" class="mr-6" alt="icon card">
+                <p class="font-bricolage my-auto" style="
+                color: #092643;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%; /* 31.2px */
+                letter-spacing: -1px;
+                vertical-align: center;
+                ">Conseils et assistance personnalisés</p>
+            </div>
+            <p class="font-nunito" style="
+                color: #092643;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+            ">Obtenez des conseils d'experts pour surmonter les défis spécifiques de votre famille recomposée et bâtir des relations positives et durables.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="py-24 px-4 " style="background: #092643;">
+        <div class="mb-6">
+            <p class="font-nunito mb-4" style="
+                color: #FFF;
+                /* Paragraph/MD/Normal */
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                text-align: center;
+            ">REJOIGNEZ-NOUS</p>
+            <p class="font-bricolage" style="
+                color:  #FFF;
+                text-align: center;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%; /* 28.8px */
+            ">Prêt à transformer votre vie de famille recomposée?</p>
+        </div>
+        <p class="font-nunito mb-6" style="
+            color: #FFF;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+        ">Inscrivez-vous à notre newsletter pour recevoir des astuces, des conseils et les dernières actualités sur Smoozy.</p>
+        <input type="email" class="mb-3 rounded-lg py-3 px-3.5 w-full font-nunito"
+               style="
+                    height: 64px;
+                    flex-direction: column;
+                    display: flex;
+                    align-items: center;
+                    gap: 48px;
+                    flex: 1 0 0;
+                    align-self: stretch;
+                    background-color: #FFFFFF;
+                    border-radius:  8px;
+                    border: 1px solid #CED4D9;
+                    color: #6B7D8E;
+                    /* Paragraph/MD/Normal */
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%; /* 22.4px */"
+               placeholder="Entrez votre adresse e-mail">
+
+        <form action="#">
+            <button class="font-nunito py-5 px-6 mb-3" style="
+                width: -webkit-fill-available;
+                border-radius: 8px;
+                background: #117261;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                align-self: stretch;
+            ">
+                <span style="
+                    color: #FFFCF1;
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 140%; /* 28px */"
+                >Je m'inscris</span>
+                <img src="/img/fi-rr-arrow-small-right.png" alt="arrow-right">
+            </button>
+        </form>
+
+        <p class="font-nunito" style="
+            color: #CED4D9;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 16.8px */
+        ">En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre
+            <a class="font-nunito" style="
+                color: #4D9FFF;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                text-decoration-line: underline;
+            ">politique de confidentialité</a>.</p>
+    </div>
+    <div style="background: #092643;" class="">
+        <!-- Réseaux sociaux -->
+        <div class="mx-auto center py-6" style="display: flex;align-items: flex-start;gap: 20px;justify-content: center">
+            <img src="/img/fi-brands-facebook.png" alt="Icon facebook" class="mr-5">
+            <img src="/img/fi-brands-instagram.png" alt="Icon instagram" class="mr-5">
+            <img src="/img/fi-brands-tik-tok.png" alt="Icon twitter" class="mr-5">
+            <img src="/img/fi-brands-youtube.png" alt="Icon tiktok" class="mr-5">
+        </div>
+        <div class="pb-6 mx-auto center font-nunito" style="display: flex;
+            width: 390px;
+            padding: 24px 0px;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+        ">
+            <a href="#" class="mr-6">Politique de confidentialité</a>
+            <a href="#">Mentions légales</a>
+        </div>
+        <div class="font-nunito pb-6 center mx-auto flex" style="
+            justify-content: center;
+            align-items: center;
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+        ">
+            © 2024 Smoozy. Tous droits réservés
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('scroll', function() {
+        var header = document.getElementById('header');
+        if (window.scrollY > 0) {
+        header.classList.add('shadow-md');
+    } else {
+        header.classList.remove('shadow-md');
+    }
+    });
+
+
+        // MENU MOBILE
+
+        document.getElementById('burger-icon').addEventListener('click', function() {
+            var menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        // Optional: Close menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            var menu = document.getElementById('fullscreen-menu');
+            var burgerIcon = document.getElementById('burger-icon');
+            if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
+                menu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+</script>
+</body>
+</html>
