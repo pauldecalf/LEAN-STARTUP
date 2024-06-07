@@ -1,0 +1,8 @@
+version: "2"
+authtoken: 2YffxoJuI6uWH0PBDEIvFT4HZQg_3yvPWtZEegjk3HBUf2dj
+tunnels:
+  my-tunnel:
+    proto: http
+    addr: 3000
+    host_header: smoozy.app
+    subdomain: smoozy
