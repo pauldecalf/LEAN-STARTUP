@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DSKHG4RCJG"></script>
     <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-DSKHG4RCJG'); </script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -25,7 +24,7 @@
         </div>
     </header>
     <!-- Header Desktop -->
-    <header id="header" style="background-color: #FFFCF1;justify-content: space-between" class="flex hidden lg:flex fixed  top-0 left-0 w-full py-5 px-10 flex justify-start z-50">
+    <header id="header" style="background-color: #FFFCF1;justify-content: space-between" class="hidden lg:flex fixed  top-0 left-0 w-full py-5 px-10 flex justify-start z-50">
         <div class="flex">
             <div id="logo" class="my-auto mr-6">
                 <img src="/img/Logo_Black.svg" class="w-32" alt="logo">
@@ -78,9 +77,6 @@ align-self: stretch;border-radius: 8px;background: #2F2F2F;color: #FFFCF1;font-s
             </button>
     </nav>
 
-
-
-
     <!-- Popup Waitlist Mobile -->
     <div id="popup-overlay" class="fixed px-8 inset-0 hidden z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm">
         <div id="popup" class="rounded-xl p-4 bg-white shadow-lg">
@@ -110,9 +106,20 @@ align-self: stretch;border-radius: 8px;background: #2F2F2F;color: #FFFCF1;font-s
         </div>
     </div>
 
-    <div class="mt-40 font-bricolage center my-auto font-black mx-4 ">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mt-40 font-bricolage center my-auto font-black mx-4 lg:mx-36">
             <h1  style="color: #2F2F2F;text-align: center;font-size: 36px;font-style: normal;font-weight: 900;line-height: 120%;">Gérez votre vie comme un jeu pour créer un foyer harmonieux!</h1>
-            <p class="pt-6 mx-5 font-nunito" style="color : #2F2F2F;text-align: center;font-size: 16px;font-style: normal;font-weight: 400line-height: 140%;">Vous rêvez d'une atsmosphère familiale où chaque membre se sent aimé, respecté et valorisé ? Smoozy est l'application qui vous aidera à y arriver !</p>
+            <p class="pt-6 mx-5 font-nunito" style="color : #2F2F2F;text-align: center;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Vous rêvez d'une atsmosphère familiale où chaque membre se sent aimé, respecté et valorisé ? Smoozy est l'application qui vous aidera à y arriver !</p>
             <p class="mt-12 font-nunito primary-color center " style="text-align: center;font-size:  16px;font-style: normal;font-weight: 700;line-height: 140%;">Soyez les premiers informés et profitez d'un accès exclusif en avant-première ! 🔥</p>
             <form action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                 <input type="email" class="my-3 rounded-lg py-3 px-3.5 w-full font-nunito" style="display: flex;align-items: center;gap: 48px;flex: 1 0 0;align-self: stretch;background-color: #FFFFFF;border-radius:  8px;border: 1px solid #CED4D9;color: #6B7D8E;font-size: 16px;font-style: normal;font-weight: 400;height: 64px;line-height: 140%;" placeholder="Entrez votre adresse e-mail">
@@ -130,7 +137,7 @@ align-self: stretch;border-radius: 8px;background: #2F2F2F;color: #FFFCF1;font-s
             </div>
 
         <!-- Section avec les 3 divs pour mobile-->
-            <div class="md:hidden">
+            <div class="lg:hidden">
                 <div class="mt-14 p-6" style="border-radius: 24px;background: #F7FFBE;">
                     <img src="/img/fi-rr-messages.svg" class="mb-6" alt="illustration-message">
                     <div>
@@ -167,48 +174,52 @@ align-self: stretch;border-radius: 8px;background: #2F2F2F;color: #FFFCF1;font-s
                     </div>
                 </div>
             </div>
+
         <!-- Section avec les 3 divs pour desktop-->
-            <div class="hidden md:flex mx-36 mb-32">
-                <div class="mt-10 p-6" style="border-radius: 24px;background: #F7FFBE;">
-                    <img src="/img/fi-rr-messages.svg" class="mb-6" alt="illustration-message">
+            <div class="hidden lg:flex mb-32" style="align-items: flex-start;gap: 40px;">
+                <div class="mt-10 p-8" style="border-radius: 24px;background: #F7FFBE;">
+                    <img src="/img/fi-rr-messages.svg" class="mb-6 w-8 h-8" alt="illustration-message">
                     <div>
-                        <p class="font-bricolage mb-3" style="font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;">
+                        <p class="font-bricolage mb-3" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;color: #2F2F2F;">
                             Facilitez la communication
                         </p>
-                        <p class="font-nunito" style="font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
+                        <p class="plus-jakarta" style="color: #2F2F2F;font-size: 20px; font-style: normal; font-weight: 400; line-height: 140%;">
                             Brisez la glace et favorisez le dialogue au sein du foyer pour mieux se connaître et de se comprendre
                         </p>
                     </div>
                 </div>
 
-                <div class="mt-10 mx-10 p-6" style="border-radius: 24px;background: #FDDDD8;">
-                    <img src="/img/fi-rr-channel.svg" class="mb-6" alt="illustration-message">
+                <div class="mt-10 p-8" style="border-radius: 24px;background: #FDDDD8;">
+                    <img src="/img/fi-rr-channel.svg" class="mb-6 w-8 h-8" alt="illustration-message">
                     <div>
-                        <p class="font-bricolage mb-3" style="font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;">
+                        <p class="font-bricolage mb-3" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;color: #2F2F2F;">
                             Créez des liens solides et durables
                         </p>
-                        <p class="font-nunito" style="font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
+                        <p class="plus-jakarta" style="color: #2F2F2F;font-size: 20px; font-style: normal; font-weight: 400; line-height: 140%;">
                             Développez un sentiment d'appartenance à travers des expériences positives communes.
                         </p>
                     </div>
                 </div>
 
-                <div class="mt-10 p-6" style="border-radius: 24px;background:#E6E2FB;">
-                    <img src="/img/fi-rr-hands-heart.svg" class="mb-6" alt="illustration-message">
+                <div class="mt-10 p-8" style="border-radius: 24px;background:#E6E2FB;">
+                    <img src="/img/fi-rr-hands-heart.svg" class="mb-6 w-8 h-8"  alt="illustration-message">
                     <div>
-                        <p class="font-bricolage mb-3" style="font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;">
+                        <p class="font-bricolage mb-3" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;color: #2F2F2F;">
                             Favorisez un climat de respect et de soutien
                         </p>
-                        <p class="font-nunito" style="font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
+                        <p class="plus-jakarta" style="color: #2F2F2F;font-size: 20px; font-style: normal; font-weight: 400; line-height: 140%;">
                             Concentrez-vous sur les moments importants et profitez pleinement de votre vie familiale.
                         </p>
                     </div>
                 </div>
             </div>
     </div>
-    <div style="background: #F3F0FD;" class="py-20 px-4">
+
+
+
+    <div style="background: #F3F0FD;" class="py-20 lg:py-28 px-4 lg:px-4">
         <!-- COMMENT CA FONCTIONNE pour mobile-->
-        <div class="md:hidden">
+        <div class="lg:hidden">
             <p  class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">comment ça fonctionne?</p>
             <p style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;" class="font-bricolage py-6">
                 Votre application partenaire pour une vie de famille recomposée heureuse et épanouie.
@@ -223,10 +234,10 @@ align-self: stretch;border-radius: 8px;background: #2F2F2F;color: #FFFCF1;font-s
             <img class="w-full" style="border-radius: 10px;" src="/img/Rectangle 84.png" alt="Image d'une famille">
         </div>
         <!-- COMMENT CA FONCTIONNE pour desktop-->
-        <div class="hidden md:flex mx-36">
-            <div class="mr-10">
-                <p  class="font-nunito mb-6" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">comment ça fonctionne?</p>
-                <p style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;" class="font-bricolage mb-6">
+        <div class="hidden lg:flex mx-36">
+            <div>
+                <p  class="plus-jakarta mb-6" style="color: #2F2F2F;font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">comment ça fonctionne?</p>
+                <p style="color: #092643;font-size: 36px;font-style: normal;font-weight: 600;line-height: 120%;" class="font-bricolage mb-6">
                     Votre application partenaire pour une vie de famille recomposée heureuse et épanouie.
                 </p>
 
@@ -237,171 +248,249 @@ align-self: stretch;border-radius: 8px;background: #2F2F2F;color: #FFFCF1;font-s
                     </button>
                 </form>
             </div>
-            <img class="w-full" style="border-radius: 10px;" src="/img/Rectangle 84.png" alt="Image d'une famille">
+            <img class="w-auto ml-10" style="height: 300px;flex: 1 0 0;" src="/img/Rectangle 84.png" alt="Image d'une famille">
         </div>
 
+        <!-- 4 sections pour mobile-->
+        <div class="lg:hidden">
+                  <div class="py-16">
+                      <div class="flex pb-4">
+                          <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+                              <img src="/img/fi-rr-id-badge.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                          </div>
+                          <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Profils personnalisés</p>
+                      </div>
+                      <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Créez des profils amusants et informatifs pour chaque membre de la famille, avec des détails sur leurs loisirs, leurs passions, et apprenez à mieux vous connaître.</p>
+                  </div>
 
-        <div class="py-16">
-            <div class="flex pb-4">
-                <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+                  <div class="pb-16">
+                      <div class="flex pb-4">
+                          <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+                              <img src="/img/fi-rr-gamepad.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                          </div>
+                          <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Gamification du quotidien</p>
+                      </div>
+                      <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%; /* 22.4px */">Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.</p>
+                  </div>
+
+                  <div class="pb-16">
+                      <div class="flex pb-4">
+                          <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+                              <img src="/img/fi-rr-puzzle.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                          </div>
+                          <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Mini-jeux et activités familiales</p>
+                      </div>
+                      <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%; /* 22.4px */">Renforcez les liens familiaux en jouant ensemble à des jeux et en participant à des activités amusantes adaptées à tous les âges et à tous les goûts.</p>
+                  </div>
+
+                  <div class="">
+                      <div class="flex pb-4">
+                          <div class="bg-white h-14 rounded-full mr-6 flex" style="width: 4.5rem;">
+                              <img src="/img/fi-rr-user-headset.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                          </div>
+                          <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Conseils et assistance personnalisés</p>
+                      </div>
+                      <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Obtenez des conseils d'experts pour surmonter les défis spécifiques de votre famille recomposée et bâtir des relations positives et durables.</p>
+                  </div>
+        </div>
+        <!-- 4 sections pour desktop-->
+        <div class="mt-24 mx-36 hidden lg:flex">
+            <div id="column-left" class="mr-24">
+              <div class="mb-16">
+                  <div class="flex pb-6">
+                  <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
                     <img src="/img/fi-rr-id-badge.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                  </div>
+                  <p class="font-bricolage my-auto" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;color:#2F2F2F;">Profils personnalisés</p>
                 </div>
-                <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Profils personnalisés</p>
-            </div>
-            <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Créez des profils amusants et informatifs pour chaque membre de la famille, avec des détails sur leurs loisirs, leurs passions, et apprenez à mieux vous connaître.</p>
-        </div>
+                <p class="plus-jakarta" style="font-size: 20px;font-style: normal;font-weight: 400;line-height: 140%;color: #2F2F2F;">Créez des profils amusants et informatifs pour chaque membre de la famille, avec des détails sur leurs loisirs, leurs passions, et apprenez à mieux vous connaître.</p>
+              </div>
 
-        <div class="pb-16">
-            <div class="flex pb-4">
-                <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+              <div class="">
+                  <div class="flex pb-6">
+                  <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+                    <img src="/img/fi-rr-id-badge.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                  </div>
+                  <p class="font-bricolage my-auto" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;color:#2F2F2F;">Mini-jeux et activités familiales</p>
+                </div>
+                <p class="plus-jakarta" style="font-size: 20px;font-style: normal;font-weight: 400;line-height: 140%;color: #2F2F2F;">Renforcez les liens familiaux en jouant ensemble à des jeux et en participant à des activités adaptées à tous les âges et à tous les goûts.</p>
+              </div>
+            </div>
+
+          <div id="column-right" class="mr-10">
+              <div class="mb-16">
+                <div class="flex pb-6">
+                  <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
                     <img src="/img/fi-rr-gamepad.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                  </div>
+                  <p class="font-bricolage my-auto" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;color:#2F2F2F;">Gamification du quotidien</p>
                 </div>
-                <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Gamification du quotidien</p>
-            </div>
-            <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%; /* 22.4px */">Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.</p>
-        </div>
+                  <p class="plus-jakarta" style="font-size: 20px;font-style: normal;font-weight: 400;line-height: 140%;color: #2F2F2F;">Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.</p>
+              </div>
 
-        <div class="pb-16">
-            <div class="flex pb-4">
-                <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
-                    <img src="/img/fi-rr-puzzle.svg" class="w-6 mx-auto my-auto " alt="icon card">
+              <div class="">
+                <div class="flex pb-6">
+                  <div class="bg-white w-14 h-14 rounded-full mr-6 flex">
+                    <img src="/img/fi-rr-gamepad.svg" class="w-6 mx-auto my-auto " alt="icon card">
+                  </div>
+                  <p class="font-bricolage my-auto" style="font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;color:#2F2F2F;">Conseils et assistance personnalisés</p>
                 </div>
-                <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Mini-jeux et activités familiales</p>
-            </div>
-            <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%; /* 22.4px */">Renforcez les liens familiaux en jouant ensemble à des jeux et en participant à des activités amusantes adaptées à tous les âges et à tous les goûts.</p>
-        </div>
-
-        <div class="">
-            <div class="flex pb-4">
-                <div class="bg-white h-14 rounded-full mr-6 flex" style="width: 4.5rem;">
-                    <img src="/img/fi-rr-user-headset.svg" class="w-6 mx-auto my-auto " alt="icon card">
-                </div>
-                <p class="font-bricolage my-auto" style="color: #092643;font-size: 24px;font-style: normal;font-weight: 600;line-height: 130%;letter-spacing: -1px;vertical-align: center;">Conseils et assistance personnalisés</p>
-            </div>
-            <p class="font-nunito" style="color: #092643;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Obtenez des conseils d'experts pour surmonter les défis spécifiques de votre famille recomposée et bâtir des relations positives et durables.</p>
+                  <p class="plus-jakarta" style="font-size: 20px;font-style: normal;font-weight: 400;line-height: 140%;color: #2F2F2F;">Obtenez des conseils d'experts pour surmonter les défis spécifiques de votre famille recomposée et bâtir des relations positives et durables.</p>
+              </div>
+          </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="py-24 px-4 " style="background: #2F2F2F;">
-        <div class="mb-6">
-            <p class="font-nunito mb-4" style="
-                color: #FFF;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 140%;
-                text-align: center;
-            ">REJOIGNEZ-NOUS</p>
-            <p class="font-bricolage" style="
-                color:  #FFF;
-                text-align: center;
-                font-size: 24px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 120%; /* 28.8px */
-            ">Prêt à transformer votre vie de famille recomposée?</p>
-        </div>
-        <p class="font-nunito mb-6" style="
-            color: #FFF;
-            text-align: center;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 140%; /* 22.4px */
-        ">Inscrivez-vous à notre newsletter pour recevoir des astuces, des conseils et les dernières actualités sur Smoozy.</p>
-        <input type="email" class="mb-3 rounded-lg py-3 px-3.5 w-full font-nunito"
-               style="
-                    height: 64px;
-                    flex-direction: column;
-                    display: flex;
-                    align-items: center;
-                    gap: 48px;
-                    flex: 1 0 0;
-                    align-self: stretch;
-                    background-color: #FFFFFF;
-                    border-radius:  8px;
-                    border: 1px solid #CED4D9;
-                    color: #6B7D8E;
-                    /* Paragraph/MD/Normal */
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 140%; /* 22.4px */"
-               placeholder="Entrez votre adresse e-mail">
-
-        <form action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-            <button class="font-nunito py-5 px-6 mb-3" style="
-                width: -webkit-fill-available;
-                border-radius: 8px;
-                background: #846DED;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-                align-self: stretch;
-            ">
-                <span style="
-                    color: #FFFCF1;
-                    font-size: 20px;
-                    font-weight: 700;
-                    line-height: 140%; /* 28px */"
-                >Je m'inscris</span>
-                <img src="/img/arrow-right-svgrepo-com.svg" class="w-6 h-6" alt="arrow-right">
-            </button>
-        </form>
-
-        <p class="font-nunito" style="
-            color: #CED4D9;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 140%; /* 16.8px */
-        ">En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre
-            <a class="font-nunito" style="
-                color: #4D9FFF;
-                font-size: 12px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 140%;
-                text-decoration-line: underline;
-            ">politique de confidentialité</a>.</p>
-    </div>
-    <div style="background: #2F2F2F;" class="">
-        <!-- Réseaux sociaux -->
-        <div class="mx-auto center py-6" style="display: flex;align-items: flex-start;gap: 20px;justify-content: center">
-            <img src="/img/icons8-facebook.svg" alt="Icon facebook" class="mr-5 w-7 h-7">
-            <img src="/img/icons8-insta.svg" alt="Icon instagram" class="mr-5 w-7 h-7">
-            <img src="/img/tiktok-svgrepo-com.svg" alt="Icon twitter" class="mr-5 w-7 h-7">
-            <img src="/img/youtube-168-svgrepo-com.svg" alt="Icon tiktok" class="mr-5 w-7 h-7">
-        </div>
-        <div class="pb-6 mx-auto center font-nunito" style="display: flex;
-            width: 390px;
-            padding: 24px 0px;
-            justify-content: center;
-            align-items: center;
-            gap: 24px;
+    <!-- Footer mobile-->
+    <footer class="block xl:hidden">
+      <div class="py-24 px-4" style="background: #2F2F2F;">
+    <div class="mb-6">
+        <p class="font-nunito mb-4" style="
             color: #FFF;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 140%;
-        ">
-            <a href="#" class="mr-6">Politique de confidentialité</a>
-            <a href="#">Mentions légales</a>
-        </div>
-        <div class="font-nunito pb-6 center mx-auto flex" style="
+            text-align: center;
+        ">REJOIGNEZ-NOUS</p>
+        <p class="font-bricolage" style="
+            color:  #FFF;
+            text-align: center;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120%; /* 28.8px */
+        ">Prêt à transformer votre vie de famille recomposée?</p>
+    </div>
+    <p class="font-nunito mb-6" style="
+        color: #FFF;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 22.4px */
+    ">Inscrivez-vous à notre newsletter pour recevoir des astuces, des conseils et les dernières actualités sur Smoozy.</p>
+    <input type="email" class="mb-3 rounded-lg py-3 px-3.5 w-full font-nunito"
+           style="
+                height: 64px;
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+                gap: 48px;
+                flex: 1 0 0;
+                align-self: stretch;
+                background-color: #FFFFFF;
+                border-radius:  8px;
+                border: 1px solid #CED4D9;
+                color: #6B7D8E;
+                /* Paragraph/MD/Normal */
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */"
+           placeholder="Entrez votre adresse e-mail">
+
+    <form action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <button class="font-nunito py-5 px-6 mb-3" style="
+            width: -webkit-fill-available;
+            border-radius: 8px;
+            background: #846DED;
+            display: flex;
             justify-content: center;
             align-items: center;
-            color: #FFF;
-            font-size: 16px;
+            gap: 20px;
+            align-self: stretch;
+        ">
+            <span style="
+                color: #FFFCF1;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 140%; /* 28px */"
+            >Je m'inscris</span>
+            <img src="/img/arrow-right-svgrepo-com.svg" class="w-6 h-6" alt="arrow-right">
+        </button>
+    </form>
+
+    <p class="font-nunito" style="
+        color: #CED4D9;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 16.8px */
+    ">En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre
+        <a class="font-nunito" style="
+            color: #4D9FFF;
+            font-size: 12px;
             font-style: normal;
             font-weight: 400;
-            line-height: 140%; /* 22.4px */
-        ">
-            © 2024 Smoozy. Tous droits réservés
-        </div>
+            line-height: 140%;
+            text-decoration-line: underline;
+        ">politique de confidentialité</a>.</p>
+  </div>
+      <div style="background: #2F2F2F;" class="">
+    <!-- Réseaux sociaux -->
+    <div class="mx-auto center py-6" style="display: flex;padding: 24px 0px;flex-direction: row; justify-content:center;align-items: center;gap: 24px;">
+        <img src="/img/icons8-facebook.svg" alt="Icon facebook"  style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+        <img src="/img/icons8-insta.svg" alt="Icon instagram" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+        <img src="/img/tiktok-svgrepo-com.svg" alt="Icon twitter" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+        <img src="/img/youtube-168-svgrepo-com.svg" alt="Icon tiktok" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
     </div>
+    <div class="pb-6 mx-auto center plus-jakarta" style="display: flex;align-items: flex-start;gap: 24px;color: #FFF;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;justify-content:center;">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
+    </div>
+    <div class="font-nunito pb-6 center mx-auto flex" style="
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 22.4px */
+    ">
+        © 2024 Smoozy. Tous droits réservés
+    </div>
+  </div>
+    </footer>
+
+    <!-- footer desktop -->
+    <footer class="hidden xl:block" style="background: #2F2F2F;">
+      <div class="flex " style="padding: 140px 142px;;gap: 96px;">
+        <div class="" style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;">
+        <p class="plus-jakarta" style="color:#FFF;font-size: 24px;font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">rejoignez-nous</p>
+        <p class="font-bricolage" style="color: #FFF;font-size: 48px;font-style: normal;font-weight: 600;line-height: 120%;">Prêt à transformer votre vie de famille recomposée ?</p>
+      </div>
+      <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;" >
+        <p class="plus-jakarta" style="color: #FFF;font-size: 20px;font-style: normal;font-weight: 400;line-height: 140%;">Inscrivez-vous à notre newsletter pour recevoir des astuces, des conseils et les dernières actualités sur Smoozy.</p>
+        <div class="flex my-6 max-h-16 w-full">
+          <input class="plus-jakarta " type="text" style="color: #828282;font-size: 20px;font-style: normal;font-weight: 400;line-height: 140%;display: flex;padding: 12px 14px;align-items: center;gap: 48px;flex: 1 0 0;align-self: stretch;border-radius: 8px;border:  1px solid #D5D5D5;background:  #FFF;" placeholder="Entrez votre adresse e-mail">
+          <button class="flex ml-6 " style="display: flex;padding: 20px 24px;justify-content: center;align-items: center;gap: 20px;border-radius: 8px;background:  #846DED;">
+            <p class="plus-jakarta" style="color: #FFF;font-size: 20px; font-style: normal; font-weight: 700; line-height: 140%;">Je m’inscris</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M18 12.4996C17.9951 11.9735 17.7832 11.4705 17.41 11.0996L13.12 6.79958C12.9326 6.61333 12.6792 6.50879 12.415 6.50879C12.1508 6.50879 11.8974 6.61333 11.71 6.79958C11.6163 6.89254 11.5419 7.00315 11.4911 7.12501C11.4403 7.24686 11.4142 7.37757 11.4142 7.50958C11.4142 7.64159 11.4403 7.7723 11.4911 7.89416C11.5419 8.01602 11.6163 8.12662 11.71 8.21958L15 11.4996H5C4.73478 11.4996 4.48043 11.6049 4.29289 11.7925C4.10536 11.98 4 12.2344 4 12.4996C4 12.7648 4.10536 13.0192 4.29289 13.2067C4.48043 13.3942 4.73478 13.4996 5 13.4996H15L11.71 16.7896C11.5217 16.9766 11.4154 17.2307 11.4144 17.496C11.4135 17.7614 11.518 18.0163 11.705 18.2046C11.892 18.3929 12.1461 18.4992 12.4115 18.5001C12.6768 18.5011 12.9317 18.3966 13.12 18.2096L17.41 13.9096C17.7856 13.5362 17.9978 13.0292 18 12.4996Z" fill="white"/>
+            </svg>
+          </button>
+        </div>
+        <div class="plus-jakarta" style="color: #D5D5D5;font-size: 14px;font-style: normal;font-weight: 400;line-height: 140%;">En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre
+          <a href="#" class="plus-jakarta" style="color: #4D9FFF;font-size: 14px; font-style: normal; font-weight: 400; line-height: 140%; text-decoration-line: underline;"> politique de confidentialité</a>.</div>
+      </div>
+      </div>
+      <div style="display: flex;padding: 24px 80px 48px 80px;justify-content: space-between;align-items: flex-end;">
+        <div style="display: flex;align-items: flex-start;gap: 24px;">
+          <a class="plus-jakarta mr-6" href="#" style="color: #FFF;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">© 2024 Smoozy. Tous droits réservés</a>
+          <a class="plus-jakarta mr-6" href="#" style="color: #FFF;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Politique de confidentialité</a>
+          <a class="plus-jakarta mr-6" href="#" style="color: #FFF;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">Mentions légales</a>
+        </div>
+        <div  style="display: flex;align-items: flex-start;gap: 20px;">
+          <img src="/img/icons8-facebook.svg" alt="" class="mr-5" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+          <img src="/img/icons8-insta.svg" alt="" class="mr-5" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+          <img src="/img/tiktok-svgrepo-com.svg" alt="" class="mr-5" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+          <img src="/img/youtube-168-svgrepo-com.svg" alt="" class="mr-5" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;">
+        </div>
+
+      </div>
+
+    </footer>
 
     <script>
 
