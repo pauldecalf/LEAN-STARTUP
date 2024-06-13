@@ -10,9 +10,15 @@ export class AppController {
   getHome() {
     return this.appService.getHome();
   }
-  @Get('/about')
-  @Render('about')
-  getAbout() {
-    return { message: this.appService.getAboutMessage() };
+  @Get('/contact')
+  @Render('contact')
+  getContact() {
+    return this.appService.getContact();
+  }
+
+  @Get('/blog')
+  @Render('blog')
+  getBlog() {
+    return this.appService.getBlog();
   }
 }
