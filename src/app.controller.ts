@@ -21,4 +21,16 @@ export class AppController {
   getBlog() {
     return this.appService.getBlog();
   }
+
+  @Get('/article')
+  @Render('article')
+  getArticle() {
+    return this.appService.getArticle();
+  }
+
+  @Get('/maintenance')
+  @Render('maintenance')
+  getMaintenance() {
+    return this.appService.getMaintenance();
+  }
 }

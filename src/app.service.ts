@@ -11,4 +11,8 @@ export class AppService {
   getContact() {}
 
   getBlog() {}
+
+  getArticle() {}
+
+  getMaintenance() {}
 }
