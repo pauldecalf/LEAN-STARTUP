@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -75,7 +76,7 @@
             --Color-Feedback-Negative-100: #FD618C;
             --Color-Feedback-Negative-40: #FEA0BA;
             --Color-Neutral-White-100: #FFF;
-
+            --Padding-Spacing-40: 40px;
 
             --Font-Display: "Bricolage Grotesque";
             --Font-Body: "Plus Jakarta Sans";
@@ -100,6 +101,7 @@
             --Padding-Spacing-12: 12px;
             --values-10-px-75-pt: 10px;
             --Font-Size-MD: 36px;
+            --Padding-Spacing-36: 36px;
         }
 
         body {
@@ -227,471 +229,750 @@
             top: 186px;
             left: 12px;
         }
-        @media (min-width: 834px) {
+        @media (min-width: 1024px) {
+            header {
+                display: flex;
+                padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-40, 40px);
+                background: var(--Color-Neutral-Cream-100, #FFFCF1);
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-desktop {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+                align-self: stretch;
+            }
+            .notre-mission {
+                margin-top: 120px;
+                margin-bottom:100px;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                gap: var(--Padding-Spacing-24, 24px);
+            }
 
-            !important
-        img {
-                width: 10%;
-                height: 10%;
-                object-fit: cover;
+            .notre-mission h3 {
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+                font-family: var(--Font-Body, "Plus Jakarta Sans"), serif;
+                font-size: var(--Font-Size-SM, 24px);
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%; /* 28.8px */
+                text-transform: uppercase;
+            }
+
+            .notre-mission h2 {
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+                text-align: center;
+                font-family: var(--Font-Display, "Bricolage Grotesque"), serif;
+                font-size: var(--Font-Size-LG, 48px);
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%;
+                width: 1104px;
+            }
+
+
+            .lien1:hover, .lien2:hover, .lien3:hover, .lien4:hover, .lien5:hover {
+                border-radius: var(--Corner-radius-8, 8px);
+                background: var(--Color-Brand-Primary-20, #E6E2FB);
+            }
+
+
+        }
+        @media (max-width: 1024px) {
+            header {
+                padding: var(--Valeurs-20px, 20px) var(--Padding-Spacing-16, 16px);
+                background: var(--Color-Neutral-Cream-100, #FFFCF1);
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-desktop {
+                height: 24px;
+                flex-shrink: 0;
+            }
+            .notre-mission {
+                margin-top: 100px;
+                margin-bottom:60px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .notre-mission h3 {
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+                font-family: var(--Font-Body, 'Plus Jakarta Sans'), serif;
+                font-size: var(--Font-Size-2XS, 16px);
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%;
+                text-transform: uppercase;
+            }
+            .notre-mission h2 {
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+                text-align: center;
+                font-family: var(--Font-Display, 'Bricolage Grotesque'), serif;
+                font-size: var(--Font-Size-SM, 24px);
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%;
+            }
+
+
+        }
+        @media (max-width: 1224px) {
+            .cards {
+                display: flex;
+                flex-direction: column;
+                gap: 40px
             }
         }
+        @media (min-width: 1224px) {
+            .cards {
+                display: flex;
+                width: 1156px;
+                align-items: flex-start;
+                gap: 40px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="header" style="background: var(--Color-Neutral-Cream-100, #FFFCF1);padding: var(--Valeurs-20px, 20px) var(--Padding-Spacing-16, 16px);justify-content: space-between;align-items: center;" class=" flex fixed top-0 left-0 w-full z-50">
-        <div style="height: 24px;flex-shrink: 0;">
-            <a href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="111" height="24" viewBox="0 0 111 24" fill="none">
-                    <g clip-path="url(#clip0_606_991)">
-                        <path d="M24.9557 18.6674V3.3668H28.6193L28.6773 7.85793H29.2543C29.5231 6.75697 29.8788 5.84338 30.3214 5.1195C30.764 4.39445 31.3027 3.85444 31.9365 3.49715C32.5714 3.13986 33.3118 2.96064 34.1576 2.96064C35.0034 2.96064 35.7773 3.14917 36.3648 3.52625C36.951 3.90332 37.418 4.4538 37.7644 5.17769C38.1108 5.90157 38.3414 6.79538 38.4572 7.85793H38.9473C39.2544 6.71856 39.6587 5.78636 40.1593 5.06131C40.6586 4.33625 41.2553 3.80556 41.9482 3.46689C42.6411 3.12939 43.3747 2.95947 44.1983 2.95947C45.0637 2.95947 45.818 3.12939 46.4634 3.46689C47.1076 3.80556 47.6463 4.30716 48.0785 4.97402C48.5107 5.64088 48.8328 6.47184 49.0448 7.46573C49.2557 8.46078 49.3623 9.61528 49.3623 10.928V18.665H44.6884V11.5076C44.6884 10.4835 44.6061 9.6339 44.4427 8.95773C44.2794 8.28156 44.0245 7.77414 43.678 7.43663C43.3316 7.09913 42.889 6.92921 42.3514 6.92921C41.7362 6.92921 41.2113 7.13172 40.7791 7.53788C40.3458 7.94405 40.0144 8.5085 39.7839 9.23355C39.5533 9.9586 39.4374 10.7744 39.4374 11.6822V18.6662H34.8794V11.5949C34.8794 10.5324 34.7879 9.66299 34.6048 8.98682C34.4217 8.31065 34.1529 7.79858 33.7972 7.4506C33.4415 7.10262 32.9943 6.92921 32.4556 6.92921C31.8403 6.92921 31.3201 7.13172 30.8972 7.53788C30.4743 7.94405 30.151 8.5085 29.9309 9.23355C29.7096 9.9586 29.5995 10.7744 29.5995 11.6822V18.6662H24.9546L24.9557 18.6674Z" fill="#2F2F2F"/>
-                        <path d="M57.7008 19.0736C56.1622 19.0736 54.8019 18.7733 53.619 18.1751C52.436 17.5769 51.5079 16.6785 50.8348 15.4797C50.1616 14.2822 49.8245 12.7844 49.8245 10.9875C49.8245 9.19055 50.1605 7.69855 50.8348 6.5103C51.5079 5.32205 52.4406 4.43407 53.6329 3.84402C54.8251 3.25514 56.1911 2.96069 57.7298 2.96069C59.2684 2.96069 60.6333 3.26096 61.8267 3.85915C63.0189 4.45851 63.9516 5.35115 64.6248 6.5394C65.2979 7.72764 65.6339 9.21964 65.6339 11.0166C65.6339 12.8135 65.2875 14.3683 64.5958 15.5659C63.903 16.7634 62.9564 17.6479 61.7537 18.217C60.551 18.7861 59.2001 19.0724 57.7008 19.0724V19.0736ZM57.8445 15.6823C58.5373 15.6823 59.1143 15.5228 59.5755 15.2039C60.0366 14.885 60.383 14.3974 60.6136 13.741C60.8442 13.0846 60.96 12.2735 60.96 11.3063C60.96 10.2822 60.8349 9.41865 60.5846 8.71222C60.3344 8.00695 59.9648 7.46578 59.4735 7.08988C58.9834 6.7128 58.3531 6.52427 57.5838 6.52427C56.9292 6.52427 56.3672 6.68371 55.8957 7.00259C55.4241 7.32147 55.073 7.80911 54.8425 8.46549C54.6119 9.12304 54.4961 9.94353 54.4961 10.9293C54.4961 12.5132 54.7892 13.7015 55.3755 14.494C55.9617 15.2866 56.7843 15.6823 57.8422 15.6823H57.8445Z" fill="#2F2F2F"/>
-                        <path d="M73.9716 19.0736C72.4329 19.0736 71.0727 18.7733 69.8897 18.1751C68.7068 17.5769 67.7787 16.6785 67.1055 15.4797C66.4324 14.2822 66.0952 12.7844 66.0952 10.9875C66.0952 9.19055 66.4312 7.69855 67.1055 6.5103C67.7787 5.32205 68.7114 4.43407 69.9036 3.84402C71.0959 3.25514 72.4619 2.96069 74.0005 2.96069C75.5392 2.96069 76.9041 3.26096 78.0974 3.85915C79.2897 4.45851 80.2224 5.35115 80.8955 6.5394C81.5687 7.72764 81.9047 9.21964 81.9047 11.0166C81.9047 12.8135 81.5583 14.3683 80.8666 15.5659C80.1737 16.7634 79.2271 17.6479 78.0244 18.217C76.8218 18.7861 75.4708 19.0724 73.9704 19.0724L73.9716 19.0736ZM74.1164 15.6823C74.8093 15.6823 75.3863 15.5228 75.8474 15.2039C76.3085 14.885 76.655 14.3974 76.8855 13.741C77.1161 13.0846 77.232 12.2735 77.232 11.3063C77.232 10.2822 77.1068 9.41865 76.8566 8.71222C76.6063 8.00695 76.2367 7.46578 75.7454 7.08988C75.2553 6.7128 74.625 6.52427 73.8557 6.52427C73.2011 6.52427 72.6391 6.68371 72.1676 7.00259C71.696 7.32147 71.345 7.80911 71.1144 8.46549C70.8838 9.12304 70.768 9.94353 70.768 10.9293C70.768 12.5132 71.0611 13.7015 71.6474 14.494C72.2336 15.2866 73.0562 15.6823 74.1141 15.6823H74.1164Z" fill="#2F2F2F"/>
-                        <path d="M82.4248 18.6675V14.7839L89.9837 7.51009V7.07599H82.5986V3.36694H95.8695V7.22147L88.2527 14.5244V14.9305H95.9553V18.6687H82.4248V18.6675Z" fill="#2F2F2F"/>
-                        <path d="M102.533 24.0001C101.763 24.0001 100.974 23.9325 100.167 23.7975C99.3592 23.6625 98.5945 23.4647 97.8727 23.204C97.1509 22.9433 96.531 22.6 96.012 22.1752L97.137 18.0309C97.8102 18.6687 98.6224 19.1412 99.5747 19.4507C100.527 19.7591 101.445 19.9139 102.33 19.9139C103.35 19.9139 104.191 19.7161 104.855 19.3204C105.519 18.9247 106.027 18.316 106.384 17.4944C106.74 16.6739 106.947 15.6544 107.004 14.4371L107.149 11.9163H106.456C106.283 13.172 105.98 14.1962 105.547 14.9875C105.114 15.7801 104.566 16.3643 103.903 16.7402C103.241 17.1161 102.456 17.3058 101.553 17.3058C100.437 17.3058 99.5041 17.0265 98.7544 16.4656C98.0048 15.9058 97.4417 15.0597 97.0663 13.9296C96.6909 12.7996 96.5032 11.3937 96.5032 9.71317V3.36694H101.177V8.55402C101.177 10.3323 101.354 11.602 101.711 12.3643C102.067 13.1278 102.629 13.5083 103.399 13.5083C103.804 13.5083 104.169 13.392 104.495 13.1604C104.822 12.9288 105.101 12.6006 105.332 12.1746C105.563 11.7498 105.741 11.2331 105.866 10.6244C105.991 10.0158 106.054 9.33494 106.054 8.58196V3.36694H110.699V14.6105C110.699 15.8278 110.588 16.9392 110.367 17.9436C110.146 18.948 109.819 19.8266 109.386 20.5808C108.954 21.3338 108.409 21.9669 107.756 22.479C107.102 22.991 106.342 23.3728 105.477 23.6241C104.611 23.8755 103.63 24.0012 102.534 24.0012L102.533 24.0001Z" fill="#2F2F2F"/>
-                        <path d="M2.34834 4.82914L0.000732422 7.44165L3.4918 10.6068L5.83941 7.99433L2.34834 4.82914Z" fill="#2F2F2F"/>
-                        <path d="M6.77021 4.27472e-05L4.42261 2.61255L7.91368 5.77773L10.2613 3.16523L6.77021 4.27472e-05Z" fill="#2F2F2F"/>
-                        <path d="M26.9891 8.61215C25.0554 7.81959 23.0486 7.41692 21.0164 7.40993C20.8437 7.09105 20.6665 6.77217 20.4869 6.45096C19.2842 4.29443 17.7421 2.31014 15.9033 0.553955L13.0612 1.19987C12.0868 3.75558 10.7892 6.17164 9.20532 8.38288C7.11051 11.3075 4.54415 13.8411 1.5769 15.915L3.57786 18.8036C6.87184 16.5016 9.72206 13.6863 12.0497 10.4382C13.2014 8.82978 14.2152 7.12364 15.083 5.34069L15.5001 5.29995C16.1258 6.0832 16.6912 6.90251 17.1929 7.75558C16.0609 8.03024 14.9579 8.55163 13.9928 9.56879C11.8354 11.8429 10.8355 15.3715 13.0995 17.7178C14.038 18.6907 15.3113 19.0748 16.5487 19.0748C17.4142 19.0748 18.2635 18.8862 18.9656 18.5801C20.7441 17.805 21.9885 16.1373 22.4681 13.883C22.6836 12.8682 22.6582 11.9267 22.4751 11.0259C23.5561 11.162 24.6243 11.4448 25.6683 11.872L26.9914 8.61331L26.9891 8.61215ZM17.3412 15.4402C16.2023 15.8952 15.0923 14.7943 15.4665 13.6223C15.8941 12.284 17.4177 10.9898 18.8439 11.0364C19.6156 12.5179 18.7849 14.8629 17.3412 15.4402Z" fill="#2F2F2F"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_606_991">
-                            <rect width="110.698" height="24" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </a>
+<!-- Header -->
+<header id="header" class=" flex fixed top-0 left-0 w-full z-50">
+    <div class="header-desktop">
+        <a href="/">
+            <svg class="xl:hidden" xmlns="http://www.w3.org/2000/svg" width="111" height="24" viewBox="0 0 111 24" fill="none">
+                <g clip-path="url(#clip0_606_991)">
+                    <path d="M24.9557 18.6674V3.3668H28.6193L28.6773 7.85793H29.2543C29.5231 6.75697 29.8788 5.84338 30.3214 5.1195C30.764 4.39445 31.3027 3.85444 31.9365 3.49715C32.5714 3.13986 33.3118 2.96064 34.1576 2.96064C35.0034 2.96064 35.7773 3.14917 36.3648 3.52625C36.951 3.90332 37.418 4.4538 37.7644 5.17769C38.1108 5.90157 38.3414 6.79538 38.4572 7.85793H38.9473C39.2544 6.71856 39.6587 5.78636 40.1593 5.06131C40.6586 4.33625 41.2553 3.80556 41.9482 3.46689C42.6411 3.12939 43.3747 2.95947 44.1983 2.95947C45.0637 2.95947 45.818 3.12939 46.4634 3.46689C47.1076 3.80556 47.6463 4.30716 48.0785 4.97402C48.5107 5.64088 48.8328 6.47184 49.0448 7.46573C49.2557 8.46078 49.3623 9.61528 49.3623 10.928V18.665H44.6884V11.5076C44.6884 10.4835 44.6061 9.6339 44.4427 8.95773C44.2794 8.28156 44.0245 7.77414 43.678 7.43663C43.3316 7.09913 42.889 6.92921 42.3514 6.92921C41.7362 6.92921 41.2113 7.13172 40.7791 7.53788C40.3458 7.94405 40.0144 8.5085 39.7839 9.23355C39.5533 9.9586 39.4374 10.7744 39.4374 11.6822V18.6662H34.8794V11.5949C34.8794 10.5324 34.7879 9.66299 34.6048 8.98682C34.4217 8.31065 34.1529 7.79858 33.7972 7.4506C33.4415 7.10262 32.9943 6.92921 32.4556 6.92921C31.8403 6.92921 31.3201 7.13172 30.8972 7.53788C30.4743 7.94405 30.151 8.5085 29.9309 9.23355C29.7096 9.9586 29.5995 10.7744 29.5995 11.6822V18.6662H24.9546L24.9557 18.6674Z" fill="#2F2F2F"/>
+                    <path d="M57.7008 19.0736C56.1622 19.0736 54.8019 18.7733 53.619 18.1751C52.436 17.5769 51.5079 16.6785 50.8348 15.4797C50.1616 14.2822 49.8245 12.7844 49.8245 10.9875C49.8245 9.19055 50.1605 7.69855 50.8348 6.5103C51.5079 5.32205 52.4406 4.43407 53.6329 3.84402C54.8251 3.25514 56.1911 2.96069 57.7298 2.96069C59.2684 2.96069 60.6333 3.26096 61.8267 3.85915C63.0189 4.45851 63.9516 5.35115 64.6248 6.5394C65.2979 7.72764 65.6339 9.21964 65.6339 11.0166C65.6339 12.8135 65.2875 14.3683 64.5958 15.5659C63.903 16.7634 62.9564 17.6479 61.7537 18.217C60.551 18.7861 59.2001 19.0724 57.7008 19.0724V19.0736ZM57.8445 15.6823C58.5373 15.6823 59.1143 15.5228 59.5755 15.2039C60.0366 14.885 60.383 14.3974 60.6136 13.741C60.8442 13.0846 60.96 12.2735 60.96 11.3063C60.96 10.2822 60.8349 9.41865 60.5846 8.71222C60.3344 8.00695 59.9648 7.46578 59.4735 7.08988C58.9834 6.7128 58.3531 6.52427 57.5838 6.52427C56.9292 6.52427 56.3672 6.68371 55.8957 7.00259C55.4241 7.32147 55.073 7.80911 54.8425 8.46549C54.6119 9.12304 54.4961 9.94353 54.4961 10.9293C54.4961 12.5132 54.7892 13.7015 55.3755 14.494C55.9617 15.2866 56.7843 15.6823 57.8422 15.6823H57.8445Z" fill="#2F2F2F"/>
+                    <path d="M73.9716 19.0736C72.4329 19.0736 71.0727 18.7733 69.8897 18.1751C68.7068 17.5769 67.7787 16.6785 67.1055 15.4797C66.4324 14.2822 66.0952 12.7844 66.0952 10.9875C66.0952 9.19055 66.4312 7.69855 67.1055 6.5103C67.7787 5.32205 68.7114 4.43407 69.9036 3.84402C71.0959 3.25514 72.4619 2.96069 74.0005 2.96069C75.5392 2.96069 76.9041 3.26096 78.0974 3.85915C79.2897 4.45851 80.2224 5.35115 80.8955 6.5394C81.5687 7.72764 81.9047 9.21964 81.9047 11.0166C81.9047 12.8135 81.5583 14.3683 80.8666 15.5659C80.1737 16.7634 79.2271 17.6479 78.0244 18.217C76.8218 18.7861 75.4708 19.0724 73.9704 19.0724L73.9716 19.0736ZM74.1164 15.6823C74.8093 15.6823 75.3863 15.5228 75.8474 15.2039C76.3085 14.885 76.655 14.3974 76.8855 13.741C77.1161 13.0846 77.232 12.2735 77.232 11.3063C77.232 10.2822 77.1068 9.41865 76.8566 8.71222C76.6063 8.00695 76.2367 7.46578 75.7454 7.08988C75.2553 6.7128 74.625 6.52427 73.8557 6.52427C73.2011 6.52427 72.6391 6.68371 72.1676 7.00259C71.696 7.32147 71.345 7.80911 71.1144 8.46549C70.8838 9.12304 70.768 9.94353 70.768 10.9293C70.768 12.5132 71.0611 13.7015 71.6474 14.494C72.2336 15.2866 73.0562 15.6823 74.1141 15.6823H74.1164Z" fill="#2F2F2F"/>
+                    <path d="M82.4248 18.6675V14.7839L89.9837 7.51009V7.07599H82.5986V3.36694H95.8695V7.22147L88.2527 14.5244V14.9305H95.9553V18.6687H82.4248V18.6675Z" fill="#2F2F2F"/>
+                    <path d="M102.533 24.0001C101.763 24.0001 100.974 23.9325 100.167 23.7975C99.3592 23.6625 98.5945 23.4647 97.8727 23.204C97.1509 22.9433 96.531 22.6 96.012 22.1752L97.137 18.0309C97.8102 18.6687 98.6224 19.1412 99.5747 19.4507C100.527 19.7591 101.445 19.9139 102.33 19.9139C103.35 19.9139 104.191 19.7161 104.855 19.3204C105.519 18.9247 106.027 18.316 106.384 17.4944C106.74 16.6739 106.947 15.6544 107.004 14.4371L107.149 11.9163H106.456C106.283 13.172 105.98 14.1962 105.547 14.9875C105.114 15.7801 104.566 16.3643 103.903 16.7402C103.241 17.1161 102.456 17.3058 101.553 17.3058C100.437 17.3058 99.5041 17.0265 98.7544 16.4656C98.0048 15.9058 97.4417 15.0597 97.0663 13.9296C96.6909 12.7996 96.5032 11.3937 96.5032 9.71317V3.36694H101.177V8.55402C101.177 10.3323 101.354 11.602 101.711 12.3643C102.067 13.1278 102.629 13.5083 103.399 13.5083C103.804 13.5083 104.169 13.392 104.495 13.1604C104.822 12.9288 105.101 12.6006 105.332 12.1746C105.563 11.7498 105.741 11.2331 105.866 10.6244C105.991 10.0158 106.054 9.33494 106.054 8.58196V3.36694H110.699V14.6105C110.699 15.8278 110.588 16.9392 110.367 17.9436C110.146 18.948 109.819 19.8266 109.386 20.5808C108.954 21.3338 108.409 21.9669 107.756 22.479C107.102 22.991 106.342 23.3728 105.477 23.6241C104.611 23.8755 103.63 24.0012 102.534 24.0012L102.533 24.0001Z" fill="#2F2F2F"/>
+                    <path d="M2.34834 4.82914L0.000732422 7.44165L3.4918 10.6068L5.83941 7.99433L2.34834 4.82914Z" fill="#2F2F2F"/>
+                    <path d="M6.77021 4.27472e-05L4.42261 2.61255L7.91368 5.77773L10.2613 3.16523L6.77021 4.27472e-05Z" fill="#2F2F2F"/>
+                    <path d="M26.9891 8.61215C25.0554 7.81959 23.0486 7.41692 21.0164 7.40993C20.8437 7.09105 20.6665 6.77217 20.4869 6.45096C19.2842 4.29443 17.7421 2.31014 15.9033 0.553955L13.0612 1.19987C12.0868 3.75558 10.7892 6.17164 9.20532 8.38288C7.11051 11.3075 4.54415 13.8411 1.5769 15.915L3.57786 18.8036C6.87184 16.5016 9.72206 13.6863 12.0497 10.4382C13.2014 8.82978 14.2152 7.12364 15.083 5.34069L15.5001 5.29995C16.1258 6.0832 16.6912 6.90251 17.1929 7.75558C16.0609 8.03024 14.9579 8.55163 13.9928 9.56879C11.8354 11.8429 10.8355 15.3715 13.0995 17.7178C14.038 18.6907 15.3113 19.0748 16.5487 19.0748C17.4142 19.0748 18.2635 18.8862 18.9656 18.5801C20.7441 17.805 21.9885 16.1373 22.4681 13.883C22.6836 12.8682 22.6582 11.9267 22.4751 11.0259C23.5561 11.162 24.6243 11.4448 25.6683 11.872L26.9914 8.61331L26.9891 8.61215ZM17.3412 15.4402C16.2023 15.8952 15.0923 14.7943 15.4665 13.6223C15.8941 12.284 17.4177 10.9898 18.8439 11.0364C19.6156 12.5179 18.7849 14.8629 17.3412 15.4402Z" fill="#2F2F2F"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_606_991">
+                        <rect width="110.698" height="24" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            <svg class="hidden xl:block" xmlns="http://www.w3.org/2000/svg" width="185" height="40" viewBox="0 0 185 40" fill="none">
+                <g clip-path="url(#clip0_799_776)">
+                    <path d="M41.5928 31.1124V5.6115H47.6988L47.7953 13.0967H48.757C49.205 11.2618 49.7978 9.73913 50.5355 8.53266C51.2732 7.32424 52.1711 6.42423 53.2274 5.82875C54.2856 5.23327 55.5195 4.93456 56.9292 4.93456C58.3389 4.93456 59.6288 5.24878 60.6078 5.87724C61.5849 6.50569 62.3632 7.42316 62.9405 8.62964C63.5179 9.83612 63.9022 11.3258 64.0953 13.0967H64.9121C65.4239 11.1978 66.0978 9.64409 66.932 8.43567C67.7643 7.22725 68.7588 6.34276 69.9136 5.77832C71.0683 5.21581 72.3177 4.93262 73.6637 4.93262C75.1061 4.93262 76.3633 5.21581 77.4389 5.77832C78.5125 6.34276 79.4104 7.17876 80.1307 8.2902C80.851 9.40163 81.3878 10.7866 81.7412 12.443C82.0927 14.1015 82.2703 16.0256 82.2703 18.2136V31.1085H74.4805V19.1795C74.4805 17.4726 74.3434 16.0567 74.0711 14.9297C73.7988 13.8028 73.374 12.9571 72.7966 12.3946C72.2192 11.832 71.4816 11.5489 70.5856 11.5489C69.5602 11.5489 68.6854 11.8864 67.9651 12.5633C67.2429 13.2402 66.6906 14.181 66.3064 15.3894C65.9221 16.5978 65.729 17.9575 65.729 19.4705V31.1105H58.1322V19.325C58.1322 17.5541 57.9797 16.1052 57.6746 14.9782C57.3695 13.8512 56.9215 12.9978 56.3286 12.4178C55.7358 11.8379 54.9904 11.5489 54.0925 11.5489C53.0671 11.5489 52.2001 11.8864 51.4952 12.5633C50.7904 13.2402 50.2516 14.181 49.8847 15.3894C49.5159 16.5978 49.3325 17.9575 49.3325 19.4705V31.1105H41.5909L41.5928 31.1124Z" fill="#2F2F2F"/>
+                    <path d="M96.1681 31.7894C93.6037 31.7894 91.3366 31.2889 89.365 30.292C87.3934 29.295 85.8466 27.7975 84.7247 25.7997C83.6028 23.8037 83.0408 21.3074 83.0408 18.3125C83.0408 15.3177 83.6008 12.831 84.7247 10.8506C85.8466 8.87017 87.4011 7.3902 89.3882 6.40678C91.3752 5.42531 93.6519 4.93457 96.2164 4.93457C98.7808 4.93457 101.056 5.43501 103.045 6.432C105.032 7.43093 106.586 8.91866 107.708 10.8991C108.83 12.8795 109.39 15.3661 109.39 18.361C109.39 21.3559 108.813 23.9473 107.66 25.9432C106.505 27.9391 104.927 29.4133 102.923 30.3618C100.918 31.3103 98.6669 31.7874 96.1681 31.7874V31.7894ZM96.4075 26.1372C97.5623 26.1372 98.524 25.8714 99.2925 25.34C100.061 24.8085 100.638 23.9958 101.023 22.9018C101.407 21.8078 101.6 20.4559 101.6 18.844C101.6 17.1371 101.392 15.6978 100.974 14.5204C100.557 13.345 99.9414 12.4431 99.1226 11.8165C98.3058 11.1881 97.2553 10.8739 95.9731 10.8739C94.882 10.8739 93.9455 11.1396 93.1595 11.6711C92.3736 12.2025 91.7885 13.0153 91.4042 14.1092C91.0199 15.2052 90.8268 16.5726 90.8268 18.2155C90.8268 20.8554 91.3154 22.8358 92.2925 24.1568C93.2696 25.4777 94.6406 26.1372 96.4037 26.1372H96.4075Z" fill="#2F2F2F"/>
+                    <path d="M123.286 31.7894C120.721 31.7894 118.454 31.2889 116.483 30.292C114.511 29.295 112.964 27.7975 111.842 25.7997C110.72 23.8037 110.159 21.3074 110.159 18.3125C110.159 15.3177 110.719 12.831 111.842 10.8506C112.964 8.87017 114.519 7.3902 116.506 6.40678C118.493 5.42531 120.77 4.93457 123.334 4.93457C125.898 4.93457 128.173 5.43501 130.162 6.432C132.149 7.43093 133.704 8.91866 134.826 10.8991C135.948 12.8795 136.508 15.3661 136.508 18.361C136.508 21.3559 135.93 23.9473 134.777 25.9432C133.623 27.9391 132.045 29.4133 130.041 30.3618C128.036 31.3103 125.785 31.7874 123.284 31.7874L123.286 31.7894ZM123.527 26.1372C124.682 26.1372 125.644 25.8714 126.412 25.34C127.181 24.8085 127.758 23.9958 128.142 22.9018C128.527 21.8078 128.72 20.4559 128.72 18.844C128.72 17.1371 128.511 15.6978 128.094 14.5204C127.677 13.345 127.061 12.4431 126.242 11.8165C125.425 11.1881 124.375 10.8739 123.093 10.8739C122.002 10.8739 121.065 11.1396 120.279 11.6711C119.493 12.2025 118.908 13.0153 118.524 14.1092C118.14 15.2052 117.946 16.5726 117.946 18.2155C117.946 20.8554 118.435 22.8358 119.412 24.1568C120.389 25.4777 121.76 26.1372 123.523 26.1372H123.527Z" fill="#2F2F2F"/>
+                    <path d="M137.375 31.1124V24.6397L149.973 12.5167V11.7932H137.664V5.61145H159.783V12.0357L147.088 24.2071V24.8841H159.925V31.1143H137.375V31.1124Z" fill="#2F2F2F"/>
+                    <path d="M170.888 40C169.606 40 168.291 39.8875 166.945 39.6625C165.599 39.4375 164.324 39.1077 163.121 38.6732C161.918 38.2387 160.885 37.6665 160.02 36.9585L161.895 30.0514C163.017 31.1143 164.371 31.9018 165.958 32.4178C167.545 32.9318 169.075 33.1898 170.55 33.1898C172.249 33.1898 173.651 32.86 174.758 32.2005C175.864 31.541 176.712 30.5266 177.307 29.1572C177.9 27.7897 178.245 26.0905 178.34 24.0616L178.581 19.8603H177.427C177.139 21.9532 176.633 23.6601 175.913 24.9791C175.19 26.3 174.277 27.2737 173.173 27.9003C172.068 28.5268 170.761 28.8429 169.254 28.8429C167.395 28.8429 165.84 28.3774 164.591 27.4425C163.342 26.5095 162.403 25.0994 161.777 23.2159C161.152 21.3325 160.839 18.9894 160.839 16.1885V5.61145H168.629V14.2566C168.629 17.2204 168.924 19.3366 169.519 20.6071C170.112 21.8795 171.048 22.5138 172.333 22.5138C173.006 22.5138 173.615 22.3198 174.159 21.9338C174.704 21.5478 175.169 21.0008 175.553 20.2909C175.938 19.5829 176.235 18.7217 176.444 17.7073C176.652 16.6928 176.757 15.5581 176.757 14.3031V5.61145H184.498V24.3507C184.498 26.3796 184.313 28.2319 183.946 29.9059C183.577 31.5798 183.032 33.0443 182.31 34.3012C181.59 35.5562 180.682 36.6113 179.593 37.4648C178.504 38.3183 177.237 38.9545 175.795 39.3734C174.352 39.7924 172.717 40.0019 170.89 40.0019L170.888 40Z" fill="#2F2F2F"/>
+                    <path d="M3.91378 8.04865L0.00109863 12.4028L5.81955 17.6781L9.73222 13.324L3.91378 8.04865Z" fill="#2F2F2F"/>
+                    <path d="M11.2839 -5.0884e-05L7.37122 4.35413L13.1897 9.62943L17.1023 5.27526L11.2839 -5.0884e-05Z" fill="#2F2F2F"/>
+                    <path d="M44.9818 14.3537C41.7589 13.0327 38.4143 12.3616 35.0273 12.35C34.7396 11.8185 34.4441 11.287 34.1448 10.7517C32.1404 7.15746 29.5702 3.85031 26.5056 0.92334L21.7687 1.99986C20.1447 6.25939 17.9819 10.2862 15.3422 13.9715C11.8509 18.8459 7.57359 23.0686 2.62817 26.5251L5.96309 31.3394C11.4531 27.5027 16.2034 22.8106 20.0829 17.397C22.0024 14.7164 23.692 11.8728 25.1384 8.90123L25.8336 8.83334C26.8763 10.1387 27.8187 11.5043 28.6548 12.9261C26.7682 13.3838 24.9298 14.2528 23.3213 15.9481C19.7257 19.7382 18.0592 25.6193 21.8324 29.5297C23.3966 31.1513 25.5188 31.7913 27.5812 31.7913C29.0237 31.7913 30.4391 31.4771 31.6093 30.967C34.5735 29.6752 36.6474 26.8956 37.4469 23.1385C37.8061 21.4471 37.7636 19.8779 37.4585 18.3765C39.2601 18.6035 41.0406 19.0748 42.7804 19.7867L44.9857 14.3556L44.9818 14.3537ZM28.902 25.7337C27.0038 26.4921 25.1538 24.6572 25.7776 22.704C26.4901 20.4733 29.0295 18.3164 31.4066 18.394C32.6927 20.8632 31.3081 24.7717 28.902 25.7337Z" fill="#2F2F2F"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_799_776">
+                        <rect width="184.496" height="40" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+        </a>
+        <div class="hidden xl:flex" style="align-items: center;align-self: stretch;">
+            <a href="/maintenance" class="lien1" style="display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-20, 20px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;border-radius: var(--Corner-radius-8, 8px);color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: 'Plus Jakarta Sans',serif;font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 140%;">L'application</a>
+            <a target="_blank" href="https://smoozy.canny.io/" class="lien2" style="display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-20, 20px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;border-radius: var(--Corner-radius-8, 8px);color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: 'Plus Jakarta Sans',serif;font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 140%;">Roadmap</a>
+            <a href="/blog" class="lien3" style="display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-20, 20px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;border-radius: var(--Corner-radius-8, 8px);color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: 'Plus Jakarta Sans',serif;font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 140%;">Blog</a>
+            <a href="/maintenance" class="lien4" style="display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-20, 20px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;border-radius: var(--Corner-radius-8, 8px);color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: 'Plus Jakarta Sans',serif;font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 140%;">FAQ</a>
+            <a href="/contact" class="lien5" style="display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-20, 20px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;border-radius: var(--Corner-radius-8, 8px);color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: 'Plus Jakarta Sans',serif;font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 140%;">Contact</a>
         </div>
-        <div id="menu-burger">
-            <img src="/img/fi-rr-menu-burger.svg" style="width: 24px;height: 24px;flex-shrink: 0;" alt="menu-burger" id="burger-icon">
+
+    </div>
+
+    <div id="menu-burger" class="xl:hidden">
+        <img src="/img/fi-rr-menu-burger.svg" style="width: 24px;height: 24px;flex-shrink: 0;" alt="menu-burger" id="burger-icon">
+    </div>
+    <div class="hidden xl:block">
+        <button id="waitlist-button3" style="border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Neutral-Carbon-100, #2F2F2F);display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-36, 36px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;background: var(--Color-Neutral-Carbon-100, #2F2F2F);color: var(--Color-Neutral-Cream-100, #FFFCF1);font-family: var(--Font-Body, 'Plus Jakarta Sans'),serif;font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 700;line-height: 140%; /* 22.4px */">S'inscrire à la waitlist</button>
+    </div>
+
+
+
+
+
+</header>
+<main>
+    <!-- Fullscreen menu -->
+    <nav id="fullscreen-menu" style=";background: var(--Color-Neutral-Cream-100, #FFFCF1);" class="fixed inset-0 hidden z-40">
+        <div class="" style="display: inline-flex;flex-direction: column;align-items: flex-start;gap: 48px;margin: 124px 94px 0 16px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal; font-weight: 600; line-height: 120%">
+            <a class="" href="/maintenance">L’application</a>
+            <a class="" href="/maintenance">Roadmap</a>
+            <a class="" href="/blog">Blog</a>
+            <a class="" href="/maintenance">FAQ</a>
+            <a class="" href="/contact">Contact</a>
+            <button id="waitlist-button" style="display: flex;padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Neutral-Carbon-100, #2F2F2F);">
+                <span style="color: var(--Color-Neutral-Cream-100, #FFFCF1);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">S'inscrire à la waitlist</span>
+            </button>
         </div>
-    </header>
-    <main>
-        <!-- Fullscreen menu -->
-        <nav id="fullscreen-menu" style=";background: var(--Color-Neutral-Cream-100, #FFFCF1);" class="fixed inset-0 hidden z-40">
-            <div class="" style="display: inline-flex;flex-direction: column;align-items: flex-start;gap: 48px;margin: 124px 94px 0 16px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal; font-weight: 600; line-height: 120%">
-                <a class="" href="/maintenance">L’application</a>
-                <a class="" href="/maintenance">Roadmap</a>
-                <a class="" href="/blog">Blog</a>
-                <a class="" href="/maintenance">FAQ</a>
-                <a class="" href="/contact">Contact</a>
-                <button id="waitlist-button" style="display: flex;padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Neutral-Carbon-100, #2F2F2F);">
-                    <span style="color: var(--Color-Neutral-Cream-100, #FFFCF1);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">S'inscrire à la waitlist</span>
+    </nav>
+
+    <!-- Popup -->
+    <div id="popup-overlay" class="fixed inset-0 hidden z-50 flex items-center justify-center">
+        <div id="popup" class="mx-4 sm:mx-6" style="max-width: 768px;padding: 18px 16px 24px 16px;flex-direction: column;align-items: center;gap: 24px;border-radius: 24px;background: #FFFCF1;box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.25);">
+            <div class="flex justify-end">
+                <div style="background: #E6E2FB" class="p-2 rounded-xl	">
+                    <img src="/img/close-svgrepo-com.svg" id="close-popup" class=" cursor-pointer w-6 h-6" alt="icon close popup">
+                </div>
+            </div>
+            <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);margin-bottom:24px;text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
+                Inscrivez-vous dès aujourd'hui et soyez parmi les premiers à découvrir Smoozy ! 🔥
+            </p>
+            <p style="margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Soyez les premiers informés et profitez d'un accès exclusif en avant-première !</p>
+            <form  action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                <div style="margin-bottom: 12px">
+                    <input placeholder="Entrez votre adresse e-mail" style="width: -webkit-fill-available ;border-radius: var(--radius-radius-sm-4x, 8px);border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);background: var(--Color-Neutral-White-100, #FFF);display: flex;padding: var(--padding-padding-12px, 12px) var(--padding-padding-14px, 14px);align-items: center;gap: var(--padding-padding-48px, 48px);flex: 1 0 0;align-self: stretch;" type="email" name="EMAIL" id="mce-EMAIL" required="" value="">
+                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                </div>
+                <button type="submit" name="subscribe" id="mc-embedded-subscribe"  class="plus-jakarta py-5 px-6"  style="width: -webkit-fill-available;border-radius: 8px;background: #2F2F2F;display: flex;padding: 20px 24px;justify-content: center;align-items: center;gap:  20px;align-self: stretch;">
+                    <span class="plus-jakarta" style="color: #FFFCF1;font-size: 20px;font-style: normal;font-weight: 700;line-height: 140%;">S’inscrire sur la waitlist</span>
+                    <img src="/img/arrow-right-svgrepo-com.svg" class="w-6 h-6" alt="arrow-right">
                 </button>
-            </div>
-        </nav>
+            </form>
+        </div>
+    </div>
 
-        <!-- Popup -->
-        <div id="popup-overlay" class="fixed inset-0 hidden z-50 flex items-center justify-center">
-            <div id="popup" class="mx-4 sm:mx-6" style="max-width: 768px;padding: 18px 16px 24px 16px;flex-direction: column;align-items: center;gap: 24px;border-radius: 24px;background: #FFFCF1;box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.25);">
-                <div class="flex justify-end">
-                    <div style="background: #E6E2FB" class="p-2 rounded-xl	">
-                        <img src="/img/close-svgrepo-com.svg" id="close-popup" class=" cursor-pointer w-6 h-6" alt="icon close popup">
-                    </div>
+    <div class="flex  my-32 mx-4 sm:mx-6 xl:mx-0" style="@media (max-width: 1280px) {max-width: 768px};@media (min-width: 1280px) {max-width: 1272px}; align-content: center; align-items: center; flex-direction: column">
+        <!-- Mobile -->
+        <div class="xl:hidden">
+            <div>
+                <h1 style="margin-bottom:16px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-MD, 36px);font-style: normal;font-weight: 800;line-height: 120%;">Toutes les clés pour bâtir une nouvelle histoire familiale.</h1>
+                <p style="margin-bottom:20px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 400;line-height: 140%;">Transformez votre quotidien de famille recomposée avec notre solution ludique et interactive. </p>
+                <p style="margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 700;line-height: 140%;">Inscrivez-vous et profitez d'un accès exclusif en avant-première ! 🔥</p>
+                <a id="waitlist-button2" style="margin-bottom:60px;display: flex;border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Brand-Primary-100, #846DED);padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;">
+                    <span style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 700;line-height: 140%;">Je découvre dès maintenant</span>
+                    <img src="/img/arrow-right-svgrepo-com.svg" style="width: 24px;height: 24px;" alt="arrow-right">
+                </a>
+            </div>
+            <img src="/img/Family_Management-app.webp" alt="application pour les familles recomposées" style="width: 90%; margin: 0 19px">
+        </div>
+        <!-- Desktop -->
+        <div class="hidden xl:flex" style="max-width:1392px;padding: 0px 60px;gap: 60px;">
+            <div id="left" style="display: flex;flex-direction: column;align-items: flex-start;gap: 40px;flex: 1 0 0;">
+                <div style="display: flex;flex-direction: column;align-items: flex-start;gap: var(--Padding-Spacing-16, 16px);align-self: stretch;">
+                    <h1 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque'),serif;font-size: 64px;font-style: normal;font-weight: 800;line-height: 120%;">
+                        Toutes les clés pour bâtir une nouvelle histoire familiale.
+                    </h1>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans'),serif;font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Transformez votre quotidien de <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans'),serif;font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;"></span>famille recomposée avec notre solution ludique et interactive.
+                    </p>
                 </div>
-                <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);margin-bottom:24px;text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
-                    Inscrivez-vous dès aujourd'hui et soyez parmi les premiers à découvrir Smoozy ! 🔥
-                </p>
-                <p style="margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Soyez les premiers informés et profitez d'un accès exclusif en avant-première !</p>
-                <form  action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                    <div style="margin-bottom: 12px">
-                        <input placeholder="Entrez votre adresse e-mail" style="width: -webkit-fill-available ;border-radius: var(--radius-radius-sm-4x, 8px);border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);background: var(--Color-Neutral-White-100, #FFF);display: flex;padding: var(--padding-padding-12px, 12px) var(--padding-padding-14px, 14px);align-items: center;gap: var(--padding-padding-48px, 48px);flex: 1 0 0;align-self: stretch;" type="email" name="EMAIL" id="mce-EMAIL" required="" value="">
-                        <div class="response" id="mce-error-response" style="display: none;"></div>
-                        <div class="response" id="mce-success-response" style="display: none;"></div>
-                    </div>
-                    <button type="submit" name="subscribe" id="mc-embedded-subscribe"  class="plus-jakarta py-5 px-6"  style="width: -webkit-fill-available;border-radius: 8px;background: #2F2F2F;display: flex;padding: 20px 24px;justify-content: center;align-items: center;gap:  20px;align-self: stretch;">
-                        <span class="plus-jakarta" style="color: #FFFCF1;font-size: 20px;font-style: normal;font-weight: 700;line-height: 140%;">S’inscrire sur la waitlist</span>
-                        <img src="/img/arrow-right-svgrepo-com.svg" class="w-6 h-6" alt="arrow-right">
+                <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;align-self: stretch;">
+                    <h3 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans'),serif;font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">Inscrivez-vous et profitez d'un accès exclusif en avant-première ! 🔥</h3>
+                    <button id="" style="display: flex;padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Brand-Primary-100, #846DED);">
+                  <span style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">
+                    Je découvre dès maintenant
+                  </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="white"/>
+                        </svg>
                     </button>
-                </form>
+                </div>
+            </div>
+            <div class="right" >
+                <img src="/img/Family_Management-app.webp" alt="famille recomposée épanouie" style="width: 550px;height: 517px;flex-shrink: 0;">
             </div>
         </div>
 
-        <!-- Notre mission -->
-        <div class="flex  my-32 mx-4 sm:mx-6 md:mx-auto" style="max-width: 768px; align-content: center; align-items: center; flex-direction: column">
-            <div id="reponive-tablette">
+
+
+        <div class="notre-mission">
+            <h3>notre mission</h3>
+            <h2>
+                À travers des expériences positives communes, nous transformons le quotidien des familles recomposées en moments de joie partagée
+            </h2>
+        </div>
+        <div class="cards">
+            <div  style="display: flex;padding: 24px;flex-direction: column;align-items: flex-start;gap: 32px;align-self: stretch;border-radius: 24px;background: var(--Color-Brand-Secondary-40, #F7FFBE);">
+                <img src="/img/fi-rr-messages.svg" style="width: 24px;height: 24px;" alt="illustration-message">
                 <div>
-                    <h1 style="margin-bottom:16px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-MD, 36px);font-style: normal;font-weight: 800;line-height: 120%;">Toutes les clés pour bâtir une nouvelle histoire familiale.</h1>
-                    <p style="margin-bottom:20px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 400;line-height: 140%;">Transformez votre quotidien de famille recomposée avec notre solution ludique et interactive. </p>
-                    <p style="margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 700;line-height: 140%;">Inscrivez-vous et profitez d'un accès exclusif en avant-première ! 🔥</p>
-                    <a id="waitlist-button2" style="margin-bottom:60px;display: flex;border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Brand-Primary-100, #846DED);padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;">
-                        <span style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 700;line-height: 140%;">Je découvre dès maintenant</span>
-                        <img src="/img/arrow-right-svgrepo-com.svg" style="width: 24px;height: 24px;" alt="arrow-right">
-                    </a>
+                    <p style=" margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
+                        Facilitez la communication
+                    </p>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Brisez la glace et favorisez le dialogue au sein du foyer pour mieux se connaître et de se comprendre
+                    </p>
                 </div>
-                <img src="/img/Family_Management-app.webp" alt="application pour les familles recomposées" style="width: 90%; margin: 0 19px">
             </div>
 
-            <div style="margin-top: 100px;margin-bottom:60px;display: flex;flex-direction: column;align-items: center;gap: 8px;;">
-                <h3 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 120%; text-transform: uppercase;">notre mission</h3>
-                <h2 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
-                    À travers des expériences positives communes, nous transformons le quotidien des familles recomposées en moments de joie partagée
-                </h2>
+            <div style="display: flex;padding: 24px;flex-direction: column;align-items: flex-start;gap: 32px;align-self: stretch;border-radius: 24px;background: var(--Color-Brand-Tertiary-20, #FDDDD8);">
+                <img src="/img/fi-rr-channel.svg" style="width: 24px;height: 24px;" alt="illustration-message">
+                <div>
+                    <p style=" margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
+                        Créez des liens solides et durables
+                    </p>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Développez un sentiment d'appartenance à travers des expériences positives communes.
+                    </p>
+                </div>
             </div>
-            <div class="" style="display: flex;flex-direction: column;gap: 40px">
-                <div  style="display: flex;padding: 24px;flex-direction: column;align-items: flex-start;gap: 32px;align-self: stretch;border-radius: 24px;background: var(--Color-Brand-Secondary-40, #F7FFBE);">
-                    <img src="/img/fi-rr-messages.svg" style="width: 24px;height: 24px;" alt="illustration-message">
-                    <div>
-                        <p style=" margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
-                            Facilitez la communication
-                        </p>
-                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">
-                            Brisez la glace et favorisez le dialogue au sein du foyer pour mieux se connaître et de se comprendre
-                        </p>
-                    </div>
-                </div>
 
-                <div style="display: flex;padding: 24px;flex-direction: column;align-items: flex-start;gap: 32px;align-self: stretch;border-radius: 24px;background: var(--Color-Brand-Tertiary-20, #FDDDD8);">
-                    <img src="/img/fi-rr-channel.svg" style="width: 24px;height: 24px;" alt="illustration-message">
-                    <div>
-                        <p style=" margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
-                            Créez des liens solides et durables
-                        </p>
-                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">
-                            Développez un sentiment d'appartenance à travers des expériences positives communes.
-                        </p>
-                    </div>
-                </div>
-
-                <div style="display: flex;padding: 24px;flex-direction: column;align-items: flex-start;gap: 32px;align-self: stretch;border-radius: 24px;background: var(--Color-Brand-Primary-20, #E6E2FB);">
-                    <img src="/img/fi-rr-hands-heart.svg" style="width: 24px;height: 24px;" alt="illustration-message">
-                    <div>
-                        <p style=" margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
-                            Favorisez un climat de respect et de soutien
-                        </p>
-                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">
-                            Concentrez-vous sur les moments importants et profitez pleinement de votre vie familiale.
-                        </p>
-                    </div>
+            <div style="display: flex;padding: 24px;flex-direction: column;align-items: flex-start;gap: 32px;align-self: stretch;border-radius: 24px;background: var(--Color-Brand-Primary-20, #E6E2FB);">
+                <img src="/img/fi-rr-hands-heart.svg" style="width: 24px;height: 24px;" alt="illustration-message">
+                <div>
+                    <p style=" margin-bottom:12px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
+                        Favorisez un climat de respect et de soutien
+                    </p>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Concentrez-vous sur les moments importants et profitez pleinement de votre vie familiale.
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="flex  py-20 px-4 sm:px-6 md:px-auto" style="align-items: center;flex-direction: column;gap: 60px;background: var(--Color-Brand-Primary-10, #F3F0FD);width: -webkit-fill-available">
-            <div style="max-width: 648px;display: flex;flex-direction: column;align-items: flex-start;gap: 24px;" >
-                <h3 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">comment ça fonctionne?</h3>
-                <h2 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
+    <div class="flex  py-20 px-4 sm:px-6 md:px-auto" style="align-items: center; flex-direction: column; gap:60px;background: var(--Color-Brand-Primary-10, #F3F0FD);width: -webkit-fill-available">
+        <!-- Mobile -->
+        <div class="xl:hidden flex" style="max-width: 648px;flex-direction: column;align-items: flex-start;gap: 24px;" >
+            <h3 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">comment ça fonctionne?</h3>
+            <h2 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">
+                Votre application partenaire pour une vie de famille recomposée heureuse et épanouie.
+            </h2>
+
+            <a href="/maintenance" style="border-radius: var(--Corner-radius-8, 8px);border: 2px solid var(--Color-Neutral-Carbon-100, #2F2F2F);display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-16, 16px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);">
+                <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 700;line-height: 140%;">En savoir plus</span>
+                <img src="/img/fi-rr-arrow-small-right.svg" style="width: 24px;height: 24px;" alt="arrow-right">
+            </a>
+            <img  id="image-hero" src="/img/Famille_Heureuse[1].webp" alt="famille recomposée épanouie">
+        </div>
+        <div class="xl:hidden flex" style="max-width: 648px; flex-direction: column; gap: 60px">
+            <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
+                <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                    <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
+                        <img src="/img/fi-rr-registration-paper.svg" style="width: 24px;height: 24px;" alt="icon card">
+                    </div>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Mise en place de règles de vie communes</p>
+                </div>
+                <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Établissez ensemble les '5 commandements du foyer' et les devoirs de chacun, puis signez pour la paix à la maison.</p>
+            </div>
+
+            <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
+                <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                    <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
+                        <img src="/img/fi-rr-comment-smile.svg" style="width: 24px;height: 24px;" alt="icon card">
+                    </div>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Mood tracker individuel et partagé</p>
+                </div>
+                <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Suivez les émotions de toute la famille avec notre journal d’humeurs partagé et restez connectés aux ressentis de chacun.</p>
+            </div>
+
+            <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
+                <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                    <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
+                        <img src="/img/fi-rr-id-badge.svg" style="width: 24px;height: 24px;" alt="icon card">
+                    </div>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Profils personnalisés</p>
+                </div>
+                <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Créez des profils amusants pour chaque membre de la famille avec vos passions, vos loisirs, et même votre plat préféré, et apprenez à mieux vous connaître !</p>
+            </div>
+
+            <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
+                <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                    <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
+                        <img src="/img/fi-rr-gamepad.svg" style="width: 24px;height: 24px;" alt="icon card">
+                    </div>
+                    <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Gamification du quotidien</p>
+                </div>
+                <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.</p>
+            </div>
+        </div>
+
+        <!-- Desktop -->
+        <div class="xl:flex hidden" style="justify-content: space-between;align-items: center;gap:50px;max-width: 1200px">
+            <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;max-width: 625px">
+                <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">
+                    comment ça fonctionne?
+                </p>
+                <h2 style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-MD, 36px);font-style: normal;font-weight: 600;line-height: 120%;">
                     Votre application partenaire pour une vie de famille recomposée heureuse et épanouie.
                 </h2>
-
-                    <a href="/maintenance" style="border-radius: var(--Corner-radius-8, 8px);border: 2px solid var(--Color-Neutral-Carbon-100, #2F2F2F);display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-16, 16px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);">
-                        <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 700;line-height: 140%;">En savoir plus</span>
-                        <img src="/img/fi-rr-arrow-small-right.svg" style="width: 24px;height: 24px;" alt="arrow-right">
-                    </a>
-                <img  id="image-hero" src="/img/Famille_Heureuse[1].webp" alt="famille recomposée épanouie">
-            </div>
-
-            <!-- 4 sections pour mobile-->
-            <div style="max-width: 648px; display: flex; flex-direction: column; gap: 60px">
-                    <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
-                          <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
-                              <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
-                                  <img src="/img/fi-rr-gamepad.svg" style="width: 24px;height: 24px;" alt="icon card">
-                              </div>
-                              <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Gamification du quotidien</p>
-                          </div>
-                          <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.</p>
-                      </div>
-
-                    <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
-                        <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
-                            <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
-                                <img src="/img/fi-rr-id-badge.svg" style="width: 24px;height: 24px;" alt="icon card">
-                            </div>
-                            <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Profils personnalisés</p>
-                        </div>
-                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Créez des profils amusants et informatifs pour chaque membre de la famille, avec des détails sur leurs loisirs, leurs passions, et apprenez à mieux vous connaître.</p>
-                    </div>
-
-                    <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
-                        <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
-                            <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
-                                <img src="/img/fi-rr-puzzle.svg" style="width: 24px;height: 24px;" alt="icon card">
-                            </div>
-                            <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Mini-jeux et activités familiales</p>
-                        </div>
-                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Renforcez les liens familiaux en jouant ensemble à des jeux et en participant à des activités amusantes adaptées à tous les âges et à tous les goûts.</p>
-                    </div>
-
-                    <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 16px;">
-                        <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
-                            <div style="display: flex;min-width: 60px;min-height: 60px;justify-content: center;align-items: center;gap: 8px;border-radius: 50px;background: var(--Color-Neutral-White-100, #FFF);">
-                                <img src="/img/fi-rr-user-headset.svg" style="width: 24px;height: 24px;" alt="icon card">
-                            </div>
-                            <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Conseils et assistance personnalisés</p>
-                        </div>
-                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Obtenez des conseils d'experts pour surmonter les défis spécifiques de votre famille recomposée et bâtir des relations positives et durables.</p>
-                    </div>
-            </div>
-        </div>
-
-        <!-- Notre blog -->
-        <div class="blog-section  mt-20 mx-4 sm:mx-6 md:mx-auto" style="max-width: 768px;">
-            <div class="blog-header">
-                <h3 class="blog-title">NOTRE BLOG</h3>
-                <h2 class="blog-subtitle">Découvrez tous nos articles, astuces pratiques et témoignages !</h2>
-                <a href="/blog" class="view-all-button">
-                    <span>Voir tous les articles</span>
+                <a href="/maintenance" style="border-radius: var(--Corner-radius-8, 8px);border: 2px solid var(--Color-Neutral-Carbon-100, #2F2F2F);display: flex;padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);">
+                    <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">
+                        En savoir plus
+                    </span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
                     </svg>
                 </a>
             </div>
-
-            <div class="articles-container">
-                <!-- ARTICLE 1 -->
-                <div class="article" style="position: relative">
-                    <img src="/img/Famille_Heureuse[1].webp" class="image" alt="famille recomposée épanouie">
-                    <div class="article-meta" style="display: flex; gap: 11px">
-                        <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 30px;background: var(--Color-Feedback-Positive-60, #97C9FF);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <g clip-path="url(#clip0_684_155)">
-                                    <path d="M5.78044 6.94184C6.07369 7.23509 6.07369 7.70984 5.78044 8.00234C5.48719 8.29559 5.01244 8.29559 4.71994 8.00234C4.42669 7.70909 4.42669 7.23434 4.71994 6.94184C5.01319 6.64859 5.48794 6.64859 5.78044 6.94184ZM16.1694 11.5056L15.7457 11.9293C15.7254 12.8541 15.3669 13.7721 14.6694 14.4786L12.2942 16.8846C11.5869 17.6008 10.6434 17.9968 9.63694 17.9998H9.62419C8.62294 17.9998 7.68169 17.6098 6.97369 16.9018L1.41169 11.3871C0.924192 10.9003 0.688692 10.2306 0.763692 9.54734L1.33744 4.36034C1.37569 4.01834 1.64044 3.74609 1.98094 3.69959L7.14769 2.99309C7.84669 2.90009 8.55019 3.13784 9.04369 3.63134L14.6499 9.19034C14.9402 9.48059 15.1727 9.80759 15.3482 10.1563C15.9572 9.28184 15.8717 8.06009 15.0917 7.28009L9.39844 1.72634C9.22669 1.55459 8.98969 1.47509 8.76019 1.50734L3.59344 2.21384C3.18169 2.26934 2.80444 1.98209 2.74819 1.57259C2.69269 1.16234 2.97994 0.784343 3.38944 0.728093L8.55694 0.0208426C9.24769 -0.0774075 9.95869 0.164093 10.4529 0.659843L16.1447 6.21359C17.6042 7.67234 17.6124 10.0438 16.1687 11.5063L16.1694 11.5056ZM13.5909 10.2531L7.98469 4.69409C7.81744 4.52684 7.58269 4.44959 7.34944 4.47884L2.76319 5.10659L2.25394 9.71159C2.22919 9.93884 2.30719 10.1623 2.46919 10.3236L8.03119 15.8383C8.45794 16.2658 9.02269 16.4991 9.62344 16.4991H9.63094C10.2354 16.4976 10.8017 16.2598 11.2254 15.8293L13.6007 13.4233C14.4669 12.5458 14.4624 11.1231 13.5902 10.2516L13.5909 10.2531Z" fill="#2F2F2F"/>
+            <img src="/img/Famille_Heureuse[1].webp" alt="famille recomposée épanouie" style="width: 480px;height: 300px;border-radius: 16px;border: 20px solid rgba(0, 0, 0, 0.05);">
+        </div>
+        <div class="xl:flex hidden" style="width: 1038px;flex-direction: column;align-items: flex-start;gap: 60px;">
+            <div style="display: flex;align-items: flex-start;gap: 100px;align-self: stretch;">
+                <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;flex: 1 0 0;">
+                    <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                        <div style="display: flex;padding: 24px;justify-content: center;align-items: center;gap: 8px;background: var(--Color-Neutral-White-100, #FFF);border-radius: 50px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_449_2636)">
+                                    <path d="M21 17H20V16C20 15.448 19.553 15 19 15C18.447 15 18 15.448 18 16V17H13C11.346 17 10 18.346 10 20V20.5C10 21.327 9.327 22 8.5 22C7.673 22 7 21.327 7 20.5V3.5C7 2.961 6.867 2.456 6.649 2H9C9.553 2 10 1.552 10 1C10 0.448 9.553 0 9 0H3.5C1.57 0 0 1.57 0 3.5V4C0 5.654 1.346 7 3 7H5V20.5C5 22.429 6.569 23.999 8.498 24H20.5C22.43 24 24 22.43 24 20.5V20C24 18.346 22.654 17 21 17ZM5 5H3C2.448 5 2 4.551 2 4V3.5C2 2.673 2.673 2 3.5 2C4.327 2 5 2.673 5 3.5V5ZM22 20.5C22 21.327 21.327 22 20.5 22H11.662C11.879 21.545 12 21.037 12 20.5V20C12 19.449 12.448 19 13 19H21C21.552 19 22 19.449 22 20V20.5ZM17 14C20.859 14 24 10.86 24 7C24 3.14 20.859 0 17 0C13.141 0 10 3.14 10 7C10 10.86 13.141 14 17 14ZM17 2C19.757 2 22 4.243 22 7C22 9.757 19.757 12 17 12C14.243 12 12 9.757 12 7C12 4.243 14.243 2 17 2ZM13.518 6.8C13.904 6.405 14.537 6.4 14.932 6.785L16.063 7.893C16.207 8.034 16.442 8.032 16.585 7.893L18.808 5.759C19.205 5.377 19.84 5.39 20.222 5.788C20.604 6.186 20.591 6.819 20.193 7.202L17.98 9.326C17.527 9.773 16.928 9.997 16.327 9.997C15.726 9.997 15.123 9.773 14.663 9.323L13.532 8.215C13.137 7.828 13.132 7.194 13.518 6.8Z" fill="#2F2F2F"/>
                                 </g>
                                 <defs>
-                                    <clipPath id="clip0_684_155">
-                                        <rect width="18" height="18" fill="white"/>
+                                    <clipPath id="clip0_449_2636">
+                                        <rect width="24" height="24" fill="white"/>
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
                         </div>
-                        <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 38px;background: var(--Color-Neutral-Carbon-10, #EAEAEA);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <g clip-path="url(#clip0_684_159)">
-                                    <path d="M9 18C4.03725 18 0 13.9628 0 9C0 4.03725 4.03725 0 9 0C13.9628 0 18 4.03725 18 9C18 13.9628 13.9628 18 9 18ZM9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM10.875 12.2475C11.2343 12.0405 11.3573 11.5815 11.1495 11.223L9.75 8.799V4.5C9.75 4.086 9.41475 3.75 9 3.75C8.58525 3.75 8.25 4.086 8.25 4.5V9C8.25 9.132 8.2845 9.261 8.3505 9.375L9.8505 11.973C9.99 12.2137 10.2413 12.348 10.5008 12.348C10.6283 12.348 10.7572 12.3158 10.875 12.2475Z" fill="#2F2F2F"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_684_159">
-                                        <rect width="18" height="18" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
-                        </div>
+                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%; /* 36.4px */letter-spacing: -1px;">Mise en place de règles de vie communes</p>
                     </div>
-                    <div class="article-content" style="padding-top: 24px">
-                        <p class="article-title">Titre de l'article</p>
-                        <p class="article-text">Lorem ipsum dolor sit amet consectetur. Orci dolor adipiscing nulla sapien phasellus duis placerat enim sagittis.</p>
-
-                        <a href="/blog">
-                            <div class="read-more">
-                                <span>Lire plus</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
-                                </svg>
-                            </div>
-                        </a>
-
+                    <div style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Établissez ensemble les '5 commandements du foyer' et les devoirs de chacun, puis signez pour la paix à la maison.
                     </div>
                 </div>
-                <div class="article" style="position: relative;margin-right: 0">
-                    <img src="/img/Famille_Heureuse[1].webp" class="image" alt="famille recomposée épanouie">
-                    <div class="article-meta" style="display: flex; gap: 11px">
-                        <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 30px;background: var(--Color-Feedback-Positive-60, #97C9FF);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <g clip-path="url(#clip0_684_155)">
-                                    <path d="M5.78044 6.94184C6.07369 7.23509 6.07369 7.70984 5.78044 8.00234C5.48719 8.29559 5.01244 8.29559 4.71994 8.00234C4.42669 7.70909 4.42669 7.23434 4.71994 6.94184C5.01319 6.64859 5.48794 6.64859 5.78044 6.94184ZM16.1694 11.5056L15.7457 11.9293C15.7254 12.8541 15.3669 13.7721 14.6694 14.4786L12.2942 16.8846C11.5869 17.6008 10.6434 17.9968 9.63694 17.9998H9.62419C8.62294 17.9998 7.68169 17.6098 6.97369 16.9018L1.41169 11.3871C0.924192 10.9003 0.688692 10.2306 0.763692 9.54734L1.33744 4.36034C1.37569 4.01834 1.64044 3.74609 1.98094 3.69959L7.14769 2.99309C7.84669 2.90009 8.55019 3.13784 9.04369 3.63134L14.6499 9.19034C14.9402 9.48059 15.1727 9.80759 15.3482 10.1563C15.9572 9.28184 15.8717 8.06009 15.0917 7.28009L9.39844 1.72634C9.22669 1.55459 8.98969 1.47509 8.76019 1.50734L3.59344 2.21384C3.18169 2.26934 2.80444 1.98209 2.74819 1.57259C2.69269 1.16234 2.97994 0.784343 3.38944 0.728093L8.55694 0.0208426C9.24769 -0.0774075 9.95869 0.164093 10.4529 0.659843L16.1447 6.21359C17.6042 7.67234 17.6124 10.0438 16.1687 11.5063L16.1694 11.5056ZM13.5909 10.2531L7.98469 4.69409C7.81744 4.52684 7.58269 4.44959 7.34944 4.47884L2.76319 5.10659L2.25394 9.71159C2.22919 9.93884 2.30719 10.1623 2.46919 10.3236L8.03119 15.8383C8.45794 16.2658 9.02269 16.4991 9.62344 16.4991H9.63094C10.2354 16.4976 10.8017 16.2598 11.2254 15.8293L13.6007 13.4233C14.4669 12.5458 14.4624 11.1231 13.5902 10.2516L13.5909 10.2531Z" fill="#2F2F2F"/>
+                <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;flex: 1 0 0;">
+                    <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                        <div style="display: flex;padding: 24px;justify-content: center;align-items: center;gap: 8px;background: var(--Color-Neutral-White-100, #FFF);border-radius: 50px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_449_2642)">
+                                    <path d="M16.7128 13.8044C17.0968 14.1974 17.0938 14.8244 16.7038 15.2104C16.6298 15.2834 14.8638 17.0004 11.9998 17.0004C9.13583 17.0004 7.36983 15.2844 7.29583 15.2104C6.90383 14.8214 6.89983 14.1894 7.28883 13.7964C7.67883 13.4044 8.30983 13.4004 8.70383 13.7894C8.74983 13.8344 9.98383 14.9994 11.9998 14.9994C14.0158 14.9994 15.2498 13.8334 15.3018 13.7844C15.6978 13.4024 16.3298 13.4104 16.7128 13.8044ZM8.49983 11.0004C9.32783 11.0004 9.99983 10.3284 9.99983 9.50041C9.99983 8.67241 9.32783 8.00041 8.49983 8.00041C7.67183 8.00041 6.99983 8.67241 6.99983 9.50041C6.99983 10.3284 7.67183 11.0004 8.49983 11.0004ZM15.4998 8.00041C14.6718 8.00041 13.9998 8.67241 13.9998 9.50041C13.9998 10.3284 14.6718 11.0004 15.4998 11.0004C16.3278 11.0004 16.9998 10.3284 16.9998 9.50041C16.9998 8.67241 16.3278 8.00041 15.4998 8.00041ZM23.9998 12.3404V19.0004C23.9998 21.7574 21.7568 24.0004 18.9998 24.0004H13.0828C6.08183 24.0004 0.470831 19.2084 0.0288309 12.8544C-0.211169 9.37841 1.05583 5.97641 3.50783 3.52141C5.96183 1.06541 9.37083 -0.20459 12.8358 0.0294099C19.0968 0.45441 23.9998 5.86141 23.9998 12.3404ZM21.9998 12.3404C21.9998 6.90941 17.9148 2.37841 12.7008 2.02441C12.4718 2.00841 12.2428 2.00141 12.0138 2.00141C9.35783 2.00141 6.80483 3.04941 4.92283 4.93441C2.87983 6.98041 1.82283 9.81741 2.02483 12.7164C2.39683 18.0964 7.04783 22.0014 13.0828 22.0014H18.9998C20.6538 22.0014 21.9998 20.6554 21.9998 19.0014V12.3404Z" fill="#2F2F2F"/>
                                 </g>
                                 <defs>
-                                    <clipPath id="clip0_684_155">
-                                        <rect width="18" height="18" fill="white"/>
+                                    <clipPath id="clip0_449_2642">
+                                        <rect width="24" height="24" fill="white"/>
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
                         </div>
-                        <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 38px;background: var(--Color-Neutral-Carbon-10, #EAEAEA);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <g clip-path="url(#clip0_684_159)">
-                                    <path d="M9 18C4.03725 18 0 13.9628 0 9C0 4.03725 4.03725 0 9 0C13.9628 0 18 4.03725 18 9C18 13.9628 13.9628 18 9 18ZM9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM10.875 12.2475C11.2343 12.0405 11.3573 11.5815 11.1495 11.223L9.75 8.799V4.5C9.75 4.086 9.41475 3.75 9 3.75C8.58525 3.75 8.25 4.086 8.25 4.5V9C8.25 9.132 8.2845 9.261 8.3505 9.375L9.8505 11.973C9.99 12.2137 10.2413 12.348 10.5008 12.348C10.6283 12.348 10.7572 12.3158 10.875 12.2475Z" fill="#2F2F2F"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_684_159">
-                                        <rect width="18" height="18" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
-                        </div>
+                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%; /* 36.4px */letter-spacing: -1px;">Mood tracker individuel et partagé</p>
                     </div>
-                    <div class="article-content" style="padding-top: 24px">
-                        <p class="article-title">Titre de l'article</p>
-                        <p class="article-text">Lorem ipsum dolor sit amet consectetur. Orci dolor adipiscing nulla sapien phasellus duis placerat enim sagittis.</p>
-
-                        <a href="/article">
-                            <div class="read-more">
-                                <span>Lire plus</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
-                                </svg>
-                            </div>
-                        </a>
-
+                    <div style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Suivez les émotions de toute la famille avec notre journal d’humeurs partagé et restez connectés aux ressentis de chacun.
                     </div>
                 </div>
-
+            </div>
+            <div style="display: flex;align-items: flex-start;gap: 100px;align-self: stretch;">
+                <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;flex: 1 0 0;">
+                    <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                        <div style="display: flex;padding: 24px;justify-content: center;align-items: center;gap: 8px;background: var(--Color-Neutral-White-100, #FFF);border-radius: 50px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_449_2629)">
+                                    <path d="M19 4H15V3C15 2.20435 14.6839 1.44129 14.1213 0.87868C13.5587 0.31607 12.7956 0 12 0C11.2044 0 10.4413 0.31607 9.87868 0.87868C9.31607 1.44129 9 2.20435 9 3V4H5C3.67441 4.00159 2.40356 4.52888 1.46622 5.46622C0.528882 6.40356 0.00158786 7.67441 0 9L0 19C0.00158786 20.3256 0.528882 21.5964 1.46622 22.5338C2.40356 23.4711 3.67441 23.9984 5 24H19C20.3256 23.9984 21.5964 23.4711 22.5338 22.5338C23.4711 21.5964 23.9984 20.3256 24 19V9C23.9984 7.67441 23.4711 6.40356 22.5338 5.46622C21.5964 4.52888 20.3256 4.00159 19 4ZM11 3C11 2.73478 11.1054 2.48043 11.2929 2.29289C11.4804 2.10536 11.7348 2 12 2C12.2652 2 12.5196 2.10536 12.7071 2.29289C12.8946 2.48043 13 2.73478 13 3V5C13 5.26522 12.8946 5.51957 12.7071 5.70711C12.5196 5.89464 12.2652 6 12 6C11.7348 6 11.4804 5.89464 11.2929 5.70711C11.1054 5.51957 11 5.26522 11 5V3ZM22 19C22 19.7956 21.6839 20.5587 21.1213 21.1213C20.5587 21.6839 19.7956 22 19 22H5C4.20435 22 3.44129 21.6839 2.87868 21.1213C2.31607 20.5587 2 19.7956 2 19V9C2 8.20435 2.31607 7.44129 2.87868 6.87868C3.44129 6.31607 4.20435 6 5 6H9.184C9.38765 6.58454 9.76816 7.09123 10.2727 7.44977C10.7773 7.80831 11.381 8.00095 12 8.00095C12.619 8.00095 13.2227 7.80831 13.7273 7.44977C14.2318 7.09123 14.6124 6.58454 14.816 6H19C19.7956 6 20.5587 6.31607 21.1213 6.87868C21.6839 7.44129 22 8.20435 22 9V19ZM10 10H5C4.73478 10 4.48043 10.1054 4.29289 10.2929C4.10536 10.4804 4 10.7348 4 11V19C4 19.2652 4.10536 19.5196 4.29289 19.7071C4.48043 19.8946 4.73478 20 5 20H10C10.2652 20 10.5196 19.8946 10.7071 19.7071C10.8946 19.5196 11 19.2652 11 19V11C11 10.7348 10.8946 10.4804 10.7071 10.2929C10.5196 10.1054 10.2652 10 10 10ZM9 18H6V12H9V18ZM20 15C20 15.2652 19.8946 15.5196 19.7071 15.7071C19.5196 15.8946 19.2652 16 19 16H14C13.7348 16 13.4804 15.8946 13.2929 15.7071C13.1054 15.5196 13 15.2652 13 15C13 14.7348 13.1054 14.4804 13.2929 14.2929C13.4804 14.1054 13.7348 14 14 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15ZM20 11C20 11.2652 19.8946 11.5196 19.7071 11.7071C19.5196 11.8946 19.2652 12 19 12H14C13.7348 12 13.4804 11.8946 13.2929 11.7071C13.1054 11.5196 13 11.2652 13 11C13 10.7348 13.1054 10.4804 13.2929 10.2929C13.4804 10.1054 13.7348 10 14 10H19C19.2652 10 19.5196 10.1054 19.7071 10.2929C19.8946 10.4804 20 10.7348 20 11ZM18 19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H14C13.7348 20 13.4804 19.8946 13.2929 19.7071C13.1054 19.5196 13 19.2652 13 19C13 18.7348 13.1054 18.4804 13.2929 18.2929C13.4804 18.1054 13.7348 18 14 18H17C17.2652 18 17.5196 18.1054 17.7071 18.2929C17.8946 18.4804 18 18.7348 18 19Z" fill="#2F2F2F"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_449_2629">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%; /* 36.4px */letter-spacing: -1px;">Profils personnalisés</p>
+                    </div>
+                    <div style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Créez des profils amusants pour chaque membre de la famille avec vos passions, vos loisirs, et même votre plat préféré, et apprenez à mieux vous connaître !
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: column;align-items: flex-start;gap: 24px;flex: 1 0 0;">
+                    <div style="display: flex;align-items: center;gap: 24px;align-self: stretch;">
+                        <div style="display: flex;padding: 24px;justify-content: center;align-items: center;gap: 8px;background: var(--Color-Neutral-White-100, #FFF);border-radius: 50px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22.2075 5.02869C21.3112 3.53492 19.7178 2.53906 17.9253 2.53906H5.97511C4.18256 2.53906 2.58923 3.53492 1.69294 5.02869C0.597516 7.02041 0 9.2113 0 11.5018C0 16.9789 2.19089 21.4602 4.97925 21.4602C6.47302 21.4602 7.66805 20.066 8.5643 17.1781C8.66386 16.7797 9.0622 16.481 9.56016 16.481H14.4398C14.8382 16.481 15.2365 16.7797 15.4357 17.1781C16.332 20.066 17.527 21.4602 19.0208 21.4602C21.8091 21.4602 24 16.9789 24 11.5018C23.9004 9.2113 23.3029 7.02041 22.2075 5.02869ZM18.9211 19.4685C18.6224 19.4685 17.9253 18.6718 17.2282 16.5806C16.8299 15.286 15.6348 14.4893 14.3402 14.4893H9.56016C8.26556 14.4893 7.07053 15.3855 6.67219 16.5806C5.97511 18.6718 5.27798 19.4685 4.97925 19.4685C3.98339 19.4685 1.99172 16.3814 1.99172 11.5018C1.99172 9.60964 2.48962 7.71753 3.38592 6.02459C3.98344 5.12834 4.9793 4.53083 5.97516 4.53083H17.9254C18.9212 4.53083 19.9171 5.12834 20.5146 6.02459C21.4109 7.71753 21.9088 9.60964 21.9088 11.5018C21.9087 16.3814 19.917 19.4685 18.9211 19.4685Z" fill="#2F2F2F"/>
+                                <path d="M9.00001 9H8.00003V8.00002C8.00003 7.40002 7.60004 7.00003 7.00004 7.00003C6.40004 7.00003 6.00006 7.40002 6.00006 8.00002V9H5.00008C4.40008 9 4.00009 9.39998 4.00009 9.99998C4.00009 10.6 4.40008 11 5.00008 11H6.00001V12C6.00001 12.6 6.4 13 7 13C7.6 13 7.99998 12.6 7.99998 12V11H9.00001C9.60001 11 10 10.6 10 10C10 9.39998 9.60001 9 9.00001 9Z" fill="#2F2F2F"/>
+                                <path d="M18.5 9.99997C19.3284 9.99997 20 9.3284 20 8.49997C20 7.67154 19.3284 6.99997 18.5 6.99997C17.6716 6.99997 17 7.67154 17 8.49997C17 9.3284 17.6716 9.99997 18.5 9.99997Z" fill="#2F2F2F"/>
+                                <path d="M15.5 13C16.3284 13 17 12.3284 17 11.5C17 10.6715 16.3284 9.99997 15.5 9.99997C14.6716 9.99997 14 10.6715 14 11.5C14 12.3284 14.6716 13 15.5 13Z" fill="#2F2F2F"/>
+                            </svg>
+                        </div>
+                        <p style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: 28px;font-style: normal;font-weight: 600;line-height: 130%; /* 36.4px */letter-spacing: -1px;">Gamification du quotidien</p>
+                    </div>
+                    <div style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 400;line-height: 140%;">
+                        Transformez les corvées en une aventure amusante et motivante ! Gagnez des points pour chaque tâche accomplie et débloquez des récompenses.
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
-    <!-- Footer mobile-->
-    <footer class="flex  pt-28 pb-6 px-4 sm:px-6  md:mx-auto" style=" flex-direction: column;align-items: center;gap: 24px;background: var(--Color-Neutral-Carbon-100, #2F2F2F);">
-      <div style="max-width: 648px;" >
-          <div style="margin-bottom:100px;display: flex;flex-direction: column;align-items: center;gap: 16px;">
-              <div style="display: flex;flex-direction: column;align-items: center;gap: 16px;">
-                  <h3 style="color: var(--Color-Neutral-White-100, #FFF);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">REJOIGNEZ-NOUS</h3>
-                  <h2 style="color: var(--Color-Neutral-White-100, #FFF);text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Prêt à transformer votre vie de famille recomposée?</h2>
-              </div>
+    </div>
+
+    <!-- Notre blog -->
+    <div class="blog-section  mt-20 mx-4 sm:mx-6 md:mx-auto" style="max-width: 768px;">
+        <div class="blog-header">
+            <h3 class="blog-title">NOTRE BLOG</h3>
+            <h2 class="blog-subtitle">Découvrez tous nos articles, astuces pratiques et témoignages !</h2>
+            <a href="/blog" class="view-all-button">
+                <span>Voir tous les articles</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="articles-container">
+            <!-- ARTICLE 1 -->
+            <div class="article" style="position: relative">
+                <img src="/img/Famille_Heureuse[1].webp" class="image" alt="famille recomposée épanouie">
+                <div class="article-meta" style="display: flex; gap: 11px">
+                    <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 30px;background: var(--Color-Feedback-Positive-60, #97C9FF);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <g clip-path="url(#clip0_684_155)">
+                                <path d="M5.78044 6.94184C6.07369 7.23509 6.07369 7.70984 5.78044 8.00234C5.48719 8.29559 5.01244 8.29559 4.71994 8.00234C4.42669 7.70909 4.42669 7.23434 4.71994 6.94184C5.01319 6.64859 5.48794 6.64859 5.78044 6.94184ZM16.1694 11.5056L15.7457 11.9293C15.7254 12.8541 15.3669 13.7721 14.6694 14.4786L12.2942 16.8846C11.5869 17.6008 10.6434 17.9968 9.63694 17.9998H9.62419C8.62294 17.9998 7.68169 17.6098 6.97369 16.9018L1.41169 11.3871C0.924192 10.9003 0.688692 10.2306 0.763692 9.54734L1.33744 4.36034C1.37569 4.01834 1.64044 3.74609 1.98094 3.69959L7.14769 2.99309C7.84669 2.90009 8.55019 3.13784 9.04369 3.63134L14.6499 9.19034C14.9402 9.48059 15.1727 9.80759 15.3482 10.1563C15.9572 9.28184 15.8717 8.06009 15.0917 7.28009L9.39844 1.72634C9.22669 1.55459 8.98969 1.47509 8.76019 1.50734L3.59344 2.21384C3.18169 2.26934 2.80444 1.98209 2.74819 1.57259C2.69269 1.16234 2.97994 0.784343 3.38944 0.728093L8.55694 0.0208426C9.24769 -0.0774075 9.95869 0.164093 10.4529 0.659843L16.1447 6.21359C17.6042 7.67234 17.6124 10.0438 16.1687 11.5063L16.1694 11.5056ZM13.5909 10.2531L7.98469 4.69409C7.81744 4.52684 7.58269 4.44959 7.34944 4.47884L2.76319 5.10659L2.25394 9.71159C2.22919 9.93884 2.30719 10.1623 2.46919 10.3236L8.03119 15.8383C8.45794 16.2658 9.02269 16.4991 9.62344 16.4991H9.63094C10.2354 16.4976 10.8017 16.2598 11.2254 15.8293L13.6007 13.4233C14.4669 12.5458 14.4624 11.1231 13.5902 10.2516L13.5909 10.2531Z" fill="#2F2F2F"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_684_155">
+                                    <rect width="18" height="18" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
+                    </div>
+                    <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 38px;background: var(--Color-Neutral-Carbon-10, #EAEAEA);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <g clip-path="url(#clip0_684_159)">
+                                <path d="M9 18C4.03725 18 0 13.9628 0 9C0 4.03725 4.03725 0 9 0C13.9628 0 18 4.03725 18 9C18 13.9628 13.9628 18 9 18ZM9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM10.875 12.2475C11.2343 12.0405 11.3573 11.5815 11.1495 11.223L9.75 8.799V4.5C9.75 4.086 9.41475 3.75 9 3.75C8.58525 3.75 8.25 4.086 8.25 4.5V9C8.25 9.132 8.2845 9.261 8.3505 9.375L9.8505 11.973C9.99 12.2137 10.2413 12.348 10.5008 12.348C10.6283 12.348 10.7572 12.3158 10.875 12.2475Z" fill="#2F2F2F"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_684_159">
+                                    <rect width="18" height="18" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
+                    </div>
+                </div>
+                <div class="article-content" style="padding-top: 24px">
+                    <p class="article-title">Titre de l'article</p>
+                    <p class="article-text">Lorem ipsum dolor sit amet consectetur. Orci dolor adipiscing nulla sapien phasellus duis placerat enim sagittis.</p>
+
+                    <a href="/blog">
+                        <div class="read-more">
+                            <span>Lire plus</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="article" style="position: relative;margin-right: 0">
+                <img src="/img/Famille_Heureuse[1].webp" class="image" alt="famille recomposée épanouie">
+                <div class="article-meta" style="display: flex; gap: 11px">
+                    <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 30px;background: var(--Color-Feedback-Positive-60, #97C9FF);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <g clip-path="url(#clip0_684_155)">
+                                <path d="M5.78044 6.94184C6.07369 7.23509 6.07369 7.70984 5.78044 8.00234C5.48719 8.29559 5.01244 8.29559 4.71994 8.00234C4.42669 7.70909 4.42669 7.23434 4.71994 6.94184C5.01319 6.64859 5.48794 6.64859 5.78044 6.94184ZM16.1694 11.5056L15.7457 11.9293C15.7254 12.8541 15.3669 13.7721 14.6694 14.4786L12.2942 16.8846C11.5869 17.6008 10.6434 17.9968 9.63694 17.9998H9.62419C8.62294 17.9998 7.68169 17.6098 6.97369 16.9018L1.41169 11.3871C0.924192 10.9003 0.688692 10.2306 0.763692 9.54734L1.33744 4.36034C1.37569 4.01834 1.64044 3.74609 1.98094 3.69959L7.14769 2.99309C7.84669 2.90009 8.55019 3.13784 9.04369 3.63134L14.6499 9.19034C14.9402 9.48059 15.1727 9.80759 15.3482 10.1563C15.9572 9.28184 15.8717 8.06009 15.0917 7.28009L9.39844 1.72634C9.22669 1.55459 8.98969 1.47509 8.76019 1.50734L3.59344 2.21384C3.18169 2.26934 2.80444 1.98209 2.74819 1.57259C2.69269 1.16234 2.97994 0.784343 3.38944 0.728093L8.55694 0.0208426C9.24769 -0.0774075 9.95869 0.164093 10.4529 0.659843L16.1447 6.21359C17.6042 7.67234 17.6124 10.0438 16.1687 11.5063L16.1694 11.5056ZM13.5909 10.2531L7.98469 4.69409C7.81744 4.52684 7.58269 4.44959 7.34944 4.47884L2.76319 5.10659L2.25394 9.71159C2.22919 9.93884 2.30719 10.1623 2.46919 10.3236L8.03119 15.8383C8.45794 16.2658 9.02269 16.4991 9.62344 16.4991H9.63094C10.2354 16.4976 10.8017 16.2598 11.2254 15.8293L13.6007 13.4233C14.4669 12.5458 14.4624 11.1231 13.5902 10.2516L13.5909 10.2531Z" fill="#2F2F2F"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_684_155">
+                                    <rect width="18" height="18" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
+                    </div>
+                    <div style="display: flex;padding: 6px 10px;justify-content: center;align-items: center;gap: 8px;border-radius: 38px;background: var(--Color-Neutral-Carbon-10, #EAEAEA);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <g clip-path="url(#clip0_684_159)">
+                                <path d="M9 18C4.03725 18 0 13.9628 0 9C0 4.03725 4.03725 0 9 0C13.9628 0 18 4.03725 18 9C18 13.9628 13.9628 18 9 18ZM9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM10.875 12.2475C11.2343 12.0405 11.3573 11.5815 11.1495 11.223L9.75 8.799V4.5C9.75 4.086 9.41475 3.75 9 3.75C8.58525 3.75 8.25 4.086 8.25 4.5V9C8.25 9.132 8.2845 9.261 8.3505 9.375L9.8505 11.973C9.99 12.2137 10.2413 12.348 10.5008 12.348C10.6283 12.348 10.7572 12.3158 10.875 12.2475Z" fill="#2F2F2F"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_684_159">
+                                    <rect width="18" height="18" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span style="color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-3XS, 14px);font-style: normal;font-weight: 500;line-height: 140%;text-transform: uppercase;">Conseils</span>
+                    </div>
+                </div>
+                <div class="article-content" style="padding-top: 24px">
+                    <p class="article-title">Titre de l'article</p>
+                    <p class="article-text">Lorem ipsum dolor sit amet consectetur. Orci dolor adipiscing nulla sapien phasellus duis placerat enim sagittis.</p>
+
+                    <a href="/article">
+                        <div class="read-more">
+                            <span>Lire plus</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<!-- Footer mobile-->
+<footer class="flex  pt-28 pb-6 px-4 sm:px-6  md:mx-auto" style=" flex-direction: column;align-items: center;gap: 24px;background: var(--Color-Neutral-Carbon-100, #2F2F2F);">
+    <div style="max-width: 648px;" >
+        <div style="margin-bottom:100px;display: flex;flex-direction: column;align-items: center;gap: 16px;">
+            <div style="display: flex;flex-direction: column;align-items: center;gap: 16px;">
+                <h3 style="color: var(--Color-Neutral-White-100, #FFF);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 600;line-height: 120%;text-transform: uppercase;">REJOIGNEZ-NOUS</h3>
+                <h2 style="color: var(--Color-Neutral-White-100, #FFF);text-align: center;font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%;">Prêt à transformer votre vie de famille recomposée?</h2>
+            </div>
 
 
-              <p style="color: var(--Color-Neutral-White-100, #FFF);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Inscrivez-vous à notre newsletter pour recevoir des astuces, des conseils et les dernières actualités sur Smoozy.</p>
+            <p style="color: var(--Color-Neutral-White-100, #FFF);text-align: center;font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%;">Inscrivez-vous à notre newsletter pour recevoir des astuces, des conseils et les dernières actualités sur Smoozy.</p>
 
-              <form style="display: flex;flex-direction: column;align-items: center;gap: 16px;width: -webkit-fill-available;" action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
-                  <div class="response" id="mce-error-response" style="display: none;color: white"></div>
-                  <div class="response" id="mce-success-response" style="display: none;color: white"></div>
-                  <input  type="email" name="EMAIL" id="mce-EMAIL" required="" value="" style=" border-radius: var(--radius-radius-sm-4x, 8px);border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);background: var(--Color-Neutral-White-100, #FFF);display: flex;padding: var(--padding-padding-12px, 12px) var(--padding-padding-14px, 14px);align-items: center;gap: var(--padding-padding-48px, 48px);flex: 1 0 0;align-self: stretch;" placeholder="Entrez votre adresse e-mail">
-                  <button type="submit" name="subscribe" id="mc-embedded-subscribe" style="border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Brand-Primary-100, #846DED);display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-16, 16px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;">
-                      <span style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">Je m'inscris</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                          <path d="M18.5 11.9996C18.4951 11.4735 18.2832 10.9705 17.91 10.5996L13.62 6.29958C13.4326 6.11333 13.1792 6.00879 12.915 6.00879C12.6508 6.00879 12.3974 6.11333 12.21 6.29958C12.1163 6.39254 12.0419 6.50315 11.9911 6.62501C11.9403 6.74686 11.9142 6.87757 11.9142 7.00958C11.9142 7.14159 11.9403 7.2723 11.9911 7.39416C12.0419 7.51602 12.1163 7.62662 12.21 7.71958L15.5 10.9996H5.5C5.23478 10.9996 4.98043 11.1049 4.79289 11.2925C4.60536 11.48 4.5 11.7344 4.5 11.9996C4.5 12.2648 4.60536 12.5192 4.79289 12.7067C4.98043 12.8942 5.23478 12.9996 5.5 12.9996H15.5L12.21 16.2896C12.0217 16.4766 11.9154 16.7307 11.9144 16.996C11.9135 17.2614 12.018 17.5163 12.205 17.7046C12.392 17.8929 12.6461 17.9992 12.9115 18.0001C13.1768 18.0011 13.4317 17.8966 13.62 17.7096L17.91 13.4096C18.2856 13.0362 18.4978 12.5292 18.5 11.9996Z" fill="white"/>
-                      </svg>
-                  </button>
-              </form>
+            <form style="display: flex;flex-direction: column;align-items: center;gap: 16px;width: -webkit-fill-available;" action="https://app.us17.list-manage.com/subscribe/post?u=6bb0a21d1079de766e0f857a5&amp;id=d799be0915&amp;f_id=0008e1e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+                <div class="response" id="mce-error-response" style="display: none;color: white"></div>
+                <div class="response" id="mce-success-response" style="display: none;color: white"></div>
+                <input  type="email" name="EMAIL" id="mce-EMAIL" required="" value="" style=" border-radius: var(--radius-radius-sm-4x, 8px);border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);background: var(--Color-Neutral-White-100, #FFF);display: flex;padding: var(--padding-padding-12px, 12px) var(--padding-padding-14px, 14px);align-items: center;gap: var(--padding-padding-48px, 48px);flex: 1 0 0;align-self: stretch;" placeholder="Entrez votre adresse e-mail">
+                <button type="submit" name="subscribe" id="mc-embedded-subscribe" style="border-radius: var(--Corner-radius-8, 8px);background: var(--Color-Brand-Primary-100, #846DED);display: flex;padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-16, 16px);justify-content: center;align-items: center;gap: var(--Padding-Spacing-20, 20px);align-self: stretch;">
+                    <span style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-XS, 20px);font-style: normal;font-weight: 700;line-height: 140%;">Je m'inscris</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                        <path d="M18.5 11.9996C18.4951 11.4735 18.2832 10.9705 17.91 10.5996L13.62 6.29958C13.4326 6.11333 13.1792 6.00879 12.915 6.00879C12.6508 6.00879 12.3974 6.11333 12.21 6.29958C12.1163 6.39254 12.0419 6.50315 11.9911 6.62501C11.9403 6.74686 11.9142 6.87757 11.9142 7.00958C11.9142 7.14159 11.9403 7.2723 11.9911 7.39416C12.0419 7.51602 12.1163 7.62662 12.21 7.71958L15.5 10.9996H5.5C5.23478 10.9996 4.98043 11.1049 4.79289 11.2925C4.60536 11.48 4.5 11.7344 4.5 11.9996C4.5 12.2648 4.60536 12.5192 4.79289 12.7067C4.98043 12.8942 5.23478 12.9996 5.5 12.9996H15.5L12.21 16.2896C12.0217 16.4766 11.9154 16.7307 11.9144 16.996C11.9135 17.2614 12.018 17.5163 12.205 17.7046C12.392 17.8929 12.6461 17.9992 12.9115 18.0001C13.1768 18.0011 13.4317 17.8966 13.62 17.7096L17.91 13.4096C18.2856 13.0362 18.4978 12.5292 18.5 11.9996Z" fill="white"/>
+                    </svg>
+                </button>
+            </form>
 
-              <p style="color: var(--Color-Neutral-Carbon-20, #D5D5D5);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: 12px;font-style: normal;font-weight: 400;line-height: 140%;">En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre
-                  <a style="color: var(--Color-Feedback-Positive-100, #52A5FF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: 12px;font-style: normal;font-weight: 400;line-height: 140%;text-decoration-line: underline;">politique de confidentialité</a>.</p>
-          </div>
-          <div style="display: flex;padding: 24px 0px;flex-direction: column;align-items: center;gap: 24px;background: var(--Color-Neutral-Carbon-100, #2F2F2F);">
-              <!-- Réseaux sociaux -->
-              <div style="display: flex;align-items: flex-start;gap: 20px;">
-                  <a target="_blank" href="https://www.facebook.com/people/Smoozy/61561055577945/?mibextid=LQQJ4d"><img src="/img/icons8-facebook.svg" alt="Icon facebook"  style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
-                  <a target="_blank" href="https://www.instagram.com/smoozy_fr/?__coig_challenged=1"><img src="/img/icons8-insta.svg" alt="Icon instagram" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
-                  <a target="_blank" href="https://www.tiktok.com/@smoozyfr?_t=8n5iiNBBZXV&_r=1"><img src="/img/tiktok-svgrepo-com.svg" alt="Icon tiktok" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
-                  <a target="_blank" href=""><img src="/img/youtube-168-svgrepo-com.svg" alt="Icon youtube" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
-              </div>
-              <div style="display: flex;align-items: flex-start;gap: 24px;">
-                  <a href="#" style="font-size: var(--Font-Size-3XS, 14px);color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');;font-style: normal;font-weight: 400;line-height: 140%;">Politique de confidentialité</a>
-                  <a href="#" style=" font-size: var(--Font-Size-3XS, 14px); color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');;font-style: normal;font-weight: 400;line-height: 140%;">Mentions légales</a>
-              </div>
-              <div style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%">
-                  © 2024 Smoozy. Tous droits réservés
-              </div>
-          </div>
-      </div>
-    </footer>
+            <p style="color: var(--Color-Neutral-Carbon-20, #D5D5D5);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: 12px;font-style: normal;font-weight: 400;line-height: 140%;">En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre
+                <a style="color: var(--Color-Feedback-Positive-100, #52A5FF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: 12px;font-style: normal;font-weight: 400;line-height: 140%;text-decoration-line: underline;">politique de confidentialité</a>.</p>
+        </div>
+        <div style="display: flex;padding: 24px 0px;flex-direction: column;align-items: center;gap: 24px;background: var(--Color-Neutral-Carbon-100, #2F2F2F);">
+            <!-- Réseaux sociaux -->
+            <div style="display: flex;align-items: flex-start;gap: 20px;">
+                <a target="_blank" href="https://www.facebook.com/people/Smoozy/61561055577945/?mibextid=LQQJ4d"><img src="/img/icons8-facebook.svg" alt="Icon facebook"  style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
+                <a target="_blank" href="https://www.instagram.com/smoozy_fr/?__coig_challenged=1"><img src="/img/icons8-insta.svg" alt="Icon instagram" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
+                <a target="_blank" href="https://www.tiktok.com/@smoozyfr?_t=8n5iiNBBZXV&_r=1"><img src="/img/tiktok-svgrepo-com.svg" alt="Icon tiktok" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
+                <a target="_blank" href=""><img src="/img/youtube-168-svgrepo-com.svg" alt="Icon youtube" style="display: flex;width: 24px;height: 24px;justify-content: center;align-items: center;"></a>
+            </div>
+            <div style="display: flex;align-items: flex-start;gap: 24px;">
+                <a href="#" style="font-size: var(--Font-Size-3XS, 14px);color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');;font-style: normal;font-weight: 400;line-height: 140%;">Politique de confidentialité</a>
+                <a href="#" style=" font-size: var(--Font-Size-3XS, 14px); color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');;font-style: normal;font-weight: 400;line-height: 140%;">Mentions légales</a>
+            </div>
+            <div style="color: var(--Color-Neutral-White-100, #FFF);font-family: var(--Font-Body, 'Plus Jakarta Sans');font-size: var(--Font-Size-2XS, 16px);font-style: normal;font-weight: 400;line-height: 140%">
+                © 2024 Smoozy. Tous droits réservés
+            </div>
+        </div>
+    </div>
+</footer>
 
-    <script>
+<script>
 
-        // EVENEMENT GOOGLE ANALYTICS
-        document.getElementById('waitlist-button').addEventListener('click', function() {
-            gtag('event', 'Inscription_NL', {
-                'event_name': '0'
-            });
-            console.log('Inscription à la newsletter')
+    // EVENEMENT GOOGLE ANALYTICS
+    document.getElementById('waitlist-button').addEventListener('click', function() {
+        gtag('event', 'Inscription_NL', {
+            'event_name': '0'
         });
+        console.log('Inscription à la newsletter')
+    });
 
 
 
 
 
-        // HEADER SHADOW
-        document.addEventListener('scroll', function() {
-            var header = document.getElementById('header');
-            if (window.scrollY > 0) {
+    // HEADER SHADOW
+    document.addEventListener('scroll', function() {
+        var header = document.getElementById('header');
+        if (window.scrollY > 0) {
             header.classList.add('shadow-md');
         } else {
             header.classList.remove('shadow-md');
         }
-        });
+    });
 
 
-        // MENU MOBILE
-        document.getElementById('burger-icon').addEventListener('click', function() {
-            var menu = document.getElementById('fullscreen-menu');
-            var burgerIcon = document.getElementById('burger-icon');
+    // MENU MOBILE
+    document.getElementById('burger-icon').addEventListener('click', function() {
+        var menu = document.getElementById('fullscreen-menu');
+        var burgerIcon = document.getElementById('burger-icon');
 
-            menu.classList.toggle('hidden');
-            document.body.classList.toggle('overflow-hidden');
+        menu.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
 
-            if (!menu.classList.contains('hidden')) {
-                burgerIcon.src = '/img/close-svgrepo-com.svg';
-                window.scrollTo(0, 0);
-            } else {
-                burgerIcon.src = '/img/fi-rr-menu-burger.svg';
-            }
-        });
+        if (!menu.classList.contains('hidden')) {
+            burgerIcon.src = '/img/close-svgrepo-com.svg';
+            window.scrollTo(0, 0);
+        } else {
+            burgerIcon.src = '/img/fi-rr-menu-burger.svg';
+        }
+    });
 
-        // Close menu when clicking outside of it
-        document.addEventListener('click', function(event) {
-            var menu = document.getElementById('fullscreen-menu');
-            var burgerIcon = document.getElementById('burger-icon');
+    // Close menu when clicking outside of it
+    document.addEventListener('click', function(event) {
+        var menu = document.getElementById('fullscreen-menu');
+        var burgerIcon = document.getElementById('burger-icon');
 
-            if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
-                menu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-                burgerIcon.src = '/img/fi-rr-menu-burger.svg';
-            }
-        });
-
-
-        // GESTION DU POPUP
-        // Close menu when clicking outside of it
-        document.addEventListener('click', function(event) {
-            var menu = document.getElementById('fullscreen-menu');
-            var burgerIcon = document.getElementById('burger-icon');
-
-            if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
-                menu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-                burgerIcon.src = '/img/fi-rr-menu-burger.svg';
-            }
-        });
-
-        // Show popup when waitlist button is clicked and close the menu
-        document.getElementById('waitlist-button').addEventListener('click', function(event) {
-            event.preventDefault();
-            var popupOverlay = document.getElementById('popup-overlay');
-            var menu = document.getElementById('fullscreen-menu');
-            var burgerIcon = document.getElementById('burger-icon');
-
-            // Show the popup overlay
-            popupOverlay.classList.remove('hidden');
-
-            // Close the menu
+        if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
             menu.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
             burgerIcon.src = '/img/fi-rr-menu-burger.svg';
-        });
-        document.getElementById('waitlist-button2').addEventListener('click', function(event) {
-            event.preventDefault();
-            var popupOverlay = document.getElementById('popup-overlay');
-            var menu = document.getElementById('fullscreen-menu');
-            var burgerIcon = document.getElementById('burger-icon');
+        }
+    });
 
-            // Show the popup overlay
-            popupOverlay.classList.remove('hidden');
 
-            // Close the menu
+    // GESTION DU POPUP
+    // Close menu when clicking outside of it
+    document.addEventListener('click', function(event) {
+        var menu = document.getElementById('fullscreen-menu');
+        var burgerIcon = document.getElementById('burger-icon');
+
+        if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
             menu.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
             burgerIcon.src = '/img/fi-rr-menu-burger.svg';
-        });
+        }
+    });
 
-        // Close popup when close icon is clicked
-        document.getElementById('close-popup').addEventListener('click', function() {
+    // Show popup when waitlist button is clicked and close the menu
+    document.getElementById('waitlist-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        var popupOverlay = document.getElementById('popup-overlay');
+        var menu = document.getElementById('fullscreen-menu');
+        var burgerIcon = document.getElementById('burger-icon');
+
+        // Show the popup overlay
+        popupOverlay.classList.remove('hidden');
+
+        // Close the menu
+        menu.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        burgerIcon.src = '/img/fi-rr-menu-burger.svg';
+    });
+    document.getElementById('waitlist-button2').addEventListener('click', function(event) {
+        event.preventDefault();
+        var popupOverlay = document.getElementById('popup-overlay');
+        var menu = document.getElementById('fullscreen-menu');
+        var burgerIcon = document.getElementById('burger-icon');
+
+        // Show the popup overlay
+        popupOverlay.classList.remove('hidden');
+
+        // Close the menu
+        menu.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        burgerIcon.src = '/img/fi-rr-menu-burger.svg';
+    });
+
+    document.getElementById('waitlist-button3').addEventListener('click', function(event) {
+        event.preventDefault();
+        var popupOverlay = document.getElementById('popup-overlay');
+        var menu = document.getElementById('fullscreen-menu');
+        var burgerIcon = document.getElementById('burger-icon');
+
+        // Show the popup overlay
+        popupOverlay.classList.remove('hidden');
+
+        // Close the menu
+        menu.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        burgerIcon.src = '/img/fi-rr-menu-burger.svg';
+    });
+
+    // Close popup when close icon is clicked
+    document.getElementById('close-popup').addEventListener('click', function() {
+        var popupOverlay = document.getElementById('popup-overlay');
+        popupOverlay.classList.add('hidden');
+    });
+
+    // Close popup when clicking outside of it
+    document.getElementById('popup-overlay').addEventListener('click', function(event) {
+        if (event.target.id === 'popup-overlay') {
             var popupOverlay = document.getElementById('popup-overlay');
             popupOverlay.classList.add('hidden');
-        });
-
-        // Close popup when clicking outside of it
-        document.getElementById('popup-overlay').addEventListener('click', function(event) {
-            if (event.target.id === 'popup-overlay') {
-                var popupOverlay = document.getElementById('popup-overlay');
-                popupOverlay.classList.add('hidden');
-            }
-        });
+        }
+    });
 </script>
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
 </body>
 </html>
