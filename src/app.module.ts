@@ -8,7 +8,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'styles', 'img'),
-      serveRoot: '/img', // Le chemin où les fichiers seront accessibles
+      serveRoot: '/img',
+
     }),
   ],
   controllers: [AppController],
