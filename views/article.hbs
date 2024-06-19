@@ -565,8 +565,7 @@
         <div class="blog-section">
             <h2 style="margin-bottom:32px;color: var(--Color-Neutral-Carbon-100, #2F2F2F);font-family: var(--Font-Display, 'Bricolage Grotesque');font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%; /* 28.8px */">Découvrez d’autres articles</h2>
             <div class="articles-container">
-                <!-- ARTICLE 1 -->
-{{#each (limit articles 3)}}
+                {{#each (limit articles 3)}}
     <div class="article" style="position: relative">
         <img src="{{ this.img }}" class="image" alt="famille recomposée épanouie">
         <div class="article-meta" style="display: flex; gap: 11px">
@@ -613,7 +612,6 @@
         </div>
     </div>
 {{/each}}
-                <!-- Répétez les div.article pour chaque article -->
             </div>
         </div>
     </div>
