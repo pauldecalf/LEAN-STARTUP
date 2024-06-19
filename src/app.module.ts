@@ -10,7 +10,10 @@ import { ArticlesModule } from './articles/articles.module';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'styles', 'img'),
       serveRoot: '/img',
-
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'styles', 'css'),
+      serveRoot: '/css',
     }),
     MongooseModule.forRoot('mongodb+srv://admin:admin@atlascluster.vfolo9m.mongodb.net/'),
     ArticlesModule,
