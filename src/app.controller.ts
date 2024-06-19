@@ -1,15 +1,22 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Param, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ArticlesService } from './articles/articles.service';
+import { Article } from './articles/interfaces/article.interface';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+      private readonly appService: AppService,
+      private readonly articlesService: ArticlesService
+  ) {}
 
   @Get()
   @Render('index')
-  getHome() {
-    return this.appService.getHome();
+  async getArticles() {
+    const articles: Article[] = await this.articlesService.findAll(); // Par défaut, affiche les 6 premiers articles
+    return { articles };
   }
+
   @Get('/contact')
   @Render('contact')
   getContact() {
@@ -18,14 +25,24 @@ export class AppController {
 
   @Get('/blog')
   @Render('blog')
-  getBlog() {
-    return this.appService.getBlog();
+  async getBlog(@Query('page') page: string = '1') {
+    const pageNumber = parseInt(page, 10) || 1;
+    const limit = 6;
+    const skip = (pageNumber - 1) * limit;
+    const [articles, totalArticles] = await Promise.all([
+      this.articlesService.findAllWithPagination(limit, skip),
+      this.articlesService.countAll()
+    ]);
+    const totalPages = Math.ceil(totalArticles / limit);
+    return { articles, currentPage: pageNumber, totalPages };
   }
 
-  @Get('/article')
+  @Get('articles/:id')
   @Render('article')
-  getArticle() {
-    return this.appService.getArticle();
+  async getArticle(@Param('id') id: string) {
+    const article: Article = await this.articlesService.findOne(id);
+    const articles: Article[] = await this.articlesService.findAll(); // Par défaut, affiche les 6 premiers articles
+    return { article, articles };
   }
 
   @Get('/maintenance')
