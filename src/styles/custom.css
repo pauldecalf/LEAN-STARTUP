@@ -1275,21 +1275,19 @@ nav div{
     }
     .maintenance-h1{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-        text-align: center;
         font-family: var(--Font-Display, "Bricolage Grotesque");
-        font-size: var(--Font-Size-LG, 48px);
+        font-size: 68px;
         font-style: normal;
-        font-weight: 700;
-        line-height: 120%; /* 57.6px */
+        font-weight: 800;
+        line-height: 120%; /* 81.6px */
     }
     .maintenance-p{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-        text-align: center;
-        font-family: var(--Font-Display, "Bricolage Grotesque");
-        font-size: var(--Font-Size-SM, 24px);
+        font-family: var(--Font-Body, "Plus Jakarta Sans");
+        font-size: var(--Font-Size-XS, 20px);
         font-style: normal;
-        font-weight: 600;
-        line-height: 120%; /* 28.8px */
+        font-weight: 400;
+        line-height: 140%; /* 28px */
     }
     .contact-div {
         display: flex;
@@ -1329,8 +1327,55 @@ nav div{
         font-weight: 700;
         line-height: 140%;
     }
-}
 
+    .blog-div{
+        align-content: center;
+        flex-direction: column;
+        margin: 0 143px;
+    }
+    .blog-h1{
+        color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+        font-family: var(--Font-Display, "Bricolage Grotesque");
+        font-size: 68px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 120%;
+        max-width: 825px;
+    }
+    .blog-p{
+        color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+        font-family: var(--Font-Body, "Plus Jakarta Sans");
+        font-size: var(--Font-Size-XS, 20px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        max-width: 825px;
+    }
+}
+@media (max-width: 1024px) {
+    .blog-div {
+        align-content: center;
+        flex-direction: column;
+        margin: 0 16px;
+    }
+    .blog-h1{
+        color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+        font-family: var(--Font-Display, "Bricolage Grotesque");
+        font-size: var(--Font-Size-MD, 36px);
+        font-style: normal;
+        font-weight: 800;
+        line-height: 120%; /* 43.2px */
+
+    }
+    .blog-p{
+        color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+        font-family: var(--Font-Body, "Plus Jakarta Sans");
+        font-size: var(--Font-Size-2XS, 16px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 22.4px */
+    }
+}
 .maintenance-h1{
     margin-bottom:24px;
     color: var(--Color-Neutral-Carbon-100, #2F2F2F);
@@ -1429,11 +1474,7 @@ nav div{
     flex-shrink: 0;
 }
 
-.blog-div{
-    max-width: 1156px;
-    align-content: center;
-    flex-direction: column
-}
+
 
 .blog-h1{
     margin-bottom:24px;
