@@ -475,7 +475,7 @@ footer>div {
   grid-area: 2 / 2 / 3 / 3;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   #how-it-works>div {
     padding: 0 24px;
   }
@@ -629,7 +629,7 @@ a.read-more:hover::after {
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   #blog {
     flex-direction: column;
     padding-top: 80px;
@@ -737,7 +737,7 @@ footer p {
   line-height: 140%;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   footer .copyright-bar {
     flex-direction: column-reverse;
     align-items: center;
@@ -880,13 +880,11 @@ footer p {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   #fullscreen-menu {
     display: none;
   }
-}
 
-@media (min-width: 1024px) {
   header {
     display: flex;
     padding: var(--padding-spacing-20) var(--padding-spacing-40);
@@ -1314,7 +1312,7 @@ nav div{
   flex-shrink: 0;
 }
 
-@media(max-width: 1280px){
+@media(max-width: 1024px){
   .contact-img{
     width: 358px;
     height: 248px;
@@ -1330,7 +1328,7 @@ nav div{
   }
 }
 
-@media (min-width: 1280px){
+@media (min-width: 1024px){
   .maintenance-img{
     width: 572px;
     height: 326.016px;
@@ -1502,6 +1500,7 @@ nav div{
 }
 
 .blog-div{
+  max-width: 1156px;
   align-content: center;
   flex-direction: column
 }
@@ -1559,199 +1558,6 @@ nav div{
   align-content: center;
   flex-direction: column
 }
-
-@media(max-width: 1280px){
-  .contact-img{
-    width: 358px;
-    height: 248px;
-    flex-shrink: 0;
-    border-radius: 16px;
-  }
-  .contact-div {
-    display: flex;
-    flex-direction: column;
-    max-width: 768px;
-    align-content: center;
-  }
-  .blog-section {
-    max-width: 647px;
-    overflow-x: hidden;
-    margin-bottom: 80px;
-  }
-  .image-hover{
-    max-width: 358px;
-    height: auto;
-    flex-shrink: 0;
-  }
-  .blog-div{
-    align-content: center;
-    flex-direction: column;
-    margin: 0 16px;
-  }
-}
-
-@media (min-width: 1280px){
-  .contact-a svg{
-    width: 32px;
-    height: 32px;
-  }
-  .contact-a{
-    display: flex;
-    padding: 24px;
-    align-items: center;
-    gap: 24px;
-    max-width: max-content;
-  }
-  .contact-email{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%; /* 36.4px */
-    letter-spacing: -1px;
-  }
-  .paragraph-bold{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-  }
-  .display-title{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: 68px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 120%; /* 81.6px */
-  }
-  .paragraph-text{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%; /* 28px */
-  }
-  .blog-h2{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%; /* 36.4px */
-    letter-spacing: -1px;
-  }
-  .blog-span{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-  }
-  .blog-h1{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: 68px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 120%; /* 81.6px */
-  }
-  .blog-p{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%; /* 28px */
-  }
-  .blog-div{
-    align-content: center;
-    flex-direction: column;
-    margin: 0 142px;
-    max-width: 1156px;
-  }
-  .blog-section {
-    max-width: none;
-    overflow-x: visible;
-    margin-bottom: 80px;
-  }
-  .articles-container {
-    display: flex;
-    overflow-x: visible;
-    scroll-snap-type: x mandatory;
-    gap: 32px;
-    justify-content: center;
-  }
-  .contact-line{
-    display: none;
-  }
-  .maintenance-img{
-    width: 572px;
-    height: 326.016px;
-    flex-shrink: 0;
-  }
-  .maintenance-h1{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    text-align: center;
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: var(--Font-Size-LG, 48px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 57.6px */
-  }
-  .maintenance-p{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    text-align: center;
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: var(--Font-Size-SM, 24px);
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 28.8px */
-  }
-  .contact-div {
-    display: flex;
-    max-width: 1440px;
-    padding: 0 80px;
-    margin-top:100px;
-    align-items: center;
-    gap: 60px;
-    flex-direction: row;
-  }
-  .contact-img{
-    width: 540px;
-    height: 568px;
-    flex-shrink: 0;
-  }
-  .contact-h1{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Display, "Bricolage Grotesque");
-    font-size: var(--Font-Size-LG, 48px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-  }
-  .contact-p{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%; /* 28px */
-  }
-  .contact-span{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-  }
-}
-
 
 .article-second-div{
   display: flex;
@@ -1849,6 +1655,61 @@ nav div{
   font-weight: 600;
   line-height: 120%;
   /* 28.8px */
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  opacity: 0.95;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(100%);
+  visibility: hidden;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.cookie-banner p {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  font-size: 1rem;
+}
+
+.cookie-banner a {
+  color: #4e9fff;
+  text-decoration: underline;
+}
+
+.cookie-banner button {
+  background-color: #4e9fff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cookie-banner button:hover {
+  background-color: #2e6bb5;
 }
 
 /*! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com*/
@@ -2542,13 +2403,6 @@ video {
 
   .md\:flex{
     display: flex;
-  }
-}
-
-@media (min-width: 1024px){
-  .lg\:mx-auto{
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 

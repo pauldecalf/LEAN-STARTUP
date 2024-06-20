@@ -101,3 +101,25 @@ document.getElementById('popup-overlay').addEventListener('click', function (eve
 // Envoi du formulaire dans le header & dans le footer
 (function ($) { window.fnames = []; window.ftypes = []; fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); let $mcj = jQuery.noConflict(true);
 
+// Gestion da la banniere des cookies
+
+function acceptCookies() {
+    // Code pour accepter les cookies et masquer la bannière
+    document.getElementById('cookie-banner').classList.remove('show');
+    // Stocker le consentement de l'utilisateur (par exemple, dans un cookie ou dans le stockage local)
+    document.cookie = "cookies_accepted=true; max-age=31536000; path=/";
+}
+
+// Vérifier si le cookie existe pour ne pas afficher la bannière si l'utilisateur a déjà accepté
+function checkCookieConsent() {
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='))) {
+        document.getElementById('cookie-banner').style.display = 'none';
+    } else {
+        document.getElementById('cookie-banner').classList.add('show');
+    }
+}
+
+// Appeler la fonction pour vérifier le consentement lorsque la page est chargée
+document.addEventListener('DOMContentLoaded', (event) => {
+    checkCookieConsent();
+});

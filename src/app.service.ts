@@ -15,4 +15,8 @@ export class AppService {
   getArticle() {}
 
   getMaintenance() {}
+
+  getMentionsLegales() {}
+
+  getPPolitiqueConfidentialite() {}
 }

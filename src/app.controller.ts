@@ -50,4 +50,16 @@ export class AppController {
   getMaintenance() {
     return this.appService.getMaintenance();
   }
+
+  @Get('/mentionslegales')
+  @Render('mentionslegales')
+  getMentionsLegales() {
+    return this.appService.getMentionsLegales();
+  }
+
+  @Get('/politiqueconfidentialite')
+  @Render('politiqueconfidentialite')
+  getPPolitiqueConfidentialite() {
+    return this.appService.getPPolitiqueConfidentialite();
+  }
 }

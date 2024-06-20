@@ -465,7 +465,7 @@ footer>div {
     grid-area: 2 / 2 / 3 / 3;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     #how-it-works>div {
         padding: 0 24px;
     }
@@ -616,7 +616,7 @@ a.read-more:hover::after {
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     #blog {
         flex-direction: column;
         padding-top: 80px;
@@ -722,7 +722,7 @@ footer p {
     line-height: 140%;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     footer .copyright-bar {
         flex-direction: column-reverse;
         align-items: center;
@@ -867,7 +867,7 @@ footer p {
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     #fullscreen-menu {
         display: none;
     }
@@ -1252,7 +1252,7 @@ nav div{
 
 
 
-@media(max-width: 1280px){
+@media(max-width: 1024px){
     .contact-img{
         width: 358px;
         height: 248px;
@@ -1267,7 +1267,7 @@ nav div{
     }
 }
 
-@media (min-width: 1280px){
+@media (min-width: 1024px){
     .maintenance-img{
         width: 572px;
         height: 326.016px;
@@ -1581,4 +1581,59 @@ nav div{
     color: var(--Color-Neutral-Carbon-100, #2F2F2F);
     font-family: var(--Font-Display, 'Bricolage Grotesque');
     font-size: var(--Font-Size-SM, 24px);font-style: normal;font-weight: 600;line-height: 120%; /* 28.8px */
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1c1c1c;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    opacity: 0.95;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    visibility: hidden;
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.cookie-banner p {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    font-size: 1rem;
+}
+
+.cookie-banner a {
+    color: #4e9fff;
+    text-decoration: underline;
+}
+
+.cookie-banner button {
+    background-color: #4e9fff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cookie-banner button:hover {
+    background-color: #2e6bb5;
 }
