@@ -8,12 +8,8 @@ import { ArticlesModule } from './articles/articles.module';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'styles', 'img'),
-      serveRoot: '/img',
-    }),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'styles', 'css'),
-      serveRoot: '/css',
+      rootPath: join(__dirname, '..', 'public'),
+      serveRoot: '/',
     }),
     MongooseModule.forRoot('mongodb+srv://admin:admin@atlascluster.vfolo9m.mongodb.net/'),
     ArticlesModule,
