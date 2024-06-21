@@ -1,7 +1,7 @@
 // HEADER SHADOW
 document.addEventListener('scroll', function () {
     let header = document.getElementById('header');
-    if (header) { // Vérification si l'élément existe
+    if (header) {
         if (window.scrollY > 0) {
             header.classList.add('shadow-md');
         } else {
@@ -12,14 +12,12 @@ document.addEventListener('scroll', function () {
 
 // MENU MOBILE
 let burgerIcon = document.getElementById('burger-icon');
-if (burgerIcon) { // Vérification si l'élément existe
+if (burgerIcon) {
     burgerIcon.addEventListener('click', function () {
         let menu = document.getElementById('fullscreen-menu');
-
-        if (menu) { // Vérification si l'élément existe
+        if (menu) {
             menu.classList.toggle('hidden');
             document.body.classList.toggle('overflow-hidden');
-
             if (!menu.classList.contains('hidden')) {
                 burgerIcon.src = '/img/close-svgrepo-com.svg';
                 window.scrollTo(0, 0);
@@ -28,79 +26,49 @@ if (burgerIcon) { // Vérification si l'élément existe
             }
         }
     });
+}
 
-    // Close menu when clicking outside of it
-    document.addEventListener('click', function (event) {
-        let menu = document.getElementById('fullscreen-menu');
-        if (menu && !menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
+// Close menu when clicking outside of it
+document.addEventListener('click', function (event) {
+    let menu = document.getElementById('fullscreen-menu');
+    let burgerIcon = document.getElementById('burger-icon');
+    if (menu && burgerIcon) {
+        if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !burgerIcon.contains(event.target)) {
             menu.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
             burgerIcon.src = '/img/fi-rr-menu-burger.svg';
         }
-    });
-}
-
-// GESTION DU POPUP
-let waitlistButton = document.getElementById('waitlist-button');
-if (waitlistButton) { // Vérification si l'élément existe
-    waitlistButton.addEventListener('click', function (event) {
-        let popupOverlay = document.getElementById('popup-overlay');
-        let menu = document.getElementById('fullscreen-menu');
-        let burgerIcon = document.getElementById('burger-icon');
-        event.preventDefault();
-
-        // Google stats
-        gtag('event', 'Inscription_NL', {
-            'event_name': '0'
-        });
-
-        // Show the popup overlay
-        if (popupOverlay) { // Vérification si l'élément existe
-            popupOverlay.classList.remove('hidden');
-        }
-
-        // Close the menu
-        if (menu) {
-            menu.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-        }
-
-        if (burgerIcon) {
-            burgerIcon.src = '/img/fi-rr-menu-burger.svg';
-        }
-    });
-}
-
-// Ajout des vérifications pour les autres boutons waitlist
-['waitlist-button2', 'waitlist-button3'].forEach(function(buttonId) {
-    let button = document.getElementById(buttonId);
-    if (button) {
-        button.addEventListener('click', function (event) {
-            let popupOverlay = document.getElementById('popup-overlay');
-            if (popupOverlay) {
-                popupOverlay.classList.remove('hidden');
-            }
-        });
     }
 });
 
-// Close popup when close icon is clicked
-let closePopupIcon = document.getElementById('close-popup');
-if (closePopupIcon) {
-    closePopupIcon.addEventListener('click', function () {
-        let popupOverlay = document.getElementById('popup-overlay');
-        if (popupOverlay) {
+// GESTION DU POPUP
+let popupOverlay = document.getElementById('popup-overlay');
+if (popupOverlay) {
+    document.addEventListener('click', function (event) {
+        if (event.target.id === 'popup-overlay') {
             popupOverlay.classList.add('hidden');
         }
     });
-}
 
-// Close popup when clicking outside of it
-let popupOverlay = document.getElementById('popup-overlay');
-if (popupOverlay) {
-    popupOverlay.addEventListener('click', function (event) {
-        if (event.target.id === 'popup-overlay') {
+    let closePopup = document.getElementById('close-popup');
+    if (closePopup) {
+        closePopup.addEventListener('click', function () {
             popupOverlay.classList.add('hidden');
+        });
+    }
+
+    let waitlistButtons = ['waitlist-button', 'waitlist-button2', 'waitlist-button3'];
+    waitlistButtons.forEach(function (id) {
+        let button = document.getElementById(id);
+        if (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Google stats
+                gtag('event', 'Inscription_NL', {
+                    'event_name': '0'
+                });
+                popupOverlay.classList.remove('hidden');
+            });
         }
     });
 }
@@ -122,35 +90,23 @@ if (popupOverlay) {
     fnames[5] = 'BIRTHDAY';
     ftypes[5] = 'birthday';
 }(jQuery));
+
 let $mcj = jQuery.noConflict(true);
 
-// Gestion de la bannière des cookies
+// Gestion da la banniere des cookies
 function acceptCookies() {
-    // Code pour accepter les cookies et masquer la bannière
-    let cookieBanner = document.getElementById('cookie-banner');
-    if (cookieBanner) {
-        cookieBanner.classList.remove('show');
-    }
-    // Stocker le consentement de l'utilisateur (par exemple, dans un cookie ou dans le stockage local)
+    document.getElementById('cookie-banner').classList.remove('show');
     document.cookie = "cookies_accepted=true; max-age=31536000; path=/";
 }
 
-// Vérifier si le cookie existe pour ne pas afficher la bannière si l'utilisateur a déjà accepté
 function checkCookieConsent() {
     if (document.cookie.split(';').some((item) => item.trim().startsWith('cookies_accepted='))) {
-        let cookieBanner = document.getElementById('cookie-banner');
-        if (cookieBanner) {
-            cookieBanner.style.display = 'none';
-        }
+        document.getElementById('cookie-banner').style.display = 'none';
     } else {
-        let cookieBanner = document.getElementById('cookie-banner');
-        if (cookieBanner) {
-            cookieBanner.classList.add('show');
-        }
+        document.getElementById('cookie-banner').classList.add('show');
     }
 }
 
-// Appeler la fonction pour vérifier le consentement lorsque la page est chargée
 document.addEventListener('DOMContentLoaded', (event) => {
     checkCookieConsent();
 });
