@@ -786,12 +786,6 @@ footer p {
   }
 }
 
-.blog-section {
-  max-width: 647px;
-  overflow-x: hidden;
-  margin-bottom: 80px;
-}
-
 .blog-header {
   display: flex;
   flex-direction: column;
@@ -899,9 +893,55 @@ footer p {
     gap: 32px;
     align-self: stretch;
   }
+
+  .article-image-hover{
+    flex-shrink: 0;
+    justify-content: center
+  }
+
+  .article-title{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Display, "Bricolage Grotesque");
+    font-size: var(--Font-Size-LG, 48px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .blog-section {
+    max-width: -moz-max-content;
+    max-width: max-content;
+    overflow-x: visible;
+    margin-bottom: 80px;
+  }
+
+  .article-blog{
+    justify-content: center
+  }
 }
 
 @media (max-width: 1024px) {
+  .blog-section {
+    max-width: 647px;
+    overflow-x: hidden;
+    margin-bottom: 80px;
+  }
+
+  .article-image-hover{
+    width: 358px;
+    height: 228px;
+    flex-shrink: 0;
+  }
+
+  .article-title{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Display, "Bricolage Grotesque");
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+  }
+
   header {
     padding: var(--valeurs-20px) var(--padding-spacing-16);
     background: var(--color-neutral-cream-100);
@@ -1047,6 +1087,12 @@ nav div{
 }
 
 #category{
+  display: flex;
+  padding: 6px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 38px;
   background: var(--Color-Feedback-Positive-60, #97C9FF)
 }
 
@@ -1412,6 +1458,7 @@ nav div{
     font-style: normal;
     font-weight: 800;
     line-height: 120%;
+    max-width: 825px;
   }
 
   .blog-p{
@@ -1421,29 +1468,11 @@ nav div{
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
-    margin-bottom: 60px;
-  }
-  .blog-span{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, "Plus Jakarta Sans");
-    font-size: var(--Font-Size-XS, 20px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-
+    max-width: 825px;
   }
 }
 
 @media (max-width: 1024px) {
-  .blog-span{
-    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-    font-family: var(--Font-Body, 'Plus Jakarta Sans');
-    font-size: var(--Font-Size-2XS, 16px);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-
-  }
   .blog-div {
     align-content: center;
     flex-direction: column;
@@ -1467,7 +1496,7 @@ nav div{
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
-    margin-bottom: 40px;
+    /* 22.4px */
   }
 }
 
@@ -1568,7 +1597,35 @@ nav div{
   flex-shrink: 0;
 }
 
+.blog-h1{
+  margin-bottom:24px;
+  color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+  font-family: var(--Font-Display, 'Bricolage Grotesque');
+  font-size: var(--Font-Size-MD, 36px);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%;
+}
 
+.blog-p{
+  max-width:825px;
+  margin-bottom: 40px;
+  color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+  font-family: var(--Font-Body, 'Plus Jakarta Sans');
+  font-size: var(--Font-Size-2XS, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.blog-span{
+  color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+  font-family: var(--Font-Body, 'Plus Jakarta Sans');
+  font-size: var(--Font-Size-2XS, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+}
 
 .blog-h2{
   color: var(--Color-Neutral-Carbon-100, #2F2F2F);
@@ -2415,10 +2472,6 @@ video {
 
 .p-2{
   padding: 0.5rem;
-}
-
-.uppercase{
-  text-transform: uppercase;
 }
 
 /* Importez votre CSS personnalisé ici */
