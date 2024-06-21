@@ -1346,6 +1346,7 @@ nav div{
         width: 540px;
         height: 568px;
         flex-shrink: 0;
+        border-radius: 16px;
     }
     .contact-h1{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
@@ -1512,11 +1513,7 @@ nav div{
     line-height: 120%;
 }
 
-.contact-img{
-    width: 358px;
-    height: 248px;
-    flex-shrink: 0;
-}
+
 
 
 

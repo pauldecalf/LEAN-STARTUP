@@ -1415,6 +1415,7 @@ nav div{
     width: 540px;
     height: 568px;
     flex-shrink: 0;
+    border-radius: 16px;
   }
 
   .contact-h1{
@@ -1589,12 +1590,6 @@ nav div{
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
-}
-
-.contact-img{
-  width: 358px;
-  height: 248px;
-  flex-shrink: 0;
 }
 
 .blog-h1{
