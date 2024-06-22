@@ -1107,7 +1107,7 @@ nav div{
   gap: 11px
 }
 
-#category{
+.category{
   display: flex;
   padding: 6px 10px;
   justify-content: center;
@@ -2608,6 +2608,14 @@ video {
 .my-32{
   margin-top: 8rem;
   margin-bottom: 8rem;
+}
+
+.ml-2{
+  margin-left: 0.5rem;
+}
+
+.mt-2{
+  margin-top: 0.5rem;
 }
 
 .mt-32{
