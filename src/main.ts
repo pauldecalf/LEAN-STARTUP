@@ -4,7 +4,6 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import * as hbs from 'hbs';
 
-
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
@@ -20,7 +19,6 @@ async function bootstrap() {
     return `${day}/${month}/${year}`;
   });
 
-  // Helper pour limiter le nombre d'articles affichés
   hbs.registerHelper('limit', function(arr, limit) {
     if (!Array.isArray(arr)) {
       return [];
@@ -60,7 +58,8 @@ async function bootstrap() {
     return page === currentPage ? options.fn(this) : options.inverse(this);
   });
 
-
-  await app.listen(3000);
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
