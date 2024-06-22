@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^smoozy-app\.com [NC]
+RewriteRule ^(.*)$ http://www.smoozy-app.com/$1 [L,R=301]
