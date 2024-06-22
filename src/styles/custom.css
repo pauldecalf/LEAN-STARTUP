@@ -1100,7 +1100,7 @@ nav div{
     background: var(--Color-Feedback-Positive-60, #97C9FF)
 }
 
-#createdAt{
+.createdAt{
     background: var(--Color-Neutral-Carbon-10, #EAEAEA);
 }
 
