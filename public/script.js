@@ -89,13 +89,12 @@ function checkCookieConsent() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     checkCookieConsent();
-    // GESTION DE L'ANNIMATION POUR LA PAGE FAQ
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqDivs = document.querySelectorAll('.faq-div-question');
 
-    faqQuestions.forEach(function (faqQuestion) {
-        faqQuestion.addEventListener('click', function () {
-            const faqReponse = faqQuestion.nextElementSibling;
-            const faqIcon = faqQuestion.querySelector('.faq-icon');
+    faqDivs.forEach(function (faqDiv) {
+        faqDiv.addEventListener('click', function () {
+            const faqReponse = faqDiv.querySelector('.faq-p-reponse');
+            const faqIcon = faqDiv.querySelector('.faq-icon');
 
             faqReponse.classList.toggle('hidden');
             faqReponse.classList.toggle('block');
