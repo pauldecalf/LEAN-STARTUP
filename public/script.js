@@ -90,7 +90,7 @@ function checkCookieConsent() {
 document.addEventListener('DOMContentLoaded', (event) => {
     checkCookieConsent();
     // GESTION DE L'ANNIMATION POUR LA PAGE FAQ
-    const faqQuestions = document.querySelectorAll('.faq-div-question');
+    const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(function (faqQuestion) {
         faqQuestion.addEventListener('click', function () {
