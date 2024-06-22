@@ -1477,9 +1477,6 @@ nav div{
         line-height: 120%;
         max-width: 825px;
     }
-    .blog-div .article {
-        width: 100%;
-    }
     .blog-p{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
         font-family: var(--Font-Body, "Plus Jakarta Sans");
