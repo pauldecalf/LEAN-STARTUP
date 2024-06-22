@@ -59,7 +59,13 @@ export class AppController {
 
   @Get('/politiqueconfidentialite')
   @Render('politiqueconfidentialite')
-  getPPolitiqueConfidentialite() {
-    return this.appService.getPPolitiqueConfidentialite();
+  getPolitiqueConfidentialite() {
+    return this.appService.getPolitiqueConfidentialite();
+  }
+
+  @Get('/faq')
+  @Render('faq')
+  getFaq() {
+    return this.appService.getFaq();
   }
 }

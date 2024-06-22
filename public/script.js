@@ -73,27 +73,7 @@ if (popupOverlay) {
     });
 }
 
-// Envoi du formulaire dans le header & dans le footer
-(function ($) {
-    window.fnames = [];
-    window.ftypes = [];
-    fnames[0] = 'EMAIL';
-    ftypes[0] = 'email';
-    fnames[1] = 'FNAME';
-    ftypes[1] = 'text';
-    fnames[2] = 'LNAME';
-    ftypes[2] = 'text';
-    fnames[3] = 'ADDRESS';
-    ftypes[3] = 'address';
-    fnames[4] = 'PHONE';
-    ftypes[4] = 'phone';
-    fnames[5] = 'BIRTHDAY';
-    ftypes[5] = 'birthday';
-}(jQuery));
-
-let $mcj = jQuery.noConflict(true);
-
-// Gestion da la banniere des cookies
+// Gestion de la banniere des cookies
 function acceptCookies() {
     document.getElementById('cookie-banner').classList.remove('show');
     document.cookie = "cookies_accepted=true; max-age=31536000; path=/";
@@ -109,4 +89,18 @@ function checkCookieConsent() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     checkCookieConsent();
+    // GESTION DE L'ANNIMATION POUR LA PAGE FAQ
+    const faqQuestions = document.querySelectorAll('.faq-div-question');
+
+    faqQuestions.forEach(function (faqQuestion) {
+        faqQuestion.addEventListener('click', function () {
+            const faqReponse = faqQuestion.nextElementSibling;
+            const faqIcon = faqQuestion.querySelector('.faq-icon');
+
+            faqReponse.classList.toggle('hidden');
+            faqReponse.classList.toggle('block');
+            faqIcon.classList.toggle('rotated');
+        });
+    });
 });
+

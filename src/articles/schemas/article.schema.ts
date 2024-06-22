@@ -7,4 +7,6 @@ export const ArticleSchema = new Schema({
     img: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
     category: { type: String, required: true },
+    titlepage: { type: String, required: true },
+    metadescription: { type: String, required: true },
 });

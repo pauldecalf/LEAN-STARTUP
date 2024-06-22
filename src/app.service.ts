@@ -18,5 +18,7 @@ export class AppService {
 
   getMentionsLegales() {}
 
-  getPPolitiqueConfidentialite() {}
+  getPolitiqueConfidentialite() {}
+
+  getFaq() {}
 }

@@ -5,4 +5,6 @@ export class CreateArticleDto {
     readonly img: string;
     readonly createdAt: Date;
     readonly category: string;
+    readonly titlepage: string;
+    readonly metadescription: string;
 }

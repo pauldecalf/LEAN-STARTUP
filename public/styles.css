@@ -105,7 +105,7 @@ body {
 
 .tonal-cta {
   /*Style Tonal*/
-  background: var(--Color-Brand-Primary-100, #846DED);
+  background: #7059D7 ;
   color: var(--Color-Neutral-White-100, #FFF);
 }
 
@@ -177,6 +177,15 @@ body {
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
+}
+
+.politique-de-confidentialite{
+  display: flex;
+  margin-top: 124px;
+  max-width: 920px;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 45px;
 }
 
 .heading3 {
@@ -554,6 +563,10 @@ footer>div {
   flex: 0 0 auto;
   width: 300px;
   scroll-snap-align: start;
+}
+
+.article-container article{
+  width: 100%;
 }
 
 .article-content {
@@ -1038,14 +1051,22 @@ nav div{
 }
 
 #waitlist-button{
-  display: flex;
   padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-36, 36px);
+}
+
+#waitlist-button2{
+  display: flex;
+  padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
   justify-content: center;
   align-items: center;
   gap: var(--Padding-Spacing-20, 20px);
-  align-self: stretch;
   border-radius: var(--Corner-radius-8, 8px);
   background: var(--Color-Neutral-Carbon-100, #2F2F2F);
+  color: var(--Color-Neutral-Cream-100, #FFFCF1);
+}
+
+#waitlist-button2:hover{
+  background: var(--Color-Brand-Primary-100, #846DED);
 }
 
 #waitlist-button span {
@@ -1189,6 +1210,10 @@ nav div{
 
 .article img {
   height: 228px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
 }
 
 .article-content {
@@ -1337,6 +1362,10 @@ nav div{
 .image-hover{
   max-width: 1156px;
   max-height: 643px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 24px;
 }
 
 .maintenance-first-div{
@@ -1358,12 +1387,17 @@ nav div{
   flex-shrink: 0;
 }
 
+.rotated {
+  transform: rotate(45deg);
+}
+
 @media(max-width: 1024px){
   .contact-img{
-    width: 358px;
-    height: 248px;
+    max-height: 480px;
     flex-shrink: 0;
     border-radius: 16px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .contact-div {
@@ -1371,6 +1405,80 @@ nav div{
     flex-direction: column;
     max-width: 768px;
     align-content: center;
+  }
+
+  .faq-h1{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Display, "Bricolage Grotesque"), serif;
+    font-size: var(--Font-Size-MD, 36px);
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%;
+  }
+
+  .faq-span{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Body, "Plus Jakarta Sans"), serif;
+    font-size: var(--Font-Size-2XS, 16px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    /* 22.4px */
+  }
+
+  .faq-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 45px;
+  }
+
+  .faq-liste-de-questions{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .faq-div-question{
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+    border-radius: 16px;
+    background: var(--Color-Brand-Primary-10, #F3F0FD);
+  }
+
+  .faq-question{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+  }
+
+  .faq-p{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Body, "Plus Jakarta Sans");
+    font-size: var(--Font-Size-XS, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  .faq-p-question{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Body, "Plus Jakarta Sans");
+    font-size: var(--Font-Size-XS, 20px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .section-faq{
+    margin: 0 16px;
   }
 }
 
@@ -1416,6 +1524,8 @@ nav div{
     height: 568px;
     flex-shrink: 0;
     border-radius: 16px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .contact-h1{
@@ -1449,7 +1559,8 @@ nav div{
   .blog-div{
     align-content: center;
     flex-direction: column;
-    margin: 0 143px;
+    margin: 0 auto;
+    max-width: 1440px;
   }
 
   .blog-h1{
@@ -1462,6 +1573,10 @@ nav div{
     max-width: 825px;
   }
 
+  .blog-div .article {
+    width: 100%;
+  }
+
   .blog-p{
     color: var(--Color-Neutral-Carbon-100, #2F2F2F);
     font-family: var(--Font-Body, "Plus Jakarta Sans");
@@ -1470,6 +1585,80 @@ nav div{
     font-weight: 400;
     line-height: 140%;
     max-width: 825px;
+  }
+
+  .faq-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 60px;
+    max-width: 1044px;
+  }
+
+  .faq-h1{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Display, "Bricolage Grotesque"), serif;
+    font-size: 68px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%;
+  }
+
+  .faq-p{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Body, "Plus Jakarta Sans"), serif;
+    font-size: var(--Font-Size-XS, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  .faq-span{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Body, "Plus Jakarta Sans"), serif;
+    font-size: var(--Font-Size-XS, 20px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    /* 28px */
+  }
+
+  .faq-liste-de-questions{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .faq-div-question{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: 16px;
+    background: var(--Color-Brand-Primary-10, #F3F0FD);
+  }
+
+  .faq-question{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 1 0 0;
+  }
+
+  .section-faq{
+    margin: 0 143px;
+  }
+
+  .faq-p-question{
+    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+    font-family: var(--Font-Body, "Plus Jakarta Sans"), serif;
+    font-size: var(--Font-Size-XS, 20px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    /* 28px */
   }
 }
 
@@ -2391,10 +2580,6 @@ video {
   position: fixed;
 }
 
-.relative{
-  position: relative;
-}
-
 .inset-0{
   inset: 0px;
 }
@@ -2467,6 +2652,16 @@ video {
 
 .p-2{
   padding: 0.5rem;
+}
+
+.transition-transform{
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300{
+  transition-duration: 300ms;
 }
 
 /* Importez votre CSS personnalisé ici */

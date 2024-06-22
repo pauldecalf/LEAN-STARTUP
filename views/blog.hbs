@@ -75,16 +75,15 @@
             </svg>
         </a>
         <div class="hidden xl:flex menu-desktop">
-            <a href="/maintenance" class="desktop-navlink">L'application</a>
             <a target="_blank" href="https://smoozy.canny.io/" class="desktop-navlink">Roadmap</a>
-            <a href="/blog" class="desktop-navlink nav-active">Blog</a>
-            <a href="/maintenance" class="desktop-navlink">FAQ</a>
+            <a href="/blog" class="desktop-navlink">Blog</a>
+            <a href="/faq" class="desktop-navlink">FAQ</a>
             <a href="/contact" class="desktop-navlink">Contact</a>
         </div>
     </div>
 
     <div id="menu-burger" class="xl:hidden">
-        <img src="/img/fi-rr-menu-burger.svg" alt="menu burger" id="burger-icon">
+        <img src="/img/fi-rr-menu-burger.svg" alt="menu-burger" id="burger-icon">
     </div>
     <div class="hidden xl:block">
         <button id="waitlist-button" class="cta-md primary-cta">S'inscrire à la waitlist</button>
@@ -94,10 +93,9 @@
     <!-- Fullscreen menu -->
     <nav id="fullscreen-menu" class="fixed inset-0 hidden z-40">
         <div>
-            <a href="/maintenance">L’application</a>
             <a target="_blank" href="https://smoozy.canny.io/">Roadmap</a>
             <a href="/blog">Blog</a>
-            <a href="/maintenance">FAQ</a>
+            <a href="/faq">FAQ</a>
             <a href="/contact">Contact</a>
             <button id="waitlist-button2">
                 <span>S'inscrire à la waitlist</span>
@@ -124,8 +122,8 @@
                     <div class="response hidden" id="mce-error-response"></div>
                     <div class="response hidden" id="mce-success-response"></div>
                     <button type="submit" name="subscribe" class="cta-lg primary-cta">
-                        <span>S'inscrire sur la waitlist</span>
-                        <img src="/img/arrow-right-svgrepo-com.svg" class="w-6 h-6" alt="arrow right">
+                        <span>Je m'inscris</span>
+                        <img src="/img/arrow-right-svgrepo-com.svg" class="w-6 h-6" alt="arrow-right">
                     </button>
                 </div>
             </form>
@@ -133,8 +131,8 @@
     </div>
 
     <!-- Blog -->
-    <section class="flex mt-32  blog-div">
-        <h1 class="blog-h1">
+    <section class="flex mt-32 blog-div">
+        <h1 class="blog-h1 display-title">
             Notre blog
         </h1>
         <p class="blog-p">
@@ -177,13 +175,11 @@
                         <div class="article-content">
                             <p class="article-title">{{this.title}}</p>
                             <p class="article-text">{{this.intro}}</p>
-                            <a href="/articles/{{this._id}}">
-                                <div class="read-more">
-                                    <span>Lire plus</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F"/>
-                                    </svg>
-                                </div>
+                            <a class="read-more" href="/articles/{{this._id}}">
+                                <span>Lire plus</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18 11.9996C17.9951 11.4735 17.7832 10.9705 17.41 10.5996L13.12 6.29958C12.9326 6.11333 12.6792 6.00879 12.415 6.00879C12.1508 6.00879 11.8974 6.11333 11.71 6.29958C11.6163 6.39254 11.5419 6.50315 11.4911 6.62501C11.4403 6.74686 11.4142 6.87757 11.4142 7.00958C11.4142 7.14159 11.4403 7.2723 11.4911 7.39416C11.5419 7.51602 11.6163 7.62662 11.71 7.71958L15 10.9996H5C4.73478 10.9996 4.48043 11.1049 4.29289 11.2925C4.10536 11.48 4 11.7344 4 11.9996C4 12.2648 4.10536 12.5192 4.29289 12.7067C4.48043 12.8942 4.73478 12.9996 5 12.9996H15L11.71 16.2896C11.5217 16.4766 11.4154 16.7307 11.4144 16.996C11.4135 17.2614 11.518 17.5163 11.705 17.7046C11.892 17.8929 12.1461 17.9992 12.4115 18.0001C12.6768 18.0011 12.9317 17.8966 13.12 17.7096L17.41 13.4096C17.7856 13.0362 17.9978 12.5292 18 11.9996Z" fill="#2F2F2F" />
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -212,13 +208,7 @@
 
     <!-- Banniere des cookies -->
     <div id="cookie-banner" class="cookie-banner">
-        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/maintenance">politique de cookies</a>.</p>
-        <button onclick="acceptCookies()">Accepter</button>
-    </div>
-
-    <!-- Banniere des cookies -->
-    <div id="cookie-banner" class="cookie-banner">
-        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politique-confidentialite">politique de cookies</a>.</p>
+        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.</p>
         <button onclick="acceptCookies()">Accepter</button>
     </div>
 
@@ -253,7 +243,7 @@
                     </div>
                 </form>
                 <p class="rgpd-message">
-                    En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre <a href="#">politique de confidentialité</a>.
+                    En renseignant votre adresse e-mail, vous acceptez de recevoir la newsletter de Smoozy et vous reconnaissez avoir pris connaissance de notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.
                 </p>
             </div>
         </div>
@@ -275,6 +265,6 @@
 
     </div>
 </footer>
-<script src="script.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>
