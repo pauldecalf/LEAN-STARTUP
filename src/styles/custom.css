@@ -1551,12 +1551,13 @@ nav div{
     }
 
 }
-@media (max-width: 1024px) {
     .blog-div {
         align-content: center;
         flex-direction: column;
         margin: 0 16px;
     }
+@media (max-width: 1024px) {
+
     .blog-h1{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
         font-family: var(--Font-Display, "Bricolage Grotesque");
