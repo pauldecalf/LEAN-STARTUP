@@ -33,8 +33,8 @@
         gtag('config', 'G-DSKHG4RCJG');
     </script>
 
-  <meta name="google-signin-client_id" content="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -79,8 +79,22 @@
           </div>
           <p id="message"></p>
         </form>
-        <p>Je crée un compte via :</p>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <p class="register-p">Je crée un compte via :</p>
+
+        <div id="g_id_onload"
+             data-client_id="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com"
+             data-context="signup"
+             data-ux_mode="popup"
+             data-login_uri="http://localhost:3000/register"
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin"
+             data-type="icon"
+             data-shape="pill"
+             data-theme="filled_black"
+             data-size="small">
+        </div>
+
     </section>
 
       <!-- Banniere des cookies -->

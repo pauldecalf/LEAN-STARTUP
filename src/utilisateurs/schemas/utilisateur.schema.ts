@@ -6,7 +6,7 @@ export const UtilisateurSchema = new Schema({
     prenom: { type: String, required: true },
     pseudo: { type: String, required: true },
     email: { type: String, required: true },
-    password: { type: String, required: true },
+    password: { type: String, required: false },
     imgProfil: { type: String, required: true },
     anniversaire: { type: String, required: true },
     genre: { type: String, required: true },

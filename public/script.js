@@ -104,69 +104,85 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Gestion des réponses lors de l'inscription de l'utilisateur
-
     async function handleSubmit(event) {
-      event.preventDefault(); // Empêche le rechargement de la page
-      const form = event.target;
+        event.preventDefault();
+        const form = event.target;
 
-      const password = form.password.value;
-      const confirmPassword = form['confirm-password'].value;
+        const password = form.password.value;
+        const confirmPassword = form['confirm-password'].value;
 
-      if (password !== confirmPassword) {
-        document.getElementById('message').textContent = 'Les mots de passe ne correspondent pas';
-        return;
-      }
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      try {
-        const response = await fetch('/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          document.getElementById('message').textContent = 'Inscription réussie';
-          form.reset(); // Réinitialise le formulaire
-        } else {
-          const result = await response.json();
-          document.getElementById('message').textContent = result.message || 'Une erreur est survenue lors de votre inscription';
+        if (password !== confirmPassword) {
+            document.getElementById('message').textContent = 'Les mots de passe ne correspondent pas';
+            return;
         }
-      } catch (error) {
-        document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription';
-      }
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                document.getElementById('message').textContent = 'Inscription réussie';
+                form.reset();
+            } else {
+                const result = await response.json();
+                document.getElementById('message').textContent = result.message || 'Une erreur est survenue lors de votre inscription';
+            }
+        } catch (error) {
+            document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription';
+        }
     }
 
-    function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+    function handleCredentialResponse(response) {
+        const responsePayload = decodeJwtResponse(response.credential);
 
-      const data = {
-        pseudo: profile.getName(),
-        email: profile.getEmail(),
-        googleId: profile.getId(),
-        imgProfil: profile.getImageUrl()
-      };
+        const data = {
+            pseudo: responsePayload.name,
+            email: responsePayload.email,
+            googleId: response.credential,
+            imgProfil: responsePayload.picture
+        };
 
-      fetch('/register/google', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(result => {
-        document.getElementById('message').textContent = 'Inscription réussie avec Google';
-      })
-      .catch(error => {
-        document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
-      });
+        fetch('/register/google', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(result => {
+            document.getElementById('message').textContent = 'Inscription réussie avec Google';
+        })
+        .catch(error => {
+            document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
+        });
+    }
+
+    function decodeJwtResponse(token) {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    }
+
+    window.onload = function () {
+        google.accounts.id.initialize({
+            client_id: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
+            callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+            document.querySelector('.g_id_signin'),
+            { theme: 'outline', size: 'large' }
+        );
+        google.accounts.id.prompt();
     }

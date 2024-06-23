@@ -17,5 +17,6 @@ export interface Utilisateur extends Document {
     readonly aspirations: string;
     readonly faits: string;
     readonly role: string;
+    readonly googleId?: string;
     readonly createdAt: Date;
 }

@@ -1937,6 +1937,7 @@ nav div{
     margin-bottom: 75px;
 }
 
+
 .register-fom-email{
     display: flex;
     flex-direction: column;
@@ -1946,7 +1947,9 @@ nav div{
     margin-top: 25px;
     border-bottom: 1px solid black;
     margin-bottom: 45px;
-    border-radius: 15px;
+}
+.register-p{
+    margin-bottom: 20px;
 }
 
 .register-fom-email input{
