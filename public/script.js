@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Gestion des réponses lors de l'inscription de l'utilisateur
+
     async function handleSubmit(event) {
         event.preventDefault();
         const form = event.target;

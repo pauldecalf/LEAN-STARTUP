@@ -17,10 +17,17 @@ import { AuthService } from './auth.service';
 import { UtilisateursService } from './utilisateurs/utilisateurs.service'
 import { CreateUtilisateurDto } from './utilisateurs/dto/create-utilisateur.dto';
 import { OAuth2Client } from 'google-auth-library';
+import { config } from 'dotenv';
+config();
+
+
+
+const clientId = process.env.GOOGLE_CLIENT_ID;
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 const client = new OAuth2Client(
-  '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
-  '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'
+  clientId,
+  clientSecret
 );
 
 
@@ -151,7 +158,7 @@ export class AppController {
     try {
       const ticket = await client.verifyIdToken({
         idToken: createGoogleUserDto.googleId,
-        audience: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
+        audience: clientId,
       });
 
       const payload = ticket.getPayload();
@@ -189,4 +196,5 @@ export class AppController {
       throw new HttpException('Une erreur est survenue lors de votre inscription avec Google', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
+
 }
