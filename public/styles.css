@@ -1677,12 +1677,6 @@ nav div{
   }
 }
 
-.blog-div {
-  align-content: center;
-  flex-direction: column;
-  margin: 0 142px;
-}
-
 @media (max-width: 1024px) {
   .blog-div {
     align-content: center;
