@@ -13,6 +13,7 @@ import { MoodboardModule } from "./moodboard/moodboard.module";
 import { TachesModule } from "./taches/taches.module";
 import { ActivitesModule } from "./activites/activites.module";
 import { AuthService } from "./auth.service";
+import { ConfigModule } from "@nestjs/config";
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -28,6 +29,7 @@ import { AuthService } from "./auth.service";
     MoodboardModule,
     TachesModule,
     ActivitesModule,
+    ConfigModule.forRoot()
   ],
   controllers: [AppController],
   providers: [AppService,AuthService],

@@ -18,6 +18,7 @@ import { UtilisateursService } from './utilisateurs/utilisateurs.service'
 import { CreateUtilisateurDto } from './utilisateurs/dto/create-utilisateur.dto';
 import { OAuth2Client } from 'google-auth-library';
 import { config } from 'dotenv';
+import { ConfigService } from '@nestjs/config';
 config();
 
 
@@ -33,14 +34,19 @@ const client = new OAuth2Client(
 
 @Controller()
 export class AppController {
+  private client: OAuth2Client;
   constructor(
       private readonly appService: AppService,
       private readonly articlesService: ArticlesService,
       private readonly authService: AuthService,
        private readonly usersService: UtilisateursService,
+      private configService: ConfigService
+      ) {
 
-
-  ) {}
+    const clientId = this.configService.get<string>('GOOGLE_CLIENT_ID');
+    const clientSecret = this.configService.get<string>('GOOGLE_CLIENT_SECRET');
+    this.client = new OAuth2Client(clientId, clientSecret);
+  }
 
   @Get()
   @Render('index')
