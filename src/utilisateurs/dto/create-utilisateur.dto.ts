@@ -3,6 +3,7 @@ export class CreateUtilisateurDto {
     readonly nom: string;
     readonly prenom: string;
     readonly pseudo: string;
+    readonly email: string;
     readonly password: string;
     readonly imgProfil: string;
     readonly anniversaire: string;

@@ -4,6 +4,7 @@ export interface Utilisateur extends Document {
     readonly idFamille: string;
     readonly nom: string;
     readonly prenom: string;
+    readonly email: string;
     readonly pseudo: string;
     readonly password: string;
     readonly imgProfil: string;

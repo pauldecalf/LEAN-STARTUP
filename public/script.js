@@ -104,9 +104,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Gestion des réponses lors de l'inscription de l'utilisateur
-    async function handleSubmit(event) {
+async function handleSubmit(event) {
       event.preventDefault(); // Empêche le rechargement de la page
       const form = event.target;
+
+      const password = form.password.value;
+      const confirmPassword = form['confirm-password'].value;
+
+      if (password !== confirmPassword) {
+        document.getElementById('message').textContent = 'Les mots de passe ne correspondent pas';
+        return;
+      }
 
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());

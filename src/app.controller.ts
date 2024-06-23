@@ -112,6 +112,7 @@ export class AppController {
       ...createUtilisateurDto,
       idFamille: createUtilisateurDto.idFamille || 'default-idFamille',
       nom: createUtilisateurDto.nom || 'default-nom',
+      email: createUtilisateurDto.email || 'default-email',
       prenom: createUtilisateurDto.prenom || 'default-prenom',
       pseudo: createUtilisateurDto.pseudo || 'default-pseudo',
       imgProfil: createUtilisateurDto.imgProfil || 'default-imgProfil',
