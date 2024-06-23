@@ -1462,12 +1462,6 @@ nav div{
         line-height: 140%;
     }
 
-    .blog-div{
-        align-content: center;
-        flex-direction: column;
-        margin: 0 143px;
-        max-width: 1440px;
-    }
     .blog-h1{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
         font-family: var(--Font-Display, "Bricolage Grotesque");
@@ -1554,10 +1548,14 @@ nav div{
     .blog-div {
         align-content: center;
         flex-direction: column;
-        margin: 0 16px;
+        margin: 0 142px;
     }
 @media (max-width: 1024px) {
-
+    .blog-div {
+        align-content: center;
+        flex-direction: column;
+        margin: 0 16px;
+    }
     .blog-h1{
         color: var(--Color-Neutral-Carbon-100, #2F2F2F);
         font-family: var(--Font-Display, "Bricolage Grotesque");
