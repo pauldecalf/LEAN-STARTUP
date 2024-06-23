@@ -130,8 +130,6 @@ export class AppController {
   async register(@Body() createUtilisateurDto: CreateUtilisateurDto) {
     try {
       const hashedPassword = await this.authService.hashPassword(createUtilisateurDto.password);
-
-      // Fournir des valeurs par défaut pour les champs manquants
       const newUser = await this.usersService.create({
         ...createUtilisateurDto,
         idFamille: createUtilisateurDto.idFamille || 'default-idFamille',
@@ -151,7 +149,6 @@ export class AppController {
         createdAt: createUtilisateurDto.createdAt || new Date(),
         password: hashedPassword
       });
-
       return { message: 'Inscription réussie' };
     } catch (error) {
       console.error('Error during registration:', error);
@@ -162,9 +159,9 @@ export class AppController {
   @Post('/register/google')
   async registerWithGoogle(@Body() createGoogleUserDto: CreateUtilisateurDto) {
     try {
-      const ticket = await client.verifyIdToken({
+      const ticket = await this.client.verifyIdToken({
         idToken: createGoogleUserDto.googleId,
-        audience: clientId,
+        audience: this.configService.get<string>('GOOGLE_CLIENT_ID'),
       });
 
       const payload = ticket.getPayload();
@@ -202,5 +199,4 @@ export class AppController {
       throw new HttpException('Une erreur est survenue lors de votre inscription avec Google', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
 }
