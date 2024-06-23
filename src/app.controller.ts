@@ -73,4 +73,10 @@ export class AppController {
   getFaq() {
     return this.appService.getFaq();
   }
+
+  @Get('/login')
+  @Render('login')
+  getLogin() {
+    return this.appService.getLogin();
+  }
 }
