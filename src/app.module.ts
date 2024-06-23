@@ -8,6 +8,10 @@ import { ArticlesModule } from './articles/articles.module';
 import { UtilisateursModule } from "./utilisateurs/utilisateurs.module";
 import { FamillesModule } from "./familles/familles.module";
 import { ReglesModule } from "./regles/regles.module";
+import { PrisedeconnaissanceModule } from "./prisedeconnaissance/prisedeconnaissance.module";
+import { MoodboardModule } from "./moodboard/moodboard.module";
+import { TachesModule } from "./taches/taches.module";
+import { ActivitesModule } from "./activites/activites.module";
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -18,7 +22,11 @@ import { ReglesModule } from "./regles/regles.module";
     ArticlesModule,
     UtilisateursModule,
     FamillesModule,
-    ReglesModule
+    ReglesModule,
+    PrisedeconnaissanceModule,
+    MoodboardModule,
+    TachesModule,
+    ActivitesModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -24,5 +24,5 @@ export class AppService {
 
   getError() {}
 
-  getLogin() {}
+  getAccueil() {}
 }
