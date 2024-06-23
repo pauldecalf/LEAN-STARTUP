@@ -21,4 +21,6 @@ export class AppService {
   getPolitiqueConfidentialite() {}
 
   getFaq() {}
+
+  getError() {}
 }

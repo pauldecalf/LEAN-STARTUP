@@ -45,6 +45,11 @@ export class AppController {
     return { article, articles };
   }
 
+  @Get('articles/')
+  @Render('maintenance')
+  getError() {
+  }
+
   @Get('/maintenance')
   @Render('maintenance')
   getMaintenance() {
