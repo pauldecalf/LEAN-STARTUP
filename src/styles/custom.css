@@ -1465,7 +1465,7 @@ nav div{
     .blog-div{
         align-content: center;
         flex-direction: column;
-        margin: 0 auto;
+        margin: 0 143px;
         max-width: 1440px;
     }
     .blog-h1{
