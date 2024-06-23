@@ -25,4 +25,6 @@ export class AppService {
   getError() {}
 
   getAccueil() {}
+
+  getInscription() {}
 }

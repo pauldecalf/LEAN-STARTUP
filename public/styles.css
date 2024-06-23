@@ -1994,6 +1994,95 @@ nav div{
   background-color: #2e6bb5;
 }
 
+.accueil-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.accueil-logo{
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+.accueil-section img{
+  width: 80%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 415px;
+  margin-bottom: 25px;
+  border-radius: 16px;
+}
+
+.accueil-section p{
+  width: 80%;
+  max-width: 415px;
+}
+
+.accueil-boutons{
+  display: flex;
+  flex-direction: column;
+  margin-top: 125px;
+  max-width: 415px;
+  width: 80%;
+  align-items: center;
+  gap:10px;
+}
+
+.accueil-register{
+  padding: 15px 5px;
+  background: #2F2F2F;
+  color: white;
+  border-radius: 15px;
+  width: inherit;
+  text-align: center;
+}
+
+.accueil-login {
+  padding: 15px 5px;
+  background: #7059D7;
+  color: white;
+  border-radius: 15px;
+  width: inherit;
+  text-align: center;
+}
+
+.register-logo{
+  margin-top: 125px;
+  margin-bottom: 75px;
+}
+
+.register-fom-email{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 415px;
+  width: 80%;
+  margin-top: 25px;
+}
+
+.register-fom-email input{
+  padding: 15px 5px;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.register-fom-email div{
+  display: flex;
+  align-items: center
+}
+
+.register-fom-email div button{
+  padding: 15px 5px;
+  background: #2F2F2F;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
+}
+
 /*! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com*/
 
 /*

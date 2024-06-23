@@ -12,6 +12,7 @@ import { PrisedeconnaissanceModule } from "./prisedeconnaissance/prisedeconnaiss
 import { MoodboardModule } from "./moodboard/moodboard.module";
 import { TachesModule } from "./taches/taches.module";
 import { ActivitesModule } from "./activites/activites.module";
+import { AuthService } from "./auth.service";
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -26,9 +27,9 @@ import { ActivitesModule } from "./activites/activites.module";
     PrisedeconnaissanceModule,
     MoodboardModule,
     TachesModule,
-    ActivitesModule
+    ActivitesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,AuthService],
 })
 export class AppModule {}

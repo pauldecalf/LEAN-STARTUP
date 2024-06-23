@@ -103,3 +103,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+// Gestion des réponses lors de l'inscription de l'utilisateur
+    async function handleSubmit(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+      const form = event.target;
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          document.getElementById('message').textContent = 'Inscription réussie';
+          form.reset(); // Réinitialise le formulaire
+        } else {
+          const result = await response.json();
+          document.getElementById('message').textContent = result.message || 'Une erreur est survenue lors de votre inscription';
+        }
+      } catch (error) {
+        document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription';
+      }
+    }
