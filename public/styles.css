@@ -411,6 +411,24 @@ _____*/
   }
 }
 
+.blog-div{
+  align-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, -15.9975rem + 23.33vw, 5rem);
+  max-width: 1440px;
+}
+
+@media (max-width: 768px){
+  .blog-div{
+    padding: 0;
+  }
+}
+
+.blog-div .article{
+  width: 100%;
+}
+
 /*COMMENT ÇA MARCHE*/
 
 #how-it-works {
@@ -642,6 +660,12 @@ a.read-more:hover::after {
   }
 }
 
+@media (max-width: 1280px) {
+  #how-it-works>div, footer, .notre-mission {
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 1024px) {
   #blog {
     flex-direction: column;
@@ -686,7 +710,7 @@ footer {
 
 footer div.newsletter-signup {
   display: inline-flex;
-  padding: 140px 0;
+  padding: 140px 16px;
   align-items: flex-start;
   gap: 90px;
 }
@@ -1880,15 +1904,6 @@ nav div{
   text-transform: uppercase;
 }
 
-.article-title{
-  color: var(--Color-Neutral-Carbon-100, #2F2F2F);
-  font-family: var(--Font-Display, 'Bricolage Grotesque');
-  font-size: var(--Font-Size-MD, 36px);
-  font-style: normal;
-  font-weight: 800;
-  line-height: 120%;
-}
-
 .article-intro{
   color: var(--Color-Neutral-Carbon-100, #2F2F2F);
   font-family: var(--Font-Body, 'Plus Jakarta Sans');
@@ -2537,40 +2552,6 @@ video {
   --tw-contain-layout:  ;
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
-}
-
-.container{
-  width: 100%;
-}
-
-@media (min-width: 640px){
-  .container{
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px){
-  .container{
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px){
-  .container{
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px){
-  .container{
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px){
-  .container{
-    max-width: 1536px;
-  }
 }
 
 .fixed{
