@@ -32,6 +32,9 @@
         gtag('js', new Date());
         gtag('config', 'G-DSKHG4RCJG');
     </script>
+
+  <meta name="google-signin-client_id" content="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -74,10 +77,10 @@
           <div >
             <button>S'inscrire</button>
           </div>
+          <p id="message"></p>
         </form>
-      <p id="message"></p>
-
-
+        <p>Je crée un compte via :</p>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </section>
 
       <!-- Banniere des cookies -->

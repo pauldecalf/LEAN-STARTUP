@@ -2061,6 +2061,8 @@ nav div{
   max-width: 415px;
   width: 80%;
   margin-top: 25px;
+  border-bottom: 1px solid black;
+  margin-bottom: 45px;
 }
 
 .register-fom-email input{

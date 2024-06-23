@@ -104,7 +104,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Gestion des réponses lors de l'inscription de l'utilisateur
-async function handleSubmit(event) {
+
+    async function handleSubmit(event) {
       event.preventDefault(); // Empêche le rechargement de la page
       const form = event.target;
 
@@ -138,4 +139,34 @@ async function handleSubmit(event) {
       } catch (error) {
         document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription';
       }
+    }
+
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+
+      const data = {
+        pseudo: profile.getName(),
+        email: profile.getEmail(),
+        googleId: profile.getId(),
+        imgProfil: profile.getImageUrl()
+      };
+
+      fetch('/register/google', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(result => {
+        document.getElementById('message').textContent = 'Inscription réussie avec Google';
+      })
+      .catch(error => {
+        document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
+      });
     }

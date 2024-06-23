@@ -133,4 +133,14 @@ export class AppController {
     } catch (error) {
       throw new HttpException('Une erreur est survenue lors de votre inscription', HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    @Post('/register/google')
+  async registerWithGoogle(@Body() createGoogleUserDto: CreateUtilisateurDto) {
+    try {
+      await this.usersService.create(createGoogleUserDto);
+
+      return { message: 'Inscription réussie avec Google' };
+    } catch (error) {
+      throw new HttpException('Une erreur est survenue lors de votre inscription avec Google', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
 }
