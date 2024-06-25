@@ -1996,8 +1996,8 @@ nav div{
             }
         }
         .ecran-selection img{
-            height: 45%;
-            width: auto;
+            height: auto;
+            width: 100vw;
             margin-bottom: 57px;
         }
 
