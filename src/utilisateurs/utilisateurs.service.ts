@@ -24,4 +24,8 @@ export class UtilisateursService {
     async findOne(id: string): Promise<Utilisateur> {
         return this.utilisateurModel.findById(id).exec();
     }
+
+    async findOneByEmail(email: string): Promise<Utilisateur | undefined> {
+    return this.utilisateurModel.findOne({ email }).exec();
+  }
 }

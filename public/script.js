@@ -104,86 +104,128 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Gestion des réponses lors de l'inscription de l'utilisateur
+// Fonction pour gérer l'inscription
+async function handleRegister(event) {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form['confirm-password'].value;
+    const messageElement = document.getElementById('message');
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        const form = event.target;
-
-        const password = form.password.value;
-        const confirmPassword = form['confirm-password'].value;
-
-        if (password !== confirmPassword) {
-            document.getElementById('message').textContent = 'Les mots de passe ne correspondent pas';
-            return;
-        }
-
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        try {
-            const response = await fetch('/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-                document.getElementById('message').textContent = 'Inscription réussie';
-                form.reset();
-            } else {
-                const result = await response.json();
-                document.getElementById('message').textContent = result.message || 'Une erreur est survenue lors de votre inscription';
-            }
-        } catch (error) {
-            document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription';
-        }
+    if (password !== confirmPassword) {
+        messageElement.textContent = 'Les mots de passe ne correspondent pas';
+        return;
     }
 
-    function handleCredentialResponse(response) {
-        const responsePayload = decodeJwtResponse(response.credential);
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        const result = await response.json();
+        if (response.ok) {
+            messageElement.textContent = result.message;
+            localStorage.setItem('token', result.token); // Stocker le token
+            window.location.href = '/protected-page'; // Rediriger vers une page protégée
+        } else {
+            messageElement.textContent = result.message || 'Une erreur est survenue';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        messageElement.textContent = 'Une erreur est survenue';
+    }
+}
 
-        const data = {
-            pseudo: responsePayload.name,
-            email: responsePayload.email,
-            googleId: response.credential,
-            imgProfil: responsePayload.picture
-        };
+// Fonction pour gérer la connexion
+async function handleLogin(event) {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const messageElement = document.getElementById('message');
 
-        fetch('/register/google', {
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        const result = await response.json();
+        if (response.ok) {
+            messageElement.textContent = result.message;
+            localStorage.setItem('token', result.token); // Stocker le token
+            window.location.href = '/protected-page'; // Rediriger vers une page protégée
+        } else {
+            messageElement.textContent = result.message || 'Une erreur est survenue';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        messageElement.textContent = 'Une erreur est survenue';
+    }
+}
+
+// Fonction pour gérer la réponse des credentials Google
+async function handleCredentialResponse(response) {
+    const responsePayload = decodeJwtResponse(response.credential);
+
+    const data = {
+        pseudo: responsePayload.name,
+        email: responsePayload.email,
+        googleId: response.credential,
+        imgProfil: responsePayload.picture
+    };
+
+    console.log("Data sent to server:", data); // Debug log
+
+    try {
+        const res = await fetch('/register/google', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(result => {
-            document.getElementById('message').textContent = 'Inscription réussie avec Google';
-        })
-        .catch(error => {
-            document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
         });
-    }
 
-    function decodeJwtResponse(token) {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        return JSON.parse(jsonPayload);
+        const result = await res.json();
+        const messageElement = document.getElementById('message');
+        if (res.ok) {
+            messageElement.textContent = result.message;
+            localStorage.setItem('token', result.token); // Stocker le token
+            window.location.href = '/protected-page'; // Rediriger vers une page protégée
+        } else {
+            messageElement.textContent = result.message || 'Une erreur est survenue lors de votre inscription avec Google';
+        }
+    } catch (error) {
+        console.error('Error during Google registration:', error); // Debug log
+        document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
     }
+}
 
-    window.onload = function () {
-        google.accounts.id.initialize({
-            client_id: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
-            callback: handleCredentialResponse
-        });
-        google.accounts.id.renderButton(
-            document.querySelector('.g_id_signin'),
-            { theme: 'outline', size: 'large' }
-        );
-        google.accounts.id.prompt();
-    }
+// Fonction pour décoder le token JWT
+function decodeJwtResponse(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+}
+
+// Initialisation de Google Identity Services
+window.onload = function () {
+    google.accounts.id.initialize({
+        client_id: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
+        callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+        document.querySelector('.g_id_signin'),
+        { theme: 'outline', size: 'large' }
+    );
+    google.accounts.id.prompt();
+}

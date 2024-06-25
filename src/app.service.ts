@@ -27,4 +27,8 @@ export class AppService {
   getAccueil() {}
 
   getInscription() {}
+
+  getLogin() {}
+
+  getLoading() {}
 }

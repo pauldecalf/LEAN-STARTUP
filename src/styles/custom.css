@@ -1970,3 +1970,72 @@ nav div{
     text-align: center;
     width: 100%;
 }
+        .loading-img {
+            width: 45%;
+            max-height: 131.803px;
+        }
+
+        .loading-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #CEC5F8;
+            animation: slide-left 1s forwards;
+            animation-delay: 1s;
+            position: absolute;
+            width: 100%;
+        }
+
+        @keyframes slide-left {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        .ecran-selection img{
+            height: 45%;
+            width: auto;
+            margin-bottom: 57px;
+        }
+
+        .ecran-selection{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column
+        }
+
+        .ecran-selection p{
+            color: #2F2F2F;
+            text-align: center;
+            font-family: var(--Font-Body, "Plus Jakarta Sans"), serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            max-width: 284px;
+            margin-top: 16px;
+        }
+        .loading-cta{
+            margin-top: 32px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-direction: column;
+            align-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .loading-cta a{
+            width: 95%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .loading-login-cta{
+            background: #E6E2FB;
+        }

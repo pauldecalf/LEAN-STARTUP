@@ -29,7 +29,9 @@ import { ConfigModule } from "@nestjs/config";
     MoodboardModule,
     TachesModule,
     ActivitesModule,
-    ConfigModule.forRoot()
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService,AuthService],

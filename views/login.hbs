@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Smoozy</title>
+    <title>Connexion - Smoozy</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Consultez les mentions légales de Smoozy pour tout savoir sur nos conditions d'utilisation et informations légales.">
@@ -45,9 +45,9 @@
                 <!-- SVG Content -->
             </svg>
 
-      <p>Création d’un compte </p>
+      <p>Connexion </p>
 
-        <form class="register-fom-email" onsubmit="handleRegister(event)">
+        <form class="register-fom-email"  onsubmit="handleLogin(event)">
           <label for="email">
             <span>Votre adresse email :</span>
             <input type="text" name="email" placeholder="Ex : email@gmail.com">
@@ -56,12 +56,8 @@
             <span>Choississez un mot de passe :</span>
             <input type="password" name="password">
           </label>
-          <label for="confirm-password">
-            <span>Confirmez votre mot de passe :</span>
-            <input type="password" name="confirm-password">
-          </label>
           <div >
-            <button>S'inscrire</button>
+            <button>Se connecter</button>
           </div>
           <p id="message"></p>
         </form>
@@ -69,9 +65,9 @@
 
         <div id="g_id_onload"
              data-client_id="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com"
-             data-context="signup"
+             data-context="signin"
              data-ux_mode="popup"
-             data-login_uri="https://www.smoozy-app.com/register"
+             data-login_uri="https://www.smoozy-app.com/login"
              data-auto_prompt="false">
         </div>
         <div class="g_id_signin"

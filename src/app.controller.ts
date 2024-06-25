@@ -4,54 +4,47 @@ import {
   Get,
   HttpException,
   HttpStatus,
-  Injectable,
   Param,
   Post,
   Query,
-  Render
+  Render,
+  Res
 } from "@nestjs/common";
+import { Response } from 'express';
 import { AppService } from "./app.service";
 import { ArticlesService } from "./articles/articles.service";
 import { Article } from "./articles/interfaces/article.interface";
 import { AuthService } from './auth.service';
-import { UtilisateursService } from './utilisateurs/utilisateurs.service'
+import { UtilisateursService } from './utilisateurs/utilisateurs.service';
 import { CreateUtilisateurDto } from './utilisateurs/dto/create-utilisateur.dto';
 import { OAuth2Client } from 'google-auth-library';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
 config();
 
+const clientId = "152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com";
+const clientSecret = "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";
 
-
-const clientId = process.env.GOOGLE_CLIENT_ID;
-const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-
-const client = new OAuth2Client(
-  clientId,
-  clientSecret
-);
-
+const client = new OAuth2Client(clientId, clientSecret);
 
 @Controller()
 export class AppController {
   private client: OAuth2Client;
-  constructor(
-      private readonly appService: AppService,
-      private readonly articlesService: ArticlesService,
-      private readonly authService: AuthService,
-       private readonly usersService: UtilisateursService,
-      private configService: ConfigService
-      ) {
 
-    const clientId = this.configService.get<string>('GOOGLE_CLIENT_ID');
-    const clientSecret = this.configService.get<string>('GOOGLE_CLIENT_SECRET');
+  constructor(
+    private readonly appService: AppService,
+    private readonly articlesService: ArticlesService,
+    private readonly authService: AuthService,
+    private readonly usersService: UtilisateursService,
+    private configService: ConfigService
+  ) {
     this.client = new OAuth2Client(clientId, clientSecret);
   }
 
   @Get()
   @Render('index')
   async getArticles() {
-    const articles: Article[] = await this.articlesService.findAll(); // Par défaut, affiche les 6 premiers articles
+    const articles: Article[] = await this.articlesService.findAll();
     return { articles };
   }
 
@@ -79,14 +72,13 @@ export class AppController {
   @Render('article')
   async getArticle(@Param('id') id: string) {
     const article: Article = await this.articlesService.findOne(id);
-    const articles: Article[] = await this.articlesService.findAll(); // Par défaut, affiche les 6 premiers articles
+    const articles: Article[] = await this.articlesService.findAll();
     return { article, articles };
   }
 
   @Get('articles/')
   @Render('maintenance')
-  getError() {
-  }
+  getError() {}
 
   @Get('/maintenance')
   @Render('maintenance')
@@ -124,11 +116,14 @@ export class AppController {
     return this.appService.getInscription();
   }
 
-
-
   @Post('/register')
-  async register(@Body() createUtilisateurDto: CreateUtilisateurDto) {
+  async register(@Body() createUtilisateurDto: CreateUtilisateurDto, @Res() response: Response) {
     try {
+      const existingUser = await this.usersService.findOneByEmail(createUtilisateurDto.email);
+      if (existingUser) {
+        return response.status(HttpStatus.BAD_REQUEST).json({ message: 'Un compte avec cet email existe déjà' });
+      }
+
       const hashedPassword = await this.authService.hashPassword(createUtilisateurDto.password);
       const newUser = await this.usersService.create({
         ...createUtilisateurDto,
@@ -149,31 +144,43 @@ export class AppController {
         createdAt: createUtilisateurDto.createdAt || new Date(),
         password: hashedPassword
       });
-      return { message: 'Inscription réussie' };
+      const token = await this.authService.generateToken(newUser);
+      return response.status(HttpStatus.CREATED).json({ message: 'Inscription réussie', token });
     } catch (error) {
       console.error('Error during registration:', error);
-      throw new HttpException('Une erreur est survenue lors de votre inscription', HttpStatus.INTERNAL_SERVER_ERROR);
+      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre inscription' });
     }
   }
 
   @Post('/register/google')
-  async registerWithGoogle(@Body() createGoogleUserDto: CreateUtilisateurDto) {
+  async registerWithGoogle(@Body() createGoogleUserDto: CreateUtilisateurDto, @Res() response: Response) {
     try {
       const ticket = await this.client.verifyIdToken({
         idToken: createGoogleUserDto.googleId,
-        audience: this.configService.get<string>('GOOGLE_CLIENT_ID'),
+        audience: clientId,
       });
 
       const payload = ticket.getPayload();
 
       if (!payload) {
-        throw new HttpException('Token Google invalide', HttpStatus.UNAUTHORIZED);
+        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Token Google invalide' });
       }
+
+      const existingUser = await this.usersService.findOneByEmail(payload.email);
+      if (existingUser) {
+        // Utilisateur existe déjà, générer un token JWT pour lui
+        const token = await this.authService.generateToken(existingUser);
+        return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
+      }
+
+      // Split the payload.name into prenom and nom
+      const [prenom, ...rest] = payload.name.split(' ');
+      const nom = rest.join(' ');
 
       const userPayload = {
         idFamille: 'default-idFamille',
-        nom: 'default-nom',
-        prenom: 'default-prenom',
+        nom: nom || 'default-nom',
+        prenom: prenom || 'default-prenom',
         pseudo: payload.name,
         email: payload.email,
         googleId: payload.sub,
@@ -192,11 +199,39 @@ export class AppController {
       };
 
       const newUser = await this.usersService.create(userPayload);
+      const token = await this.authService.generateToken(newUser);
 
-      return { message: 'Inscription réussie avec Google' };
+      return response.status(HttpStatus.CREATED).json({ message: 'Inscription réussie avec Google', token });
     } catch (error) {
       console.error('Error during Google registration:', error);
-      throw new HttpException('Une erreur est survenue lors de votre inscription avec Google', HttpStatus.INTERNAL_SERVER_ERROR);
+      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre inscription avec Google' });
     }
+  }
+
+  @Get('/login')
+  @Render('login')
+  getLogin() {
+    return this.appService.getLogin();
+  }
+  @Post('/login')
+  async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
+    try {
+      const user = await this.usersService.findOneByEmail(email);
+      if (!user || !await this.authService.comparePasswords(password, user.password)) {
+        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+      }
+      const token = await this.authService.generateToken(user);
+      return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
+    } catch (error) {
+      console.error('Error during login:', error);
+      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
+    }
+  }
+
+
+  @Get('/loading')
+  @Render('loading')
+  getLoading() {
+    return this.appService.getLoading();
   }
 }
