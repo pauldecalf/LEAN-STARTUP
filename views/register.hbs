@@ -50,18 +50,18 @@
 
       <h1>Créez un compte !</h1>
 
+      <p id="message"></p>
       <form class="register-form-email" onsubmit="handleRegister(event)">
         <input id="prenom-input" class="register-input" placeholder="Prénom*" type="text" name="prenom">
         <input id="email-input" class="register-input" type="text" name="email" placeholder="Adresse email*">
         <input id="password-input" class="register-input" type="password" name="password" placeholder="Mot de passe*">
         <p id="password-instructions" class="register-instructions-password">8 caractères, 1 majuscule, 1 chiffre</p>
         <button id="register-button" type="submit" class="cta-register-lock" disabled>Je m'inscris</button>
-        <p id="message"></p>
         <p class="register-p-mentions-legales">
           En continuant, vous acceptez les <a href="/mentionslegales">conditions d'utilisation</a> et la <a href="/politiqueconfidentialite">politique de confidentialité</a> de Smoozy.
         </p>
       </form>
-
+      <p class="register-separator">ou</p>
 
       <div id="g_id_onload"
            data-client_id="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com"

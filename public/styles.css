@@ -2216,6 +2216,7 @@ nav div{
 .cta-register-lock{
   display: flex;
   width: 100%;
+  margin-bottom: 20px;
   padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
   justify-content: center;
   align-items: center;
