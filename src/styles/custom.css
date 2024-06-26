@@ -1936,40 +1936,11 @@ nav div{
     margin-top: 125px;
     margin-bottom: 75px;
 }
-
-
-.register-fom-email{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 415px;
-    width: 80%;
-    margin-top: 25px;
-    border-bottom: 1px solid black;
-    margin-bottom: 45px;
-}
 .register-p{
     margin-bottom: 20px;
 }
 
-.register-fom-email input{
-    padding: 15px 5px;
-    border-radius: 15px;
-    width: 100%;
 
-}
-.register-fom-email div{
-    display: flex;
-    align-items: center
-}
-.register-fom-email div button{
-    padding: 15px 5px;
-    background: #2F2F2F;
-    color: white;
-    border-radius: 15px;
-    text-align: center;
-    width: 100%;
-}
         .loading-img {
             width: 45%;
             max-height: 131.803px;
@@ -2037,4 +2008,139 @@ nav div{
 
         .loading-login-cta{
             background: #E6E2FB;
+        }
+
+        .cta-back-to-loading{
+            display: inline-flex;
+            padding: 12px;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-radius: 8px;
+            background: #2F2F2F;
+        }
+        .register-section{
+            margin: 20px 16px;
+        }
+
+        .register-section h1{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+            font-family: var(--Font-Display, "Bricolage Grotesque");
+            font-size: var(--Font-Size-MD, 36px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: 120%;
+            margin: 40px 0 40px 0;
+        }
+
+        .register-input{
+            display: flex;
+            height: 53px;
+            padding: var(--padding-padding-12px, 12px) var(--padding-padding-14px, 14px);
+            align-items: center;
+            gap: var(--padding-padding-48px, 48px);
+            align-self: stretch;
+            border-radius: var(--radius-radius-sm-4x, 8px);
+            border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);
+            background: var(--Color-Neutral-White-100, #FFF);
+            color: var(--Color-Neutral-Carbon-60, #828282);
+
+            /* Paragraph/MD/Normal */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .register-instructions-password{
+            color: var(--Color-Neutral-Carbon-60, #828282);
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-3XS, 14px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 20px;
+        }
+
+        .register-fom-email button{
+            margin-bottom: 20px;
+        }
+        .register-p-mentions-legales{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 20px;
+        }
+        .register-p-mentions-legales a{
+            color: var(--Color-Brand-Primary-100, #846DED);
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            text-decoration-line: underline;
+        }
+        .cta-register-lock{
+            display: flex;
+            width: 100%;
+            padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+            justify-content: center;
+            align-items: center;
+            gap: var(--Padding-Spacing-20, 20px);
+            border-radius: var(--Corner-radius-8, 8px);
+            background: var(--Color-Neutral-Carbon-20, #D5D5D5);
+            color: var(--Color-Neutral-Carbon-60, #828282);
+
+            /* Paragraph/LG/Bold */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-XS, 20px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+        }
+
+        .register-separator{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+
+            /* Paragraph/MD/Normal */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+            margin-bottom: 20px;
+        }
+        .g_id_signin{
+            margin-bottom: 20px;
+        }
+
+        .register-p-to-login {
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+
+            /* Paragraph/MD/Normal */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+        }
+
+        .register-p-to-login a{
+            color: var(--Color-Brand-Primary-100, #846DED);
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 140%;
+            text-decoration-line: underline;
         }
