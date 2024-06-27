@@ -2272,6 +2272,17 @@ nav div{
   text-decoration-line: underline;
 }
 
+.login-p-forgot-password{
+  color: var(--Color-Brand-Primary-100, #846DED);
+  text-align: center;
+  font-family: var(--Font-Body, "Plus Jakarta Sans");
+  font-size: var(--Font-Size-2XS, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-bottom: 20px;
+}
+
 /*! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com*/
 
 /*

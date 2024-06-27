@@ -9,11 +9,11 @@ import {
   Query,
   Render,
   Res
-} from "@nestjs/common";
+} from '@nestjs/common';
 import { Response } from 'express';
-import { AppService } from "./app.service";
-import { ArticlesService } from "./articles/articles.service";
-import { Article } from "./articles/interfaces/article.interface";
+import { AppService } from './app.service';
+import { ArticlesService } from './articles/articles.service';
+import { Article } from './articles/interfaces/article.interface';
 import { AuthService } from './auth.service';
 import { UtilisateursService } from './utilisateurs/utilisateurs.service';
 import { CreateUtilisateurDto } from './utilisateurs/dto/create-utilisateur.dto';
@@ -22,8 +22,8 @@ import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
 config();
 
-const clientId = "152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com";
-const clientSecret = "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";
+const clientId = '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com';
+const clientSecret = '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';
 
 const client = new OAuth2Client(clientId, clientSecret);
 
@@ -213,20 +213,38 @@ export class AppController {
   getLogin() {
     return this.appService.getLogin();
   }
+
   @Post('/login')
-  async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
-    try {
-      const user = await this.usersService.findOneByEmail(email);
-      if (!user || !await this.authService.comparePasswords(password, user.password)) {
-        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
-      }
-      const token = await this.authService.generateToken(user);
-      return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
-    } catch (error) {
-      console.error('Error during login:', error);
-      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
+async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
+  try {
+    console.log(`Login attempt: email=${email}, password=${password}`);
+    const user = await this.usersService.findOneByEmail(email);
+    console.log(`User found: ${JSON.stringify(user)}`);
+
+    if (!user) {
+      console.error('User not found');
+      return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
     }
+
+    // Vérifiez que l'utilisateur contient un hash de mot de passe
+    if (!user.password) {
+      console.error('User password hash is missing');
+      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Erreur interne du serveur' });
+    }
+
+    const isPasswordMatch = await this.authService.comparePasswords(password, user.password);
+    console.log(`Password match: ${isPasswordMatch}`);
+    if (!isPasswordMatch) {
+      return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+    }
+
+    const token = await this.authService.generateToken(user);
+    return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
+  } catch (error) {
+    console.error('Error during login:', error);
+    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
   }
+}
 
 
   @Get('/loading')

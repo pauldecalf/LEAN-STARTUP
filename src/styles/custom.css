@@ -2145,3 +2145,25 @@ nav div{
             line-height: 140%;
             text-decoration-line: underline;
         }
+
+        .login-p-forgot-password{
+            color: var(--Color-Brand-Primary-100, #846DED);
+            text-align: center;
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%;
+            margin-bottom: 20px;
+        }
+
+                /* Ajoutez ce CSS dans votre fichier CSS */
+        .valid-button {
+            background-color: #7059D7; /* Couleur pour indiquer la validité */
+            color: white;
+        }
+        
+        .invalid-button {
+            background-color: grey; /* Couleur pour indiquer l'invalidité */
+            color: white;
+        }
