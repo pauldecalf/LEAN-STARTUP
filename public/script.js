@@ -308,3 +308,115 @@ document.addEventListener('DOMContentLoaded', (event) => {
         };
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const familyNameInput = document.getElementById('familyname');
+    const familyForm = document.getElementById('create-family-form');
+    const copyButton = document.querySelector('.copy-code');
+    const codeElement = document.querySelector('.invit-family-code');
+  
+    // Vérifiez si l'élément familyNameInput existe avant d'ajouter l'écouteur d'événements
+    if (familyNameInput) {
+      familyNameInput.addEventListener('input', function() {
+        var input = this;
+        var infoText = document.getElementById('info-text');
+        var submitButton = document.querySelector('.cta-lg.create-family-cta-continue');
+  
+        if (input.value.length >= 3) {
+          input.classList.add('valid');
+          infoText.classList.add('valid');
+          submitButton.classList.add('valid');
+          submitButton.disabled = false;
+        } else {
+          input.classList.remove('valid');
+          infoText.classList.remove('valid');
+          submitButton.classList.remove('valid');
+          submitButton.disabled = true;
+        }
+      });
+    }
+  
+    // Vérifiez si l'élément familyForm existe avant d'ajouter l'écouteur d'événements
+    if (familyForm) {
+      familyForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+  
+        var errorMessageDiv = document.querySelector('.error-message');
+        var familyname = familyNameInput.value;
+  
+        fetch('/create-family', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name: familyname })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message) {
+            errorMessageDiv.style.display = 'block';
+            errorMessageDiv.textContent = data.message;
+            errorMessageDiv.style.color = '#52A5FF'; // Change la couleur du texte à bleu pour indiquer le succès
+  
+            // Redirection après un délai pour permettre à l'utilisateur de voir le message
+            setTimeout(() => {
+              window.location.href = '/family-invitation';
+            }, 2000); // 2 secondes de délai
+          } else {
+            errorMessageDiv.style.display = 'block';
+            errorMessageDiv.textContent = 'Une erreur est survenue';
+            errorMessageDiv.style.color = 'red'; // Change la couleur du texte à rouge pour indiquer une erreur
+          }
+        })
+        .catch(error => {
+          errorMessageDiv.style.display = 'block';
+          errorMessageDiv.textContent = 'Une erreur est survenue';
+          errorMessageDiv.style.color = 'red'; // Change la couleur du texte à rouge pour indiquer une erreur
+        });
+      });
+    }
+  
+    // Vérifiez si les éléments copyButton et codeElement existent avant d'ajouter l'écouteur d'événements
+    if (copyButton && codeElement) {
+      copyButton.addEventListener('click', function() {
+        const code = codeElement.textContent;
+  
+        // Try to use the Clipboard API
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(code).then(() => {
+            // Optional: Provide feedback to the user
+            alert('Code copié: ' + code);
+          }).catch(err => {
+            console.error('Failed to copy: ', err);
+          });
+        } else {
+          // Fallback method using a textarea
+          const textArea = document.createElement('textarea');
+          textArea.value = code;
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+            document.execCommand('copy');
+          } catch (err) {
+            console.error('Failed to copy: ', err);
+          }
+          document.body.removeChild(textArea);
+        }
+      });
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const emailShareButton = document.querySelector('.email-share-button');
+
+  
+    if (emailShareButton) {
+      emailShareButton.addEventListener('click', function() {
+        const subject = encodeURIComponent('Invitation à rejoindre notre famille');
+        const body = encodeURIComponent(`Rejoignez notre famille sur cette application en utilisant le lien suivant : https://smoozy-app.com/loading`);
+        window.location.href = `mailto:?subject=${subject}&body=${body}`;
+      });
+    }
+  });
+  

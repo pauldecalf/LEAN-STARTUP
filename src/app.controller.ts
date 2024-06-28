@@ -17,6 +17,8 @@ import { Article } from './articles/interfaces/article.interface';
 import { AuthService } from './auth.service';
 import { UtilisateursService } from './utilisateurs/utilisateurs.service';
 import { CreateUtilisateurDto } from './utilisateurs/dto/create-utilisateur.dto';
+import { FamillesService } from './familles/familles.service';
+import { CreateFamilleDto } from './familles/dto/create-famille.dto';
 import { OAuth2Client } from 'google-auth-library';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
@@ -36,6 +38,7 @@ export class AppController {
     private readonly articlesService: ArticlesService,
     private readonly authService: AuthService,
     private readonly usersService: UtilisateursService,
+    private readonly famillesService: FamillesService,
     private configService: ConfigService
   ) {
     this.client = new OAuth2Client(clientId, clientSecret);
@@ -258,4 +261,38 @@ async login(@Body() { email, password }: { email: string, password: string }, @R
   getFamilySetup() {
     return this.appService.getFamilySetup();
   }
+
+  @Get('/create-family')
+  @Render('create-family')
+  getCreateFamily() {
+    return this.appService.getCreateFamily();
+  }
+
+  @Post('/create-family')
+async create(@Body() { name }: { name: string }, @Res() response: Response) {
+  try {
+    const famille = {
+      nom: name,
+      createdBy: 'default-createdBy',
+      createdAt: new Date()
+    };
+    const family = await this.famillesService.create(famille);
+    return response.status(HttpStatus.CREATED).json({ message: 'Famille créée avec succès', family });
+  } catch (error) {
+    console.error('Error during family creation:', error);
+    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de la création de la famille' });
+  }
+}
+
+@Get('/family-invitation')
+@Render('family-invitation')
+getFamilyInvitation() {
+  return this.appService.getFamilyInvitation();
+}
+
+@Get('/choix-role')
+@Render('choix-role')
+getChoixRole() {
+  return this.appService.getChoixRole();
+}
 }

@@ -33,4 +33,10 @@ export class AppService {
   getLoading() {}
 
   getFamilySetup() {}
+
+  getCreateFamily() {}
+
+  getFamilyInvitation() {}
+
+  getChoixRole() {}
 }

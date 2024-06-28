@@ -2236,3 +2236,292 @@ nav div{
             color: var(--Color-Neutral-Carbon-100, #2F2F2F);
 
         }
+
+        .main-create-family{
+            margin: 24px 16px;
+        }
+        .create-family-progress-bar{
+            width: 100%;
+            display: relative;
+        }
+        .create-family-progress-background{
+            display: absolute;
+            border-radius: 32px;
+            background: var(--Color-Neutral-Carbon-10, #EAEAEA);
+        }
+        .create-family-progress{
+            width:33%;
+            height: 8px;
+            border-radius: 32px;
+            background: var(--Color-Brand-Primary-100, #846DED);
+        }
+        .create-family-back{
+            padding-top: 24px;
+            margin-bottom: 32px;
+        }
+        .create-family-title{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+            font-family: var(--Font-Display, "Bricolage Grotesque");
+            font-size: var(--Font-Size-MD, 36px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: 120%; /* 43.2px */
+            margin-bottom: 8px;
+        }
+        .create-family-subtitle{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 48px;
+        }
+        .create-family-input-name{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--padding-padding-12px, 12px);
+            margin-bottom: 24px;
+        }
+        .create-family-input-name input{
+            display: flex;
+            height: 58px;
+            padding: var(--padding-padding-12px, 12px) var(--padding-padding-16px, 16px);
+            align-items: center;
+            gap: var(--padding-padding-48px, 48px);
+            align-self: stretch;
+            border-radius: var(--radius-radius-sm-4x, 8px);
+            border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);
+            background: var(--Color-Neutral-White-100, #FFF);
+            color: var(--Color-Neutral-Carbon-60, #828282);
+
+            /* Paragraph/MD/Normal */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+        }
+
+        .create-family-input-name p{
+            color: var(--Color-Neutral-Carbon-60, #828282);
+
+            /* Paragraph/SM/Normal */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-3XS, 14px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 19.6px */
+        }
+
+        .create-family-cta-continue{
+            display: flex;
+            width: 100%;
+            padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+            justify-content: center;
+            align-items: center;
+            gap: var(--Padding-Spacing-20, 20px);
+            border-radius: var(--Corner-radius-8, 8px);
+            background: var(--Color-Neutral-Carbon-20, #D5D5D5);
+            color: var(--Color-Neutral-Carbon-60, #828282);
+
+            /* Paragraph/LG/Bold */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-XS, 20px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+        }
+
+        .create-family-input-name input {
+            border: 1px solid #ccc;
+          }
+          
+          .create-family-input-name input.valid {
+            border-color: #52A5FF;
+          }
+          
+          .create-family-input-name p.valid {
+            color: #52A5FF;
+          }
+          
+          .cta-lg.create-family-cta-continue.valid {
+            background: #7059D7;
+            color: var(--Color-Neutral-White-100, #FFF);
+          }
+
+          .invit-family-code{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            text-align: center;
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-MD, 36px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 50.4px */
+            letter-spacing: 10.8px;
+            margin-bottom: 48px;
+          }
+
+          .copy-code{
+            display: flex;
+            width: 100%;
+            padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+            justify-content: center;
+            align-items: center;
+            gap: var(--Padding-Spacing-20, 20px);
+            border-radius: var(--Corner-radius-8, 8px);
+            border: 1.5px solid var(--Color-Neutral-Carbon-30, #C0C0C0);
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+
+            /* Paragraph/LG/Bold */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-XS, 20px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+            margin-bottom: 12px;
+          }
+
+          .invit-family-cta{
+            display: flex;
+            width: 100%;
+            padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+            justify-content: center;
+            align-items: center;
+            gap: var(--Padding-Spacing-20, 20px);
+            border-radius: var(--Corner-radius-8, 8px);
+            background: #7059D7;
+            color: var(--Color-Neutral-White-100, #FFF);
+
+            /* Paragraph/LG/Bold */
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-XS, 20px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+          }
+
+          .choix-parent{
+            display: flex;
+            width: 100%;
+            height: 240.5px;
+            padding: 16px 12px;
+            align-items: flex-start;
+            gap: 7px;
+            flex-shrink: 0;
+          }
+
+          .choix-parent label{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            font-family: var(--Font-Display, "Bricolage Grotesque");
+            font-size: var(--Font-Size-MD, 36px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: 120%; /* 43.2px */
+          }
+
+          .choix-parent{
+            width: 100%;
+            height: 240.5px;
+            padding: 16px 12px;
+            gap: 7px;
+            flex-shrink: 0;
+            border-radius: 17px;
+            background: var(--Color-Brand-Primary-20, #E6E2FB);
+            display: flex;
+            align-items: flex-start;
+            background-image: url('/img/Group153.svg');
+            background-size: 249.341px 193.207px, cover;
+            background-position: right bottom;
+            background-repeat: no-repeat, no-repeat;
+            margin-bottom: 20px;
+          }
+          .choix-parent div{
+            display: flex;
+            align-items: center;
+            gap: 7px;
+          }
+
+          .choix-parent input{
+            width: 24px;
+            height: 24px;
+            display: flex;
+            border-radius: 100%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+          }
+
+
+
+
+          .choix-enfant{
+            display: flex;
+            width: 100%;
+            height: 240.5px;
+            padding: 16px 12px;
+            align-items: flex-start;
+            gap: 7px;
+            flex-shrink: 0;
+          }
+
+          .choix-enfant label{
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            font-family: var(--Font-Display, "Bricolage Grotesque");
+            font-size: var(--Font-Size-MD, 36px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: 120%; /* 43.2px */
+          }
+
+          .choix-enfant{
+            width: 100%;
+            height: 240.5px;
+            padding: 16px 12px;
+            gap: 7px;
+            flex-shrink: 0;
+            border-radius: 17px;
+            background: var(--Color-Brand-Secondary-60, #F4FF9D);
+            display: flex;
+            align-items: flex-start;
+            background-image: url('/img/Group154.svg');
+            background-size: 249.341px 193.207px, cover;
+            background-position: right bottom;
+            background-repeat: no-repeat, no-repeat;
+            margin-bottom: 20px;
+          }
+          .choix-enfant div{
+            display: flex;
+            align-items: center;
+            gap: 7px;
+          }
+
+          .choix-enfant input{
+            width: 24px;
+            height: 24px;
+            display: flex;
+            border-radius: 100%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+          }
+
+          .cta-to-success-register{
+            display: flex;
+            width: 100%;
+            padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+            justify-content: center;
+            align-items: center;
+            gap: var(--Padding-Spacing-20, 20px);
+            color: var(--Color-Neutral-White-100, #FFF);
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-XS, 20px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+            border-radius: var(--Corner-radius-8, 8px);
+            background: #7059D7;
+          }
