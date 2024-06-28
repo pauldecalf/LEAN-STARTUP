@@ -270,29 +270,66 @@ async login(@Body() { email, password }: { email: string, password: string }, @R
 
   @Post('/create-family')
 async create(@Body() { name }: { name: string }, @Res() response: Response) {
+  console.log('Received request to create family with name:', name);
+
   try {
     const famille = {
       nom: name,
       createdBy: 'default-createdBy',
       createdAt: new Date()
     };
-    const family = await this.famillesService.create(famille);
-    return response.status(HttpStatus.CREATED).json({ message: 'Famille créée avec succès', family });
+
+    console.log('Creating family with details:', famille);
+
+    // Isoler l'appel au service
+    let family;
+    try {
+      family = await this.famillesService.create(famille);
+    } catch (serviceError) {
+      console.error('Service error during family creation:', serviceError.message, serviceError.stack);
+      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
+        message: 'Une erreur est survenue lors de la création de la famille (service)'
+      });
+    }
+
+    console.log('Family created successfully with ID:', family.id);
+
+    // Extraire les 5 derniers chiffres de l'ID de la famille
+    const familyId = family.id.toString();
+    const invitationCode = familyId.slice(-5);
+
+    console.log('Invitation code generated:', invitationCode);
+
+    // Rediriger vers la page d'invitation avec le code d'invitation
+    return response.redirect(`/family-invitation?invitationCode=${invitationCode}`);
   } catch (error) {
-    console.error('Error during family creation:', error);
-    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de la création de la famille' });
+    console.error('Error during family creation:', error.message, error.stack);
+    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
+      message: 'Une erreur est survenue lors de la création de la famille'
+    });
   }
 }
 
-@Get('/family-invitation')
-@Render('family-invitation')
-getFamilyInvitation() {
-  return this.appService.getFamilyInvitation();
-}
+  
+  
+  
+
+  @Get('/family-invitation')
+  @Render('family-invitation')
+  getFamilyInvitation(@Query('invitationCode') invitationCode: string) {
+    return { invitationCode };
+  }
 
 @Get('/choix-role')
 @Render('choix-role')
 getChoixRole() {
   return this.appService.getChoixRole();
+}
+
+
+@Get('/success-register')
+@Render('success-register')
+getSuccessRegister() {
+  return this.appService.getSuccessRegister();
 }
 }

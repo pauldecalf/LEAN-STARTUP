@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 if (response.ok) {
                     messageElement.textContent = result.message;
                     localStorage.setItem('token', result.token);
-                    window.location.href = '/protected-page';
+                    window.location.href = '/family-setup';
                 } else {
                     messageElement.textContent = result.message || 'Une erreur est survenue';
                 }
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 if (res.ok) {
                     messageElement.textContent = result.message;
                     localStorage.setItem('token', result.token); // Stocker le token
-                    window.location.href = '/protected-page'; // Rediriger vers une page protégée
+                    window.location.href = '/family-setup'; // Rediriger vers une page protégée
                 } else {
                     messageElement.textContent = result.message || 'Une erreur est survenue lors de votre inscription avec Google';
                 }
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 if (response.ok) {
                     messageElement.textContent = result.message;
                     localStorage.setItem('token', result.token);
-                    window.location.href = '/protected-page';
+                    window.location.href = '/family-setup';
                 } else {
                     messageElement.textContent = result.message || 'Une erreur est survenue';
                 }

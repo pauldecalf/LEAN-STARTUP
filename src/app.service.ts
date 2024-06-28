@@ -39,4 +39,6 @@ export class AppService {
   getFamilyInvitation() {}
 
   getChoixRole() {}
+
+  getSuccessRegister() {}
 }

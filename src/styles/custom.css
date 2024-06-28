@@ -2525,3 +2525,58 @@ nav div{
             border-radius: var(--Corner-radius-8, 8px);
             background: #7059D7;
           }
+
+          .main-success-register{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .main-success-register h1{
+            max-width: 280px;;
+            margin-top: 60px;
+            color: var(--Color-Neutral-White-100, #FFF);
+            text-align: center;
+            font-family: var(--Font-Display, "Bricolage Grotesque");
+            font-size: var(--Font-Size-MD, 36px);
+            font-style: normal;
+            font-weight: 800;
+            line-height: 120%; /* 43.2px */
+            margin-bottom: 12px;
+          }
+          .main-success-register p{
+            color: var(--Color-Neutral-White-100, #FFF);
+            text-align: center;
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-2XS, 16px);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 140%; /* 22.4px */
+            margin-bottom: 18px;
+            max-width: 347px;
+          }
+          .main-success-register img{
+            width: 100%;
+            height: auto;
+            margin-bottom: 63px;
+          }
+
+          .main-success-register a{
+            display: flex;
+            width: 100%;
+            padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--Corner-radius-8, 8px);
+            background: var(--Color-Neutral-White-100, #FFF);
+            color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+            font-family: var(--Font-Body, "Plus Jakarta Sans");
+            font-size: var(--Font-Size-XS, 20px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%;
+          }
+          .main-success-register div{
+            margin: 0 16px;
+            width: -webkit-fill-available;
+          }
