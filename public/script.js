@@ -419,4 +419,43 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    const familyNameInput = document.getElementById('familyname');
+    const familyForm = document.getElementById('create-family-form');
+    
+    if (familyForm) {
+      familyForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche l'envoi du formulaire par défaut
   
+        var errorMessageDiv = document.querySelector('.error-message');
+        var familyname = familyNameInput.value;
+  
+        fetch('/create-family', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name: familyname })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Response data:', data); // Log pour vérifier la réponse
+  
+          if (data.message === 'Famille créée avec succès' && data.invitationCode) {
+            // Redirection vers la page d'invitation avec le code d'invitation
+            window.location.href = `/family-invitation?invitationCode=${data.invitationCode}`;
+          } else {
+            errorMessageDiv.style.display = 'block';
+            errorMessageDiv.textContent = data.message || 'Une erreur est survenue';
+            errorMessageDiv.style.color = 'red'; // Change la couleur du texte à rouge pour indiquer une erreur
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error); // Log pour vérifier l'erreur
+          errorMessageDiv.style.display = 'block';
+          errorMessageDiv.textContent = 'Une erreur est survenue';
+          errorMessageDiv.style.color = 'red'; // Change la couleur du texte à rouge pour indiquer une erreur
+        });
+      });
+    }
+  });

@@ -269,54 +269,54 @@ async login(@Body() { email, password }: { email: string, password: string }, @R
   }
 
   @Post('/create-family')
-async create(@Body() { name }: { name: string }, @Res() response: Response) {
-  console.log('Received request to create family with name:', name);
-
-  try {
-    const famille = {
-      nom: name,
-      createdBy: 'default-createdBy',
-      createdAt: new Date()
-    };
-
-    console.log('Creating family with details:', famille);
-
-    // Isoler l'appel au service
-    let family;
+  async create(@Body() { name }: { name: string }, @Res() response: Response) {
+    console.log('Received request to create family with name:', name);
+  
     try {
-      family = await this.famillesService.create(famille);
-    } catch (serviceError) {
-      console.error('Service error during family creation:', serviceError.message, serviceError.stack);
+      const famille = {
+        nom: name,
+        createdBy: 'default-createdBy',
+        createdAt: new Date()
+      };
+  
+      console.log('Creating family with details:', famille);
+  
+      const family = await this.famillesService.create(famille);
+  
+      console.log('Family created successfully with ID:', family.id);
+  
+      // Extraire les 5 derniers chiffres de l'ID de la famille
+      const familyId = family.id.toString();
+      const invitationCode = familyId.slice(-5);
+  
+      console.log('Invitation code generated:', invitationCode);
+  
+      // Retourner un JSON avec le code d'invitation
+      return response.status(HttpStatus.CREATED).json({
+        message: 'Famille créée avec succès',
+        invitationCode: invitationCode
+      });
+    } catch (error) {
+      console.error('Error during family creation:', error.message, error.stack);
       return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-        message: 'Une erreur est survenue lors de la création de la famille (service)'
+        message: 'Une erreur est survenue lors de la création de la famille'
       });
     }
-
-    console.log('Family created successfully with ID:', family.id);
-
-    // Extraire les 5 derniers chiffres de l'ID de la famille
-    const familyId = family.id.toString();
-    const invitationCode = familyId.slice(-5);
-
-    console.log('Invitation code generated:', invitationCode);
-
-    // Rediriger vers la page d'invitation avec le code d'invitation
-    return response.redirect(`/family-invitation?invitationCode=${invitationCode}`);
-  } catch (error) {
-    console.error('Error during family creation:', error.message, error.stack);
-    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-      message: 'Une erreur est survenue lors de la création de la famille'
-    });
   }
-}
+  
+  
+
 
   
   
   
-
   @Get('/family-invitation')
   @Render('family-invitation')
   getFamilyInvitation(@Query('invitationCode') invitationCode: string) {
+    console.log('Received invitationCode parameter:', invitationCode);
+    if (!invitationCode) {
+      console.error('No invitationCode received');
+    }
     return { invitationCode };
   }
 
