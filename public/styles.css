@@ -967,8 +967,6 @@ footer p {
   }
 
   .article-image-hover{
-    width: 358px;
-    height: 228px;
     flex-shrink: 0;
   }
 
