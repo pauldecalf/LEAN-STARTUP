@@ -41,43 +41,43 @@
 <main>
 
     <section class="register-section">
-      <!-- Bouton pour revenir en arrière -->
-      <a href="/loading" class="cta-back-to-loading">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M11.29 17.71C11.3837 17.617 11.4581 17.5064 11.5089 17.3846C11.5597 17.2627 11.5858 17.132 11.5858 17C11.5858 16.868 11.5597 16.7373 11.5089 16.6154C11.4581 16.4936 11.3837 16.383 11.29 16.29L8 13L18 13C18.2652 13 18.5196 12.8946 18.7071 12.7071C18.8946 12.5196 19 12.2652 19 12C19 11.7348 18.8946 11.4804 18.7071 11.2929C18.5196 11.1054 18.2652 11 18 11L8 11L11.29 7.71C11.3837 7.61704 11.4581 7.50644 11.5089 7.38458C11.5597 7.26272 11.5858 7.13201 11.5858 7C11.5858 6.86799 11.5597 6.73728 11.5089 6.61542C11.4581 6.49356 11.3837 6.38296 11.29 6.29C11.1026 6.10375 10.8492 5.99921 10.585 5.99921C10.3208 5.99921 10.0674 6.10375 9.88 6.29L5.59 10.59C5.21441 10.9634 5.00223 11.4704 5 12C5.00486 12.5261 5.21684 13.0291 5.59 13.4L9.88 17.7C10.066 17.8876 10.3187 17.9939 10.5829 17.9958C10.8471 17.9977 11.1013 17.8949 11.29 17.71Z" fill="white"/>
-        </svg>
-      </a>
-
-      <h1>Connectez-vous !</h1>
-
-      <p id="message"></p>
-      <form class="login-form-email" onsubmit="handleLogin(event)">
-      <input id="email-input" class="register-input" type="text" name="email" placeholder="Adresse email*">
-      <input id="password-input" class="register-input" type="password" name="password" placeholder="Mot de passe*">
-      <p id="password-instructions" class="register-instructions-password">Contient au minimum 8 caractères</p>
-      <button id="login-button" type="submit" class="cta-register-lock">Je me connecte</button>
-
-        <a href="/maintenance" class="login-p-forgot-password">
-          Mot de passe oublié ?
+        <!-- Bouton pour revenir en arrière -->
+        <a href="/loading" class="cta-back-to-loading">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M11.29 17.71C11.3837 17.617 11.4581 17.5064 11.5089 17.3846C11.5597 17.2627 11.5858 17.132 11.5858 17C11.5858 16.868 11.5597 16.7373 11.5089 16.6154C11.4581 16.4936 11.3837 16.383 11.29 16.29L8 13L18 13C18.2652 13 18.5196 12.8946 18.7071 12.7071C18.8946 12.5196 19 12.2652 19 12C19 11.7348 18.8946 11.4804 18.7071 11.2929C18.5196 11.1054 18.2652 11 18 11L8 11L11.29 7.71C11.3837 7.61704 11.4581 7.50644 11.5089 7.38458C11.5597 7.26272 11.5858 7.13201 11.5858 7C11.5858 6.86799 11.5597 6.73728 11.5089 6.61542C11.4581 6.49356 11.3837 6.38296 11.29 6.29C11.1026 6.10375 10.8492 5.99921 10.585 5.99921C10.3208 5.99921 10.0674 6.10375 9.88 6.29L5.59 10.59C5.21441 10.9634 5.00223 11.4704 5 12C5.00486 12.5261 5.21684 13.0291 5.59 13.4L9.88 17.7C10.066 17.8876 10.3187 17.9939 10.5829 17.9958C10.8471 17.9977 11.1013 17.8949 11.29 17.71Z" fill="white"/>
+            </svg>
         </a>
-      </form>
-      <p class="register-separator">ou</p>
 
-      <div id="g_id_onload"
-           data-client_id="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com"
-           data-context="signup"
-           data-ux_mode="popup"
-           data-login_uri="https://www.smoozy-app.com/login"
-           data-auto_prompt="false">
-      </div>
-      <div class="g_id_signin"
-           data-type="icon"
-           data-shape="pill"
-           data-theme="filled_black"
-           data-size="large">
-      </div>
+        <h1>Connectez-vous !</h1>
 
-      <p class="register-p-to-login">Pas de compte ? <a href="/register">Inscrivez-vous !</a></p>
+        <p id="message"></p>
+        <form class="login-form-email" onsubmit="handleLogin(event)">
+            <input id="email-input" class="register-input" type="text" name="email" placeholder="Adresse email*">
+            <input id="password-input" class="register-input" type="password" name="password" placeholder="Mot de passe*">
+            <p id="password-instructions" class="register-instructions-password">Contient au minimum 8 caractères</p>
+            <button id="login-button" type="submit" class="cta-register-lock">Je me connecte</button>
+
+            <a href="/maintenance" class="login-p-forgot-password">
+                Mot de passe oublié ?
+            </a>
+        </form>
+        <p class="register-separator">ou</p>
+
+        <div id="g_id_onload"
+             data-client_id="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-login_uri="https://www.smoozy-app.com/login"
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin"
+             data-type="icon"
+             data-shape="pill"
+             data-theme="filled_black"
+             data-size="large">
+        </div>
+
+        <p class="register-p-to-login">Pas de compte ? <a href="/register">Inscrivez-vous !</a></p>
 
     </section>
 

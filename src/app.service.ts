@@ -31,4 +31,6 @@ export class AppService {
   getLogin() {}
 
   getLoading() {}
+
+  getFamilySetup() {}
 }

@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-// Gestion des réponses lors de l'inscription de l'utilisateur
+// Gestion des réponses lors de l'inscription et de la connexion
 document.addEventListener('DOMContentLoaded', (event) => {
     // Gestion du formulaire de connexion
     const emailInput = document.getElementById('email-input');

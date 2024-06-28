@@ -252,4 +252,10 @@ async login(@Body() { email, password }: { email: string, password: string }, @R
   getLoading() {
     return this.appService.getLoading();
   }
+
+  @Get('/family-setup')
+  @Render('family-setup')
+  getFamilySetup() {
+    return this.appService.getFamilySetup();
+  }
 }
