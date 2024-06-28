@@ -28,4 +28,8 @@ export class ArticlesService {
     async findOne(id: string): Promise<Article> {
         return this.articleModel.findById(id).exec();
     }
+
+    async findOneBySlug(slugUrl: string): Promise<Article> {
+        return this.articleModel.findOne({ slug: slugUrl }).exec();
+    }
 }

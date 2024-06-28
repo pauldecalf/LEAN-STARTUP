@@ -70,8 +70,8 @@ export class AppController {
 
   @Get('articles/:id')
   @Render('article')
-  async getArticle(@Param('id') id: string) {
-    const article: Article = await this.articlesService.findOne(id);
+  async getArticle(@Param('slugUrl') slugUrl: string) {
+    const article: Article = await this.articlesService.findOneBySlug(slugUrl);
     const articles: Article[] = await this.articlesService.findAll();
     return { article, articles };
   }
