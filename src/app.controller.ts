@@ -6,11 +6,12 @@ import {
   HttpStatus,
   Param,
   Post,
+  Req,
   Query,
   Render,
   Res
 } from '@nestjs/common';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import { AppService } from './app.service';
 import { ArticlesService } from './articles/articles.service';
 import { Article } from './articles/interfaces/article.interface';
@@ -71,13 +72,14 @@ export class AppController {
     return { articles, currentPage: pageNumber, totalPages };
   }
 
-  @Get('articles/:id')
+  @Get('articles/:slugUrl')
   @Render('article')
   async getArticle(@Param('slugUrl') slugUrl: string) {
     const article: Article = await this.articlesService.findOneBySlug(slugUrl);
     const articles: Article[] = await this.articlesService.findAll();
     return { article, articles };
   }
+  
 
   @Get('articles/')
   @Render('maintenance')
@@ -218,36 +220,31 @@ export class AppController {
   }
 
   @Post('/login')
-async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
-  try {
-    console.log(`Login attempt: email=${email}, password=${password}`);
-    const user = await this.usersService.findOneByEmail(email);
-    console.log(`User found: ${JSON.stringify(user)}`);
+  async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
+    try {
+      console.log(`Login attempt: email=${email}, password=${password}`);
+      const user = await this.usersService.findOneByEmail(email);
+      console.log(`User found: ${JSON.stringify(user)}`);
 
-    if (!user) {
-      console.error('User not found');
-      return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+      if (!user) {
+        console.error('User not found');
+        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+      }
+
+      const isPasswordMatch = await this.authService.comparePasswords(password, user.password);
+      console.log(`Password match: ${isPasswordMatch}`);
+      if (!isPasswordMatch) {
+        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+      }
+
+      const token = await this.authService.generateToken(user);
+      return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
+    } catch (error) {
+      console.error('Error during login:', error);
+      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
     }
-
-    // Vérifiez que l'utilisateur contient un hash de mot de passe
-    if (!user.password) {
-      console.error('User password hash is missing');
-      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Erreur interne du serveur' });
-    }
-
-    const isPasswordMatch = await this.authService.comparePasswords(password, user.password);
-    console.log(`Password match: ${isPasswordMatch}`);
-    if (!isPasswordMatch) {
-      return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
-    }
-
-    const token = await this.authService.generateToken(user);
-    return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
-  } catch (error) {
-    console.error('Error during login:', error);
-    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
   }
-}
+
 
 
   @Get('/loading')
@@ -269,28 +266,29 @@ async login(@Body() { email, password }: { email: string, password: string }, @R
   }
 
   @Post('/create-family')
-  async create(@Body() { name }: { name: string }, @Res() response: Response) {
+  async create(@Body() { name }: { name: string }, @Req() req: Request, @Res() response: Response) {
     console.log('Received request to create family with name:', name);
-  
+
     try {
+      const userId = req['user'].sub;
       const famille = {
         nom: name,
-        createdBy: 'default-createdBy',
+        createdBy: userId,
         createdAt: new Date()
       };
-  
+
       console.log('Creating family with details:', famille);
-  
+
       const family = await this.famillesService.create(famille);
-  
+
       console.log('Family created successfully with ID:', family.id);
-  
+
       // Extraire les 5 derniers chiffres de l'ID de la famille
       const familyId = family.id.toString();
       const invitationCode = familyId.slice(-5);
-  
+
       console.log('Invitation code generated:', invitationCode);
-  
+
       // Retourner un JSON avec le code d'invitation
       return response.status(HttpStatus.CREATED).json({
         message: 'Famille créée avec succès',

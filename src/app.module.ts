@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { join } from 'path';
 import { AppService } from './app.service';
@@ -14,6 +14,8 @@ import { TachesModule } from "./taches/taches.module";
 import { ActivitesModule } from "./activites/activites.module";
 import { AuthService } from "./auth.service";
 import { ConfigModule } from "@nestjs/config";
+import { AuthMiddleware } from './auth.middleware';
+
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -33,7 +35,17 @@ import { ConfigModule } from "@nestjs/config";
       isGlobal: true,
     }),
   ],
+  
   controllers: [AppController],
   providers: [AppService,AuthService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AuthMiddleware)
+      .forRoutes(
+        { path: 'create-family', method: RequestMethod.POST },
+        { path: 'create-family', method: RequestMethod.GET }
+      );
+  }
+}

@@ -459,3 +459,45 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    const familyNameInput = document.getElementById('familyname');
+    const familyForm = document.getElementById('create-family-form');
+    const errorMessageDiv = document.querySelector('.error-message');
+
+    if (familyForm) {
+        familyForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+            const familyname = familyNameInput.value;
+            const token = localStorage.getItem('token'); // Assurez-vous que le token est bien stocké
+
+            try {
+                const response = await fetch('/create-family', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Ajoutez le token à l'en-tête
+                    },
+                    body: JSON.stringify({ nom: familyname })
+                });
+
+                const data = await response.json();
+                console.log('Response data:', data); // Log pour vérifier la réponse
+
+                if (data.message === 'Famille créée avec succès' && data.invitationCode) {
+                    // Redirection vers la page d'invitation avec le code d'invitation
+                    window.location.href = `/family-invitation?invitationCode=${data.invitationCode}`;
+                } else {
+                    errorMessageDiv.style.display = 'block';
+                    errorMessageDiv.textContent = data.message || 'Une erreur est survenue';
+                    errorMessageDiv.style.color = 'red'; // Change la couleur du texte à rouge pour indiquer une erreur
+                }
+            } catch (error) {
+                console.error('Error:', error); // Log pour vérifier l'erreur
+                errorMessageDiv.style.display = 'block';
+                errorMessageDiv.textContent = 'Une erreur est survenue';
+                errorMessageDiv.style.color = 'red'; // Change la couleur du texte à rouge pour indiquer une erreur
+            }
+        });
+    }
+});

@@ -5,10 +5,8 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private configService: ConfigService
-              ) {
-  }
+  constructor(private configService: ConfigService) {}
+
   private readonly saltRounds = 10;
 
   async hashPassword(password: string): Promise<string> {
@@ -17,13 +15,8 @@ export class AuthService {
   }
 
   async comparePasswords(password: string, storedPasswordHash: string): Promise<boolean> {
-    if (!password || !storedPasswordHash) {
-      console.error('Password or hash is missing');
-      throw new Error('Password or hash is missing');
-    }
     return bcrypt.compare(password, storedPasswordHash);
   }
-  
 
   async generateToken(user: any): Promise<string> {
     const payload = { sub: user._id, email: user.email };
@@ -31,5 +24,4 @@ export class AuthService {
       expiresIn: '1h',
     });
   }
-
 }

@@ -30,6 +30,6 @@ export class ArticlesService {
     }
 
     async findOneBySlug(slugUrl: string): Promise<Article> {
-        return this.articleModel.findOne({ slug: slugUrl }).exec();
-    }
+        return this.articleModel.findOne({ slugUrl }).exec();
+      }
 }
