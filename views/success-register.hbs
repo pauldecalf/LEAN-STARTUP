@@ -36,7 +36,7 @@
 
 <body style="background: #846DED">
 <main class="main-success-register">
-  <h1>Bienvenue à bord, Gloria!</h1>
+  <h1>Bienvenue à bord, <span id="user-first-name">Gloria</span>!</h1>
   <p>Prêt à transformer votre quotidien ?
 Embarquez avec nous et créez une nouvelle dynamique familiale positive. 🚀</p>
 <img src="/img/Image.svg" alt="">
@@ -51,6 +51,13 @@ Embarquez avec nous et créez une nouvelle dynamique familiale positive. 🚀</p
         <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.</p>
         <button onclick="acceptCookies()">Accepter</button>
     </div>
-<script src="../script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const firstName = sessionStorage.getItem('prenom');
+        if (firstName) {
+            document.getElementById('user-first-name').textContent = firstName;
+        }
+    });
+</script>
 </body>
 </html>
