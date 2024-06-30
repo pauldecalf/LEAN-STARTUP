@@ -395,7 +395,7 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
       const famille = {
         nom: name,
         createdBy: createdBy,
-        createdAt: new Date()
+        createdAt: new Date(),
       };
 
       console.log('Creating family with details:', famille);
@@ -403,6 +403,15 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
       const family = await this.famillesService.create(famille);
 
       console.log('Family created successfully with ID:', family.id);
+
+      // Mettre à jour l'utilisateur avec le nouvel idFamille
+      const user = await this.usersService.findOneByEmail(createdBy);
+      if (!user) {
+        throw new NotFoundException('Utilisateur non trouvé');
+      }
+
+      user.idFamille = family.id;
+      await this.usersService.update(user.id, user);
 
       // Extraire les 5 derniers chiffres de l'ID de la famille
       const familyId = family.id.toString();
@@ -413,15 +422,16 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
       // Retourner un JSON avec le code d'invitation
       return response.status(HttpStatus.CREATED).json({
         message: 'Famille créée avec succès',
-        invitationCode: invitationCode
+        invitationCode: invitationCode,
       });
     } catch (error) {
       console.error('Error during family creation:', error.message, error.stack);
       return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-        message: 'Une erreur est survenue lors de la création de la famille'
+        message: 'Une erreur est survenue lors de la création de la famille',
       });
     }
   }
+
   
 
   
