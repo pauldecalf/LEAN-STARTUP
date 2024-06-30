@@ -3897,6 +3897,10 @@ video {
   margin-top: 8rem;
 }
 
+.block{
+  display: block;
+}
+
 .flex{
   display: flex;
 }
@@ -3939,6 +3943,10 @@ video {
 
 .p-2{
   padding: 0.5rem;
+}
+
+.outline{
+  outline-style: solid;
 }
 
 .transition-transform{
