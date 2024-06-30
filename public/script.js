@@ -501,3 +501,90 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+      document.querySelector('.g_id_signin'),
+      { theme: 'outline', size: 'large' }
+    );
+    google.accounts.id.prompt();
+  };
+  
+  async function handleCredentialResponse(response) {
+    const responsePayload = decodeJwtResponse(response.credential);
+  
+    const data = {
+      pseudo: responsePayload.name,
+      email: responsePayload.email,
+      googleId: response.credential,
+      imgProfil: responsePayload.picture
+    };
+  
+    try {
+      const res = await fetch('/register/google', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await res.json();
+      if (res.ok) {
+        messageElement.textContent = result.message;
+        localStorage.setItem('token', result.token); // Stocker le token
+        window.location.href = '/family-setup'; // Rediriger avec une requête GET
+      } else {
+        messageElement.textContent = result.message || 'Une erreur est survenue lors de votre inscription avec Google';
+      }
+    } catch (error) {
+      console.error('Error during Google registration:', error);
+      document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
+    }
+  }
+  
+  function decodeJwtResponse(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+  }
+  
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.family-codes input');
+    const submitButton = document.querySelector('.cta-lg.cta-register-lock');
+  
+    inputs.forEach(input => {
+      input.addEventListener('input', checkInputs);
+    });
+  
+    function checkInputs() {
+      let allFilled = true;
+      inputs.forEach(input => {
+        if (input.value === '') {
+          allFilled = false;
+          input.style.borderColor = ''; // Réinitialiser la bordure si le champ est vide
+        } else {
+          input.style.borderColor = '#52A5FF'; // Changer la couleur de la bordure si le champ contient un caractère
+        }
+      });
+  
+      if (allFilled) {
+        submitButton.disabled = false;
+        submitButton.style.background = '#7059D7';
+        submitButton.style.color = 'var(--Color-Neutral-White-100, #FFF)';
+      } else {
+        submitButton.disabled = true;
+        submitButton.style.background = '';
+        submitButton.style.color = '';
+      }
+    }
+  });
+  

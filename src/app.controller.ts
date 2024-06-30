@@ -330,4 +330,10 @@ getChoixRole() {
 getSuccessRegister() {
   return this.appService.getSuccessRegister();
 }
+
+@Get('/join-family')
+@Render('join-family')
+getJoinFamily() {
+  return this.appService.getJoinFamily();
+}
 }

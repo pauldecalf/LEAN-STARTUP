@@ -41,4 +41,6 @@ export class AppService {
   getChoixRole() {}
 
   getSuccessRegister() {}
+
+  getJoinFamily() {}
 }
