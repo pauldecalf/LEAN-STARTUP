@@ -38,7 +38,7 @@ export class AppController {
     private readonly appService: AppService,
     private readonly articlesService: ArticlesService,
     private readonly authService: AuthService,
-    private readonly usersService: UtilisateursService,
+    private usersService: UtilisateursService,
     private readonly famillesService: FamillesService,
     private configService: ConfigService
   ) {

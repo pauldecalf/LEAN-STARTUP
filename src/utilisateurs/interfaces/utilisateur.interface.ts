@@ -1,22 +1,22 @@
 import { Document } from 'mongoose';
 
 export interface Utilisateur extends Document {
-    readonly idFamille: string;
-    readonly nom: string;
-    readonly prenom: string;
-    readonly email: string;
-    readonly pseudo: string;
-    readonly password: string;
-    readonly imgProfil: string;
-    readonly anniversaire: string;
-    readonly genre: string;
-    readonly loisirs: string;
-    readonly passions: string;
-    readonly nourriture: string;
-    readonly reves: string;
-    readonly aspirations: string;
-    readonly faits: string;
-    readonly role: string;
-    readonly googleId?: string;
-    readonly createdAt: Date;
+     idFamille: string;
+     nom: string;
+     prenom: string;
+     email: string;
+     pseudo: string;
+     password: string;
+     imgProfil: string;
+     anniversaire: string;
+     genre: string;
+     loisirs: string;
+     passions: string;
+     nourriture: string;
+     reves: string;
+     aspirations: string;
+     faits: string;
+     role: string;
+     googleId?: string;
+     createdAt: Date;
 }
