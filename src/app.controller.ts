@@ -23,6 +23,7 @@ import { CreateFamilleDto } from './familles/dto/create-famille.dto';
 import { OAuth2Client } from 'google-auth-library';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
+import {  NotFoundException, BadRequestException } from '@nestjs/common';
 config();
 
 const clientId = '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com';
@@ -80,6 +81,34 @@ export class AppController {
     return { article, articles };
   }
   
+  @Post('/join-family')
+  async joinFamily(@Body() { email, code }: { email: string, code: string }, @Res() response: Response) {
+    try {
+      const families = await this.famillesService.findAll();
+      const family = families.find(f => f.id.toString().endsWith(code));
+
+      if (!family) {
+        throw new NotFoundException('Code d\'invitation invalide');
+      }
+
+      const user = await this.usersService.findOneByEmail(email);
+      if (!user) {
+        throw new NotFoundException('Utilisateur non trouvé');
+      }
+
+      user.idFamille = family.id;
+      await this.usersService.update(user.id, user);
+
+      return response.status(200).json({ message: 'Rejoint la famille avec succès' });
+    } catch (error) {
+      console.error('Error joining family:', error);
+      if (error instanceof NotFoundException) {
+        return response.status(404).json({ message: error.message });
+      } else {
+        return response.status(500).json({ message: 'Une erreur est survenue' });
+      }
+    }
+  }
 
   @Get('articles/')
   @Render('maintenance')

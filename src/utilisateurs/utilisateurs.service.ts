@@ -37,5 +37,8 @@ export class UtilisateursService {
     user.role = role;
     return user.save();
 }
+async update(id: string, user: Partial<Utilisateur>): Promise<Utilisateur> {
+    return this.utilisateurModel.findByIdAndUpdate(id, user, { new: true }).exec();
+  }
 
 }
