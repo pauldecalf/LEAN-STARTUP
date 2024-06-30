@@ -415,7 +415,7 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
 
       // Extraire les 5 derniers chiffres de l'ID de la famille
       const familyId = family.id.toString();
-      const invitationCode = familyId.slice(-5);
+      const invitationCode = familyId.slice(-6);
 
       console.log('Invitation code generated:', invitationCode);
 
