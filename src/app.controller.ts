@@ -122,96 +122,204 @@ export class AppController {
   }
 
   @Post('/register')
-  async register(@Body() createUtilisateurDto: CreateUtilisateurDto, @Res() response: Response) {
+async register(@Body() createUtilisateurDto: CreateUtilisateurDto, @Res() response: Response) {
     try {
-      const existingUser = await this.usersService.findOneByEmail(createUtilisateurDto.email);
-      if (existingUser) {
-        return response.status(HttpStatus.BAD_REQUEST).json({ message: 'Un compte avec cet email existe déjà' });
-      }
+        const existingUser = await this.usersService.findOneByEmail(createUtilisateurDto.email);
+        if (existingUser) {
+            return response.status(HttpStatus.BAD_REQUEST).json({ message: 'Un compte avec cet email existe déjà' });
+        }
 
-      const hashedPassword = await this.authService.hashPassword(createUtilisateurDto.password);
-      const newUser = await this.usersService.create({
-        ...createUtilisateurDto,
-        idFamille: createUtilisateurDto.idFamille || 'default-idFamille',
-        nom: createUtilisateurDto.nom || 'default-nom',
-        prenom: createUtilisateurDto.prenom || 'default-prenom',
-        pseudo: createUtilisateurDto.pseudo || 'default-pseudo',
-        imgProfil: createUtilisateurDto.imgProfil || 'default-imgProfil',
-        anniversaire: createUtilisateurDto.anniversaire || '2000-01-01',
-        genre: createUtilisateurDto.genre || 'default-genre',
-        loisirs: createUtilisateurDto.loisirs || 'default-loisirs',
-        passions: createUtilisateurDto.passions || 'default-passions',
-        nourriture: createUtilisateurDto.nourriture || 'default-nourriture',
-        reves: createUtilisateurDto.reves || 'default-reves',
-        aspirations: createUtilisateurDto.aspirations || 'default-aspirations',
-        faits: createUtilisateurDto.faits || 'default-faits',
-        role: createUtilisateurDto.role || 'default-role',
-        createdAt: createUtilisateurDto.createdAt || new Date(),
-        password: hashedPassword
-      });
-      const token = await this.authService.generateToken(newUser);
-      return response.status(HttpStatus.CREATED).json({ message: 'Inscription réussie', token });
+        const hashedPassword = await this.authService.hashPassword(createUtilisateurDto.password);
+        const newUser = await this.usersService.create({
+            ...createUtilisateurDto,
+            idFamille: createUtilisateurDto.idFamille || 'default-idFamille',
+            nom: createUtilisateurDto.nom || 'default-nom',
+            prenom: createUtilisateurDto.prenom || 'default-prenom',
+            pseudo: createUtilisateurDto.pseudo || 'default-pseudo',
+            imgProfil: createUtilisateurDto.imgProfil || 'default-imgProfil',
+            anniversaire: createUtilisateurDto.anniversaire || '2000-01-01',
+            genre: createUtilisateurDto.genre || 'default-genre',
+            loisirs: createUtilisateurDto.loisirs || 'default-loisirs',
+            passions: createUtilisateurDto.passions || 'default-passions',
+            nourriture: createUtilisateurDto.nourriture || 'default-nourriture',
+            reves: createUtilisateurDto.reves || 'default-reves',
+            aspirations: createUtilisateurDto.aspirations || 'default-aspirations',
+            faits: createUtilisateurDto.faits || 'default-faits',
+            role: createUtilisateurDto.role || 'default-role',
+            createdAt: createUtilisateurDto.createdAt || new Date(),
+            password: hashedPassword
+        });
+
+        return response.status(HttpStatus.CREATED).json({
+            message: 'Inscription réussie',
+            user: {
+                prenom: newUser.prenom,
+                nom: newUser.nom,
+                email: newUser.email
+            }
+        });
     } catch (error) {
-      console.error('Error during registration:', error);
-      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre inscription' });
+        console.error('Error during registration:', error);
+        return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre inscription' });
     }
-  }
+}
 
-  @Post('/register/google')
-  async registerWithGoogle(@Body() createGoogleUserDto: CreateUtilisateurDto, @Res() response: Response) {
+@Post('/register/google')
+async registerWithGoogle(@Body() body: { idToken: string }, @Res() response: Response) {
     try {
-      const ticket = await this.client.verifyIdToken({
-        idToken: createGoogleUserDto.googleId,
-        audience: clientId,
-      });
+        const ticket = await this.client.verifyIdToken({
+            idToken: body.idToken,
+            audience: clientId,
+        });
 
-      const payload = ticket.getPayload();
+        const payload = ticket.getPayload();
 
-      if (!payload) {
-        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Token Google invalide' });
-      }
+        if (!payload) {
+            return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Token Google invalide' });
+        }
 
-      const existingUser = await this.usersService.findOneByEmail(payload.email);
-      if (existingUser) {
-        // Utilisateur existe déjà, générer un token JWT pour lui
-        const token = await this.authService.generateToken(existingUser);
-        return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
-      }
+        const existingUser = await this.usersService.findOneByEmail(payload.email);
+        if (existingUser) {
+            return response.status(HttpStatus.OK).json({
+                message: 'Connexion réussie',
+                user: {
+                    prenom: existingUser.prenom,
+                    nom: existingUser.nom,
+                    email: existingUser.email
+                }
+            });
+        }
 
-      // Split the payload.name into prenom and nom
-      const [prenom, ...rest] = payload.name.split(' ');
-      const nom = rest.join(' ');
+        const [prenom, ...rest] = payload.name.split(' ');
+        const nom = rest.join(' ');
 
-      const userPayload = {
-        idFamille: 'default-idFamille',
-        nom: nom || 'default-nom',
-        prenom: prenom || 'default-prenom',
-        pseudo: payload.name,
-        email: payload.email,
-        googleId: payload.sub,
-        imgProfil: payload.picture,
-        anniversaire: '2000-01-01',
-        genre: 'default-genre',
-        loisirs: 'default-loisirs',
-        passions: 'default-passions',
-        nourriture: 'default-nourriture',
-        reves: 'default-reves',
-        aspirations: 'default-aspirations',
-        faits: 'default-faits',
-        role: 'default-role',
-        createdAt: new Date(),
-        password: undefined
-      };
+        const userPayload = {
+            idFamille: 'default-idFamille',
+            nom: nom || 'default-nom',
+            prenom: prenom || 'default-prenom',
+            pseudo: payload.name,
+            email: payload.email,
+            googleId: payload.sub,
+            imgProfil: payload.picture,
+            anniversaire: '2000-01-01',
+            genre: 'default-genre',
+            loisirs: 'default-loisirs',
+            passions: 'default-passions',
+            nourriture: 'default-nourriture',
+            reves: 'default-reves',
+            aspirations: 'default-aspirations',
+            faits: 'default-faits',
+            role: 'default-role',
+            createdAt: new Date(),
+            password: undefined
+        };
 
-      const newUser = await this.usersService.create(userPayload);
-      const token = await this.authService.generateToken(newUser);
+        const newUser = await this.usersService.create(userPayload);
 
-      return response.status(HttpStatus.CREATED).json({ message: 'Inscription réussie avec Google', token });
+        return response.status(HttpStatus.CREATED).json({
+            message: 'Inscription réussie avec Google',
+            user: {
+                prenom: newUser.prenom,
+                nom: newUser.nom,
+                email: newUser.email
+            }
+        });
     } catch (error) {
-      console.error('Error during Google registration:', error);
-      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre inscription avec Google' });
+        console.error('Error during Google registration:', error);
+        return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre inscription avec Google' });
     }
-  }
+}
+
+
+@Post('/login')
+async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
+    try {
+        console.log(`Login attempt: email=${email}, password=${password}`);
+        const user = await this.usersService.findOneByEmail(email);
+        console.log(`User found: ${JSON.stringify(user)}`);
+
+        if (!user) {
+            console.error('User not found');
+            return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+        }
+
+        const isPasswordMatch = await this.authService.comparePasswords(password, user.password);
+        console.log(`Password match: ${isPasswordMatch}`);
+        if (!isPasswordMatch) {
+            return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
+        }
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Connexion réussie',
+            user: {
+                prenom: user.prenom,
+                nom: user.nom,
+                email: user.email
+            }
+        });
+    } catch (error) {
+        console.error('Error during login:', error);
+        return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
+    }
+}
+
+@Post('/login/google')
+async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Response) {
+    try {
+        const ticket = await this.client.verifyIdToken({
+            idToken: body.idToken,
+            audience: clientId,
+        });
+
+        const payload = ticket.getPayload();
+
+        if (!payload) {
+            return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Token Google invalide' });
+        }
+
+        let user = await this.usersService.findOneByEmail(payload.email);
+
+        if (!user) {
+            const [prenom, ...rest] = payload.name.split(' ');
+            const nom = rest.join(' ');
+
+            user = await this.usersService.create({
+              prenom,
+              nom,
+              email: payload.email,
+              googleId: payload.sub,
+              imgProfil: payload.picture,
+              password: undefined // You can set a default password or handle this as needed
+              ,
+              idFamille: '',
+              pseudo: '',
+              anniversaire: '',
+              genre: '',
+              loisirs: '',
+              passions: '',
+              nourriture: '',
+              reves: '',
+              aspirations: '',
+              faits: '',
+              role: '',
+              createdAt: undefined
+            });
+        }
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Connexion réussie',
+            user: {
+                prenom: user.prenom,
+                nom: user.nom,
+                email: user.email
+            }
+        });
+    } catch (error) {
+        console.error('Error during Google login:', error);
+        return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion avec Google' });
+    }
+}
+
 
   @Get('/login')
   @Render('login')
@@ -219,31 +327,7 @@ export class AppController {
     return this.appService.getLogin();
   }
 
-  @Post('/login')
-  async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
-    try {
-      console.log(`Login attempt: email=${email}, password=${password}`);
-      const user = await this.usersService.findOneByEmail(email);
-      console.log(`User found: ${JSON.stringify(user)}`);
-
-      if (!user) {
-        console.error('User not found');
-        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
-      }
-
-      const isPasswordMatch = await this.authService.comparePasswords(password, user.password);
-      console.log(`Password match: ${isPasswordMatch}`);
-      if (!isPasswordMatch) {
-        return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
-      }
-
-      const token = await this.authService.generateToken(user);
-      return response.status(HttpStatus.OK).json({ message: 'Connexion réussie', token });
-    } catch (error) {
-      console.error('Error during login:', error);
-      return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue lors de votre connexion' });
-    }
-  }
+  
 
 
 
@@ -266,14 +350,22 @@ export class AppController {
   }
 
   @Post('/create-family')
-  async create(@Body() { name }: { name: string }, @Req() req: Request, @Res() response: Response) {
+  async create(@Body() { name, createdBy }: { name: string, createdBy: string }, @Res() response: Response) {
     console.log('Received request to create family with name:', name);
+    console.log('Created by:', createdBy);
 
     try {
-      const userId = req['user'].sub;
+      // Vérifiez si une famille existe déjà pour cet utilisateur
+      const existingFamily = await this.famillesService.findByCreatedBy(createdBy);
+      if (existingFamily) {
+        return response.status(HttpStatus.BAD_REQUEST).json({
+          message: 'Un utilisateur ne peut avoir qu\'une seule famille',
+        });
+      }
+
       const famille = {
         nom: name,
-        createdBy: userId,
+        createdBy: createdBy,
         createdAt: new Date()
       };
 
@@ -302,6 +394,8 @@ export class AppController {
     }
   }
   
+
+  
   
 
 
@@ -311,12 +405,13 @@ export class AppController {
   @Get('/family-invitation')
   @Render('family-invitation')
   getFamilyInvitation(@Query('invitationCode') invitationCode: string) {
-    console.log('Received invitationCode parameter:', invitationCode);
-    if (!invitationCode) {
-      console.error('No invitationCode received');
-    }
-    return { invitationCode };
+      console.log('Received invitationCode parameter:', invitationCode);
+      if (!invitationCode) {
+          console.error('No invitationCode received');
+      }
+      return { invitationCode };
   }
+  
 
 @Get('/choix-role')
 @Render('choix-role')
@@ -336,4 +431,11 @@ getSuccessRegister() {
 getJoinFamily() {
   return this.appService.getJoinFamily();
 }
+
+@Get('/dashboard')
+@Render('dashboard')
+getDashboard() {
+  return this.appService.getDashboard();
+}
+
 }

@@ -38,13 +38,13 @@
 <main class="main-create-family">
   <div class="create-family-progress-bar">
     <div class="create-family-progress-background">
-      <div class="create-family-progress"></div>
+      <div class="create-family-progress" style="width: 66%;"></div>
     </div>
   </div>
 
   <!-- Bouton pour revenir en arrière -->
   <div class="create-family-back">
-      <a href="/family-setup" class="cta-back-to-loading">
+      <a href="/create-family" class="cta-back-to-loading">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M11.29 17.71C11.3837 17.617 11.4581 17.5064 11.5089 17.3846C11.5597 17.2627 11.5858 17.132 11.5858 17C11.5858 16.868 11.5597 16.7373 11.5089 16.6154C11.4581 16.4936 11.3837 16.383 11.29 16.29L8 13L18 13C18.2652 13 18.5196 12.8946 18.7071 12.7071C18.8946 12.5196 19 12.2652 19 12C19 11.7348 18.8946 11.4804 18.7071 11.2929C18.5196 11.1054 18.2652 11 18 11L8 11L11.29 7.71C11.3837 7.61704 11.4581 7.50644 11.5089 7.38458C11.5597 7.26272 11.5858 7.13201 11.5858 7C11.5858 6.86799 11.5597 6.73728 11.5089 6.61542C11.4581 6.49356 11.3837 6.38296 11.29 6.29C11.1026 6.10375 10.8492 5.99921 10.585 5.99921C10.3208 5.99921 10.0674 6.10375 9.88 6.29L5.59 10.59C5.21441 10.9634 5.00223 11.4704 5 12C5.00486 12.5261 5.21684 13.0291 5.59 13.4L9.88 17.7C10.066 17.8876 10.3187 17.9939 10.5829 17.9958C10.8471 17.9977 11.1013 17.8949 11.29 17.71Z" fill="white"/>
         </svg>
@@ -59,6 +59,7 @@
     <input type="text" id="familyname" name="name" placeholder="e.g. Smith - Dupont" required>
     <p id="info-text">3 caractères min, pas de caractères spéciaux</p>
   </div>
+  <input type="hidden" id="user-email" name="createdBy">
   <div class="error-message" style="display: none;"></div>
   <button type="submit" class="cta-lg create-family-cta-continue" disabled>Continuer</button>
 </form>
@@ -69,6 +70,60 @@
         <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.</p>
         <button onclick="acceptCookies()">Accepter</button>
     </div>
-<script src="../script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const email = sessionStorage.getItem('email');
+    if (!email) {
+        window.location.href = '/login';
+    } else {
+        document.getElementById('user-email').value = email;
+    }
+
+    const familyNameInput = document.getElementById('familyname');
+    const submitButton = document.querySelector('.create-family-cta-continue');
+
+    familyNameInput.addEventListener('input', () => {
+        if (familyNameInput.value.length >= 3) {
+            familyNameInput.style.borderColor = '#52A5FF';
+            submitButton.disabled = false;
+            submitButton.style.backgroundColor = '#7059D7';
+            submitButton.style.color = '#FFF';
+        } else {
+            familyNameInput.style.borderColor = '';
+            submitButton.disabled = true;
+            submitButton.style.backgroundColor = '';
+            submitButton.style.color = '';
+        }
+    });
+
+    document.getElementById('create-family-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData.entries());
+        try {
+            const response = await fetch('/create-family', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            if (response.ok) {
+                // Stocker le code d'invitation dans sessionStorage
+                sessionStorage.setItem('invitationCode', result.invitationCode);
+                window.location.href = '/family-invitation';
+            } else {
+                document.querySelector('.error-message').innerText = result.message;
+                document.querySelector('.error-message').style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.querySelector('.error-message').innerText = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+            document.querySelector('.error-message').style.display = 'block';
+        }
+    });
+});
+</script>
 </body>
 </html>

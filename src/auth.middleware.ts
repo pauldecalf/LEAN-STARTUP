@@ -1,29 +1,24 @@
-import { Injectable, NestMiddleware, HttpStatus } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
-  constructor(private readonly configService: ConfigService) {}
+  constructor(private configService: ConfigService) {}
 
-  async use(req: Request, res: Response, next: NextFunction) {
-    const authHeader = req.headers['authorization'];
-    if (!authHeader) {
-      console.error('Token manquant');
-      return res.status(HttpStatus.UNAUTHORIZED).json({ message: 'Token manquant' });
+  use(req: Request, res: Response, next: NextFunction) {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Token manquant' });
     }
 
-    const token = authHeader.split(' ')[1];
     try {
       const decoded = jwt.verify(token, this.configService.get<string>('JWT_SECRET'));
-      console.log('Decoded token:', decoded); // Log pour vérifier le contenu du token
       req['user'] = decoded;
-      console.log('User added to request:', req['user']); // Vérifiez que l'utilisateur est ajouté à la requête
       next();
-    } catch (error) {
-      console.error('Error verifying token:', error); // Log pour vérifier les erreurs de vérification du token
-      return res.status(HttpStatus.UNAUTHORIZED).json({ message: 'Token invalide' });
+    } catch (err) {
+      return res.status(401).json({ message: 'Token invalide' });
     }
   }
 }

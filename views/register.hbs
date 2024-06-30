@@ -52,9 +52,9 @@
 
       <p id="message"></p>
       <form class="register-form-email" onsubmit="handleRegister(event)">
-        <input id="prenom-input" class="register-input" placeholder="Prénom*" type="text" name="prenom">
-        <input id="email-input" class="register-input" type="text" name="email" placeholder="Adresse email*">
-        <input id="password-input" class="register-input" type="password" name="password" placeholder="Mot de passe*">
+        <input id="prenom-input" class="register-input" placeholder="Prénom*" type="text" name="prenom" autocomplete="given-name">
+        <input id="email-input" class="register-input" type="text" name="email" placeholder="Adresse email*" autocomplete="username">
+        <input id="password-input" class="register-input" type="password" name="password" placeholder="Mot de passe*" autocomplete="current-password">
         <p id="password-instructions" class="register-instructions-password">8 caractères, 1 majuscule, 1 chiffre</p>
         <button id="register-button" type="submit" class="cta-register-lock" disabled>Je m'inscris</button>
         <p class="register-p-mentions-legales">
@@ -67,13 +67,14 @@
            data-client_id="152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com"
            data-context="signup"
            data-ux_mode="popup"
-           data-login_uri="https://www.smoozy-app.com/family-setup"
+           data-callback="handleCredentialResponse"
            data-auto_prompt="false">
       </div>
       <div class="g_id_signin"
-           data-type="icon"
-           data-shape="pill"
-           data-theme="filled_black"
+           data-type="standard"
+           data-shape="rectangular"
+           data-theme="outline"
+           data-text="signin_with"
            data-size="large">
       </div>
 
@@ -89,6 +90,117 @@
 
 </main>
 
-<script src="../script.js"></script>
+<script>
+    function handleRegister(event) {
+        event.preventDefault();
+        const prenom = document.getElementById('prenom-input').value;
+        const email = document.getElementById('email-input').value;
+        const password = document.getElementById('password-input').value;
+
+        // Validation simplifiée des champs de formulaire
+        if (!prenom || !email || !password) {
+            document.getElementById('message').innerText = 'Tous les champs sont obligatoires.';
+            return;
+        }
+
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prenom, email, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Inscription réussie') {
+                sessionStorage.setItem('prenom', data.user.prenom);  // Stocker le prénom dans sessionStorage
+                sessionStorage.setItem('nom', data.user.nom);        // Stocker le nom dans sessionStorage
+                sessionStorage.setItem('email', data.user.email);    // Stocker l'email dans sessionStorage
+                window.location.href = '/family-setup';
+            } else {
+                document.getElementById('message').innerText = data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('message').innerText = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+        });
+    }
+
+    function handleCredentialResponse(response) {
+        fetch('/register/google', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ idToken: response.credential })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Connexion réussie' || data.message === 'Inscription réussie avec Google') {
+                sessionStorage.setItem('prenom', data.user.prenom);  // Stocker le prénom dans sessionStorage
+                sessionStorage.setItem('nom', data.user.nom);        // Stocker le nom dans sessionStorage
+                sessionStorage.setItem('email', data.user.email);    // Stocker l'email dans sessionStorage
+                window.location.href = '/family-setup';
+            } else {
+                document.getElementById('message').innerText = data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('message').innerText = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+        });
+    }
+
+    function checkInputs() {
+        const prenom = document.getElementById('prenom-input');
+        const email = document.getElementById('email-input');
+        const password = document.getElementById('password-input');
+        const registerButton = document.getElementById('register-button');
+        const passwordInstructions = document.getElementById('password-instructions');
+
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        if (prenom.value && email.value && password.value.match(passwordRegex)) {
+            registerButton.disabled = false;
+            registerButton.style.backgroundColor = '#7059D7';
+            registerButton.style.color = '#FFF';
+            prenom.style.borderColor = '#52A5FF';
+            email.style.borderColor = '#52A5FF';
+            password.style.borderColor = '#52A5FF';
+            passwordInstructions.style.color = '#52A5FF';
+        } else {
+            registerButton.disabled = true;
+            registerButton.style.backgroundColor = '';
+            registerButton.style.color = '';
+            prenom.style.borderColor = '';
+            email.style.borderColor = '';
+            password.style.borderColor = '';
+            passwordInstructions.style.color = password.value ? 'red' : '';
+        }
+    }
+
+    document.getElementById('prenom-input').addEventListener('input', checkInputs);
+    document.getElementById('email-input').addEventListener('input', checkInputs);
+    document.getElementById('password-input').addEventListener('input', checkInputs);
+</script>
+
+<script>
+  if (!navigator.cookieEnabled) {
+    document.getElementById('message').innerText = 'Les cookies sont désactivés dans votre navigateur. Veuillez les activer pour utiliser l\'authentification Google.';
+  }
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Vérifiez si un script Google n'est pas chargé
+    const googleSignInButton = document.querySelector('.g_id_signin');
+    if (!googleSignInButton) {
+      const messageDiv = document.createElement('div');
+      messageDiv.style.color = 'red';
+      messageDiv.innerText = 'Il semble qu\'un bloqueur de publicités ou un autre logiciel de blocage empêche certaines fonctionnalités de fonctionner correctement. Veuillez désactiver ces extensions pour ce site.';
+      document.body.prepend(messageDiv);
+    }
+  });
+</script>
+
 </body>
 </html>

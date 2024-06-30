@@ -24,4 +24,8 @@ export class FamillesService {
     async findOne(id: string): Promise<Famille> {
         return this.familleModel.findById(id).exec();
     }
+    async findByCreatedBy(createdBy: string): Promise<Famille | null> {
+        return this.familleModel.findOne({ createdBy }).exec();
+    }
+    
 }
