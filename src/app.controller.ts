@@ -438,4 +438,21 @@ getDashboard() {
   return this.appService.getDashboard();
 }
 
+@Post('/update-role')
+async updateRole(@Body() { email, role }: { email: string, role: string }, @Res() response: Response) {
+    try {
+        const updatedUser = await this.usersService.updateUserRole(email, role);
+        return response.status(HttpStatus.OK).json({
+            message: 'Rôle mis à jour avec succès',
+            user: updatedUser
+        });
+    } catch (error) {
+        console.error('Error updating user role:', error.message, error.stack);
+        return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
+            message: 'Une erreur est survenue lors de la mise à jour du rôle'
+        });
+    }
+}
+
+
 }

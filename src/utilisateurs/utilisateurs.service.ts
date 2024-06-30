@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Utilisateur } from "./interfaces/utilisateur.interface";
 import { CreateUtilisateurDto } from './dto/create-utilisateur.dto';
-
+import { Controller, Post, Body, Res, NotFoundException } from '@nestjs/common';
 @Injectable()
 export class UtilisateursService {
     constructor(@InjectModel('Utilisateur') private readonly utilisateurModel: Model<Utilisateur>) {}
@@ -28,4 +28,14 @@ export class UtilisateursService {
     async findOneByEmail(email: string): Promise<Utilisateur | undefined> {
     return this.utilisateurModel.findOne({ email }).exec();
   }
+
+  async updateUserRole(email: string, role: string): Promise<Utilisateur> {
+    const user = await this.utilisateurModel.findOne({ email }).exec();
+    if (!user) {
+        throw new NotFoundException('Utilisateur non trouvé');
+    }
+    user.role = role;
+    return user.save();
+}
+
 }
