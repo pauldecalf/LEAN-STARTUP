@@ -72,13 +72,15 @@
       </div>
     </div>
 
+    <!-- Caché input pour sélectionner les fichiers ou utiliser la caméra -->
+    <input type="file" id="image-input" accept="image/*" style="display: none;" capture>
 
     <!-- Popup -->
     <div id="settings-popup" class="hidden">
         <div class="popup-content-settings">
             <div class="rectangle-592"></div>
             <p class="heading3" style="margin-bottom:32px">Télécharge ta photo</p>
-              <button class="onboarding2-cta-popup" style="margin-bottom:12px">
+              <button class="onboarding2-cta-popup" style="margin-bottom:12px"  onclick="openCamera()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                   <g clip-path="url(#clip0_846_324)">
                     <path d="M19.5 4H18.992L16.808 1.168C16.5265 0.805806 16.1663 0.512417 15.7547 0.310054C15.343 0.107691 14.8907 0.00166304 14.432 0L10.568 0C10.1093 0.00166304 9.65699 0.107691 9.24533 0.310054C8.83368 0.512417 8.47347 0.805806 8.192 1.168L6.008 4H5.5C4.17441 4.00159 2.90356 4.52888 1.96622 5.46622C1.02888 6.40356 0.501588 7.67441 0.5 9L0.5 19C0.501588 20.3256 1.02888 21.5964 1.96622 22.5338C2.90356 23.4711 4.17441 23.9984 5.5 24H19.5C20.8256 23.9984 22.0964 23.4711 23.0338 22.5338C23.9711 21.5964 24.4984 20.3256 24.5 19V9C24.4984 7.67441 23.9711 6.40356 23.0338 5.46622C22.0964 4.52888 20.8256 4.00159 19.5 4ZM9.776 2.39C9.86967 2.26905 9.98969 2.17106 10.1269 2.10348C10.2642 2.0359 10.415 2.00051 10.568 2H14.432C14.585 2.00066 14.7357 2.03611 14.873 2.10368C15.0102 2.17125 15.1302 2.26916 15.224 2.39L16.466 4H8.534L9.776 2.39ZM22.5 19C22.5 19.7956 22.1839 20.5587 21.6213 21.1213C21.0587 21.6839 20.2956 22 19.5 22H5.5C4.70435 22 3.94129 21.6839 3.37868 21.1213C2.81607 20.5587 2.5 19.7956 2.5 19V9C2.5 8.20435 2.81607 7.44129 3.37868 6.87868C3.94129 6.31607 4.70435 6 5.5 6H19.5C20.2956 6 21.0587 6.31607 21.6213 6.87868C22.1839 7.44129 22.5 8.20435 22.5 9V19Z" fill="#2F2F2F"/>
@@ -93,7 +95,7 @@
                 <p>Prendre une photo</p>
               </button>
 
-              <button class="onboarding2-cta-popup">
+              <button class="onboarding2-cta-popup" onclick="openFileManager()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <g clip-path="url(#clip0_846_1448)">
                     <path d="M12 21C12 21.553 11.552 22 11 22H5C2.243 22 0 19.757 0 17V5C0 2.243 2.243 0 5 0H17C19.757 0 22 2.243 22 5V11C22 11.553 21.552 12 21 12C20.448 12 20 11.553 20 11V5C20 3.346 18.654 2 17 2H5C3.346 2 2 3.346 2 5V11.959L4.808 9.151C6.34 7.618 8.833 7.618 10.366 9.151L15.707 14.492C16.098 14.883 16.098 15.515 15.707 15.906C15.512 16.101 15.256 16.199 15 16.199C14.744 16.199 14.488 16.101 14.293 15.906L8.952 10.565C8.2 9.814 6.976 9.813 6.222 10.565L2 14.787V17C2 18.654 3.346 20 5 20H11C11.552 20 12 20.447 12 21ZM15 3.5C16.654 3.5 18 4.846 18 6.5C18 8.154 16.654 9.5 15 9.5C13.346 9.5 12 8.154 12 6.5C12 4.846 13.346 3.5 15 3.5ZM15 5.5C14.449 5.5 14 5.948 14 6.5C14 7.052 14.449 7.5 15 7.5C15.551 7.5 16 7.052 16 6.5C16 5.948 15.551 5.5 15 5.5ZM23 18H20V15C20 14.447 19.552 14 19 14C18.448 14 18 14.447 18 15V18H15C14.448 18 14 18.447 14 19C14 19.553 14.448 20 15 20H18V23C18 23.553 18.448 24 19 24C19.552 24 20 23.553 20 23V20H23C23.552 20 24 19.553 24 19C24 18.447 23.552 18 23 18Z" fill="#2F2F2F"/>
@@ -125,7 +127,48 @@
         settingsPopup.classList.remove('hidden');
     });
   });
+
+  
+function openCamera() {
+    const imageInput = document.getElementById('image-input');
+    imageInput.setAttribute('capture', 'environment'); // Force à ouvrir la caméra
+    imageInput.click();
+}
+
+function openFileManager() {
+    const imageInput = document.getElementById('image-input');
+    imageInput.removeAttribute('capture'); // Permet de sélectionner des fichiers normalement
+    imageInput.click();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaPopupSettings = document.getElementById('cta-popup-settings');
+    const settingsPopup = document.getElementById('settings-popup');
+
+    ctaPopupSettings.addEventListener('click', function() {
+        settingsPopup.classList.add('show');
+        settingsPopup.classList.remove('hidden');
+    });
+
+    // Gestion de la sélection de fichier
+    document.getElementById('image-input').addEventListener('change', function(event) {
+        if (event.target.files.length > 0) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Assumer que `.profile-picture` est la classe de l'élément où l'image de profil doit être montrée
+                const profilePicture = document.querySelector('.profile-picture');
+                if (profilePicture) {
+                    profilePicture.style.backgroundImage = `url(${e.target.result})`;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+});
 </script>
+
 
 </body>
 </html>

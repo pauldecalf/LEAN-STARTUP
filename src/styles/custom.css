@@ -3689,5 +3689,12 @@ nav div{
                 font-weight: 700;
                 line-height: 140%; /* 28px */
               }
-
+              .profile-picture {
+                width: 100px; 
+                height: 100px;
+                background-size: cover;
+                background-position: center;
+                border-radius: 50%; 
+            }
+            
             
