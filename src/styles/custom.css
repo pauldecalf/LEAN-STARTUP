@@ -3634,7 +3634,6 @@ nav div{
                 display: flex;
                 width: 240px;
                 height: 240px;
-                padding: 61px 60px 61px 61px;
                 justify-content: center;
                 align-items: center;
                 flex-shrink: 0;
@@ -3690,11 +3689,117 @@ nav div{
                 line-height: 140%; /* 28px */
               }
               .profile-picture {
-                width: 100px; 
-                height: 100px;
+                width: 100%; 
                 background-size: cover;
                 background-position: center;
                 border-radius: 50%; 
             }
+
+            .onboarding3-content{
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+
+                /* Paragraph/MD/Normal */
+                font-family: var(--Font-Body, "Plus Jakarta Sans");
+                font-size: var(--Font-Size-2XS, 16px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+                margin-bottom: 32px;
+              }
+              .onboarding-3-birthday{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--padding-padding-12px, 12px);
+              }
+                .onboarding-3-birthday .head{
+                    display: flex;
+                    align-items: center;
+                    gap: var(--padding-padding-8px, 8px);
+                    flex: 1 0 0;
+                }
+                .onboarding-3-birthday .head p{
+                    color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+
+                    /* Paragraph/SM/Normal */
+                    font-family: var(--Font-Body, "Plus Jakarta Sans");
+                    font-size: var(--Font-Size-3XS, 14px);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%; /* 19.6px */
+                }
+                .onboarding-3-birthday input{
+                    display: flex;
+                    height: 58px;
+                    padding: var(--padding-padding-12px, 12px) var(--padding-padding-16px, 16px);
+                    align-items: center;
+                    gap: var(--padding-padding-48px, 48px);
+                    align-self: stretch;
+                    border-radius: var(--radius-radius-sm-4x, 8px);
+                    border: var(--stroke-stroke-sm, 1px) solid var(--Color-Neutral-Carbon-20, #D5D5D5);
+                    background: var(--Color-Neutral-White-100, #FFF);
+                    width: 100%;
+                }
             
-            
+                .onboarding3-nav-back{
+                    display: flex;
+                    width: 68px;
+                    height: 68px;
+                    padding: 14px var(--Padding-Spacing-16, 16px);
+                    justify-content: center;
+                    align-items: center;
+                    gap: var(--Padding-Spacing-20, 20px);
+                    flex-shrink: 0;
+                    border-radius: var(--Corner-radius-8, 8px);
+                }
+                .onboarding3-nav{
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center; /* Ajuste les éléments verticalement au centre */
+                    padding: 10px; /* Ajout de padding autour des éléments internes */
+                }
+                .onboarding3-nav-suivant{
+                    display: inline-flex;
+                    padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+                    justify-content: center;
+                    align-items: center;
+                    gap: var(--Padding-Spacing-20, 20px);
+                    border-radius: var(--Corner-radius-8, 8px);
+                    background: var(--Color-Neutral-Carbon-20, #D5D5D5);
+                }
+                .onboarding3-nav-suivant p{
+                    color: var(--Color-Neutral-Carbon-60, #828282);
+                    font-family: var(--Font-Body, "Plus Jakarta Sans");
+                    font-size: var(--Font-Size-XS, 20px);
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 140%; /* 28px */
+                }
+
+                        /* Styles par défaut */
+        .mobile-only-content {
+            display: block;
+        }
+
+        .desktop-info-message {
+            display: none;
+            text-align: center;
+            margin-top: 20%;
+            font-size: 1.5em;
+        }
+
+        @media (min-width: 600px) {
+            /* Masquer le contenu mobile et afficher le message pour les écrans de 600px et plus */
+            .mobile-only-content {
+                display: none;
+            }
+
+            .desktop-info-message {
+                display: block;
+            }
+        }

@@ -35,7 +35,11 @@
 </head>
 
 <body style="background: #846DED">
-<main class="main-success-register">
+    <!-- Message d'information pour les écrans de 600px et plus -->
+    <div class="desktop-info-message">
+        Pour visualiser cette page, veuillez utiliser un appareil mobile. (max-width:600px)
+    </div>
+<main class="mobile-only-content main-success-register">
   <h1>Bienvenue à bord, <span id="user-first-name">Gloria</span>!</h1>
   <p>Prêt à transformer votre quotidien ?
 Embarquez avec nous et créez une nouvelle dynamique familiale positive. 🚀</p>
@@ -51,13 +55,6 @@ Embarquez avec nous et créez une nouvelle dynamique familiale positive. 🚀</p
         <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.</p>
         <button onclick="acceptCookies()">Accepter</button>
     </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const firstName = sessionStorage.getItem('prenom');
-        if (firstName) {
-            document.getElementById('user-first-name').textContent = firstName;
-        }
-    });
-</script>
+    <script src="../success-register.js"></script>
 </body>
 </html>

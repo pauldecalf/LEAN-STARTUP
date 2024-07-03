@@ -35,7 +35,11 @@
 </head>
 
 <body style="background: #FFFCF1">
-<main class="main-create-family">
+    <!-- Message d'information pour les écrans de 600px et plus -->
+    <div class="desktop-info-message">
+        Pour visualiser cette page, veuillez utiliser un appareil mobile. (max-width:600px)
+    </div>
+<main class="mobile-only-content main-create-family">
   <div class="create-family-progress-bar">
     <div class="create-family-progress-background">
       <div class="create-family-progress" style="width: 100%;"></div>
@@ -76,40 +80,6 @@
         <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.</p>
         <button onclick="acceptCookies()">Accepter</button>
     </div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('role-selection-form');
-    const email = sessionStorage.getItem('email');
-
-    if (!email) {
-        window.location.href = '/login';
-    }
-
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        
-        const selectedRole = document.querySelector('input[name="role"]:checked').value;
-
-        try {
-            const response = await fetch('/update-role', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, role: selectedRole })
-            });
-
-            if (response.ok) {
-                window.location.href = '/success-register';
-            } else {
-                alert('Une erreur est survenue. Veuillez réessayer.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Une erreur est survenue. Veuillez réessayer.');
-        }
-    });
-});
-</script>
+<script src="../choix-role.js"></script>
 </body>
 </html>

@@ -187,62 +187,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         checkCookieConsent();
     }
 
-    // Gestion de la connexion avec Google
-    if (window.google) {
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
-                callback: handleCredentialResponse
-            });
-            google.accounts.id.renderButton(
-              document.querySelector('.g_id_signin'),
-              { theme: 'outline', size: 'large' }
-            );
-            google.accounts.id.prompt();
-        };
-
-        async function handleCredentialResponse(response) {
-            const responsePayload = decodeJwtResponse(response.credential);
-
-            const data = {
-                pseudo: responsePayload.name,
-                email: responsePayload.email,
-                googleId: response.credential,
-                imgProfil: responsePayload.picture
-            };
-
-            try {
-                const res = await fetch('/register/google', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-
-                const result = await res.json();
-                if (res.ok) {
-                    messageElement.textContent = result.message;
-                    localStorage.setItem('token', result.token); // Stocker le token
-                    window.location.href = '/family-setup'; // Rediriger vers une page protégée
-                } else {
-                    messageElement.textContent = result.message || 'Une erreur est survenue lors de votre inscription avec Google';
-                }
-            } catch (error) {
-                console.error('Error during Google registration:', error); // Debug log
-                document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
-            }
-        }
-
-        function decodeJwtResponse(token) {
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            return JSON.parse(jsonPayload);
-        }
-    }
 
     // Autres scripts spécifiques à la page d'inscription ou d'autres pages
     const prenomInput = document.getElementById('prenom-input');
@@ -502,59 +446,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-window.onload = function () {
-    google.accounts.id.initialize({
-      client_id: '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com',
-      callback: handleCredentialResponse
-    });
-    google.accounts.id.renderButton(
-      document.querySelector('.g_id_signin'),
-      { theme: 'outline', size: 'large' }
-    );
-    google.accounts.id.prompt();
-  };
+
   
-  async function handleCredentialResponse(response) {
-    const responsePayload = decodeJwtResponse(response.credential);
+
   
-    const data = {
-      pseudo: responsePayload.name,
-      email: responsePayload.email,
-      googleId: response.credential,
-      imgProfil: responsePayload.picture
-    };
-  
-    try {
-      const res = await fetch('/register/google', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-  
-      const result = await res.json();
-      if (res.ok) {
-        messageElement.textContent = result.message;
-        localStorage.setItem('token', result.token); // Stocker le token
-        window.location.href = '/family-setup'; // Rediriger avec une requête GET
-      } else {
-        messageElement.textContent = result.message || 'Une erreur est survenue lors de votre inscription avec Google';
-      }
-    } catch (error) {
-      console.error('Error during Google registration:', error);
-      document.getElementById('message').textContent = 'Une erreur est survenue lors de votre inscription avec Google';
-    }
-  }
-  
-  function decodeJwtResponse(token) {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-    return JSON.parse(jsonPayload);
-  }
+
   
 
   document.addEventListener('DOMContentLoaded', function() {

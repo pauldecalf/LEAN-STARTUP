@@ -35,7 +35,11 @@
 </head>
 
 <body style="background: #FFFCF1">
-<main class="main-create-family">
+    <!-- Message d'information pour les écrans de 600px et plus -->
+    <div class="desktop-info-message">
+        Pour visualiser cette page, veuillez utiliser un appareil mobile. (max-width:600px)
+    </div>
+<main class="mobile-only-content main-create-family">
   <div class="create-family-progress-bar">
     <div class="create-family-progress-background">
       <div class="create-family-progress" style="width: 66%;"></div>
@@ -108,26 +112,6 @@
         <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre navigation, vous acceptez notre <a href="/politiqueconfidentialite">politique de confidentialité</a>.</p>
         <button onclick="acceptCookies()">Accepter</button>
     </div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const invitationCode = sessionStorage.getItem('invitationCode');
-    if (invitationCode) {
-        document.getElementById('invitationCode').textContent = invitationCode;
-    }
-
-    document.querySelector('.copy-code').addEventListener('click', () => {
-        copyCodeToClipboard();
-    });
-});
-
-function copyCodeToClipboard() {
-    const code = document.getElementById('invitationCode').textContent;
-    navigator.clipboard.writeText(code).then(() => {
-        alert('Code d\'invitation copié dans le presse-papiers');
-    }, (err) => {
-        console.error('Erreur lors de la copie du code : ', err);
-    });
-}
-</script>
+<script src="../family-invitation.js"></script>
 </body>
 </html>

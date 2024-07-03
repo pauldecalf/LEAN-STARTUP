@@ -51,4 +51,7 @@ export class AppService {
   geProfilOnboarding() {}
 
   geProfilOnboarding2() {}
+
+  geProfilOnboarding3() {}
+
 }

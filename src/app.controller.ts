@@ -24,6 +24,10 @@ import { OAuth2Client } from 'google-auth-library';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
 import {  NotFoundException, BadRequestException } from '@nestjs/common';
+import { UseInterceptors, UploadedFile } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import * as path from 'path';
 config();
 
 const clientId = '152404122949-28cgi4vta9vreupt8m4armb4h0l886ck.apps.googleusercontent.com';
@@ -542,5 +546,37 @@ geProfilOnboarding2() {
 }
 
 
+@Post('/upload-profile-image')
+@UseInterceptors(FileInterceptor('image', {
+  storage: diskStorage({
+    destination: './public/img/', // Assurez-vous que ce répertoire existe
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const ext = path.extname(file.originalname);
+      cb(null, `${uniqueSuffix}${ext}`);
+    },
+  }),
+}))
+async postProfilOnboarding2(@UploadedFile() file, @Body('email') email: string) {
+  if (!file) throw new HttpException('No file uploaded', HttpStatus.BAD_REQUEST);
+  if (!email) throw new HttpException('Email is required', HttpStatus.BAD_REQUEST);
+  
+  const user = await this.usersService.findOneByEmail(email);
+  if (!user) throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+
+  // Mettre à jour l'URL de l'image dans la base de données
+  const result = await this.usersService.update(user.id, { imgProfil: `/img/${file.filename}` });
+  if (!result) {
+    throw new HttpException('Error updating user profile', HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+
+  return { message: 'Image uploaded successfully', filePath: `/img/${file.filename}` };
+}
+
+@Get('/profil-onboarding-3')
+@Render('profil-onboarding-3')
+geProfilOnboarding3() {
+  return this.appService.geProfilOnboarding3();
+}
 
 }
