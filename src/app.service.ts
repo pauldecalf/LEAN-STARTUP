@@ -49,4 +49,6 @@ export class AppService {
   getProfil() {}
 
   geProfilOnboarding() {}
+
+  geProfilOnboarding2() {}
 }

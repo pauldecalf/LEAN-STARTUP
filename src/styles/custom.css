@@ -3594,3 +3594,100 @@ nav div{
                 font-weight: 700;
                 line-height: 140%; /* 28px */
               }
+
+
+              .onboarding2{
+                margin: 24px 16px;
+              }
+
+              .onboarding-back{
+                display: flex;
+                width: 48px;
+                padding: var(--Padding-Spacing-12, 12px) var(--Padding-Spacing-16, 16px);
+                justify-content: center;
+                align-items: center;
+                gap: var(--Padding-Spacing-20, 20px);
+                border-radius: var(--Corner-radius-8, 8px);
+                margin-bottom: 24px;
+              }
+              .onboarding2 h1{
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+                font-family: var(--Font-Display, "Bricolage Grotesque");
+                font-size: 28px;
+                font-style: normal;
+                font-weight: 600;
+                margin-bottom: 12px;
+                line-height: 120%; /* 33.6px */
+              }
+              .onboarding2-content{
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+
+                /* Paragraph/MD/Normal */
+                font-family: var(--Font-Body, "Plus Jakarta Sans");
+                font-size: var(--Font-Size-2XS, 16px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 22.4px */
+                margin-bottom: 80px;
+              }
+              .onboarding2-image{
+                display: flex;
+                width: 240px;
+                height: 240px;
+                padding: 61px 60px 61px 61px;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 24px;
+                border: var(--values-2-px-15-pt, 2px) solid var(--Color-Neutral-White-100, #FFF);
+                background: #FFF;
+                box-shadow: 0px 0px 10px 0px rgba(106, 106, 106, 0.24);
+              }
+              .onboarding-2-div-image{
+                display: flex;
+                justify-content: center;
+                margin-bottom: 190px;   
+              }
+              .onboarding2-cta{
+                display: flex;
+                width: 100%;
+                padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+                justify-content: center;
+                align-items: center;
+                gap: var(--Padding-Spacing-20, 20px);
+                border-radius: var(--Corner-radius-8, 8px);
+                background: #7059D7;
+                box-shadow: 0px 0px 17px 0px rgba(132, 109, 237, 0.24);
+                color: var(--Color-Neutral-White-100, #FFF);
+
+                /* Paragraph/LG/Bold */
+                font-family: var(--Font-Body, "Plus Jakarta Sans");
+                font-size: var(--Font-Size-XS, 20px);
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%; /* 28px */
+                margin-bottom: 24px;
+              }
+
+              .onboarding2-cta-popup{
+                display: flex;
+                width: 100%;
+                padding: var(--Padding-Spacing-20, 20px) var(--Padding-Spacing-24, 24px);
+                justify-content: center;
+                align-items: center;
+                gap: var(--Padding-Spacing-20, 20px);
+                border-radius: var(--Corner-radius-8, 8px);
+                border: 2px solid var(--Color-Neutral-Carbon-30, #C0C0C0);
+              }
+              .onboarding2-cta-popup p{
+                color: var(--Color-Neutral-Carbon-100, #2F2F2F);
+
+                /* Paragraph/LG/Bold */
+                font-family: var(--Font-Body, "Plus Jakarta Sans");
+                font-size: var(--Font-Size-XS, 20px);
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%; /* 28px */
+              }
+
+            

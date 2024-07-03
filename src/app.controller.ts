@@ -535,5 +535,12 @@ geProfilOnboarding() {
 }
 
 
+@Get('/profil-onboarding-2')
+@Render('profil-onboarding-2')
+geProfilOnboarding2() {
+  return this.appService.geProfilOnboarding2();
+}
+
+
 
 }
