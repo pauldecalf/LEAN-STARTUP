@@ -263,9 +263,7 @@ async registerWithGoogle(@Body() body: { idToken: string }, @Res() response: Res
 @Post('/login')
 async login(@Body() { email, password }: { email: string, password: string }, @Res() response: Response) {
     try {
-        console.log(`Login attempt: email=${email}, password=${password}`);
         const user = await this.usersService.findOneByEmail(email);
-        console.log(`User found: ${JSON.stringify(user)}`);
 
         if (!user) {
             console.error('User not found');
@@ -273,7 +271,6 @@ async login(@Body() { email, password }: { email: string, password: string }, @R
         }
 
         const isPasswordMatch = await this.authService.comparePasswords(password, user.password);
-        console.log(`Password match: ${isPasswordMatch}`);
         if (!isPasswordMatch) {
             return response.status(HttpStatus.UNAUTHORIZED).json({ message: 'Email ou mot de passe incorrect' });
         }
@@ -380,8 +377,6 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
 
   @Post('/create-family')
   async create(@Body() { name, createdBy }: { name: string, createdBy: string }, @Res() response: Response) {
-    console.log('Received request to create family with name:', name);
-    console.log('Created by:', createdBy);
 
     try {
       // Vérifiez si une famille existe déjà pour cet utilisateur
@@ -398,11 +393,9 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
         createdAt: new Date(),
       };
 
-      console.log('Creating family with details:', famille);
 
       const family = await this.famillesService.create(famille);
 
-      console.log('Family created successfully with ID:', family.id);
 
       // Mettre à jour l'utilisateur avec le nouvel idFamille
       const user = await this.usersService.findOneByEmail(createdBy);
@@ -417,7 +410,6 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
       const familyId = family.id.toString();
       const invitationCode = familyId.slice(-6);
 
-      console.log('Invitation code generated:', invitationCode);
 
       // Retourner un JSON avec le code d'invitation
       return response.status(HttpStatus.CREATED).json({
@@ -444,7 +436,6 @@ async loginWithGoogle(@Body() body: { idToken: string }, @Res() response: Respon
   @Get('/family-invitation')
   @Render('family-invitation')
   getFamilyInvitation(@Query('invitationCode') invitationCode: string) {
-      console.log('Received invitationCode parameter:', invitationCode);
       if (!invitationCode) {
           console.error('No invitationCode received');
       }
@@ -534,6 +525,13 @@ async getProfilPost(@Body() body: { email: string }, @Res() res: Response) {
   } catch (error) {
     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue', error: error.message });
   }
+}
+
+
+@Get('/profil-onboarding')
+@Render('profil-onboarding')
+geProfilOnboarding() {
+  return this.appService.geProfilOnboarding();
 }
 
 

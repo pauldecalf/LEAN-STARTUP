@@ -47,4 +47,6 @@ export class AppService {
   getDashboard() {}
 
   getProfil() {}
+
+  geProfilOnboarding() {}
 }
