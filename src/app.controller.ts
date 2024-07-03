@@ -165,7 +165,7 @@ async register(@Body() createUtilisateurDto: CreateUtilisateurDto, @Res() respon
             nom: createUtilisateurDto.nom || 'default-nom',
             prenom: createUtilisateurDto.prenom || 'default-prenom',
             pseudo: createUtilisateurDto.pseudo || 'default-pseudo',
-            imgProfil: createUtilisateurDto.imgProfil || 'default-imgProfil',
+            imgProfil: createUtilisateurDto.imgProfil || '/img/img-default.png',
             anniversaire: createUtilisateurDto.anniversaire || '2000-01-01',
             genre: createUtilisateurDto.genre || 'default-genre',
             loisirs: createUtilisateurDto.loisirs || 'default-loisirs',
@@ -477,6 +477,23 @@ getDashboard() {
   return this.appService.getDashboard();
 }
 
+@Post('/dashboard')
+async getDashboardPost(@Body() body: { email: string }, @Res() res: Response) {
+  const email = body.email;
+
+  try {
+    const user = await this.usersService.findOneByEmail(email);
+    if (!user) {
+      return res.status(HttpStatus.NOT_FOUND).json({ message: 'Utilisateur non trouvé' });
+    }
+    const usersInFamily = await this.usersService.findByFamilleId(user.idFamille);
+    return res.status(HttpStatus.OK).json(usersInFamily);
+  } catch (error) {
+    return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue', error: error.message });
+  }
+}
+
+
 @Post('/update-role')
 async updateRole(@Body() { email, role }: { email: string, role: string }, @Res() response: Response) {
     try {
@@ -492,6 +509,33 @@ async updateRole(@Body() { email, role }: { email: string, role: string }, @Res(
         });
     }
 }
+
+
+@Get('/profil')
+@Render('profil')
+getProfil() {
+  return this.appService.getProfil();
+}
+
+@Post('/profil')
+async getProfilPost(@Body() body: { email: string }, @Res() res: Response) {
+  const email = body.email;
+  try {
+    const user = await this.usersService.findOneByEmail(email);
+    if (!user) {
+      return res.status(HttpStatus.NOT_FOUND).json({ message: 'Utilisateur non trouvé' });
+    }
+    const family = await this.famillesService.findOne(user.idFamille);
+    if (!family) {
+      return res.status(HttpStatus.NOT_FOUND).json({ message: 'Famille non trouvée' });
+    }
+    // Retourner un objet JSON complet
+    return res.json({ nomFamily: family.nom, role: user.role, prenom: user.prenom, email: user.email, imageProfil: user.imgProfil });
+  } catch (error) {
+    return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Une erreur est survenue', error: error.message });
+  }
+}
+
 
 
 }

@@ -45,4 +45,6 @@ export class AppService {
   getJoinFamily() {}
 
   getDashboard() {}
+
+  getProfil() {}
 }
