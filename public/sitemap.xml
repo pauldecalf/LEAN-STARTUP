@@ -1,132 +1,59 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-    <url>
-        <loc>https://smoozy-app.com/</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.00</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/blog</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/faq</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/contact</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/politiqueconfidentialite</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/mentionslegales</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/7-astuces-communication-famille-recomposee</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-
-    <url>
-        <loc>https://smoozy-app.com/articles/top-5-jeux-societe-familles</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/5-conseils-entente-fratries-famille-recomposee</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/comment-gerer-budget-famille-recomposee-sans-stress</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/reduire-conflits-famille-recomposee-5-strategies</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/comment-vivre-famille-recomposee-enfant</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/blog?page=2</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.51</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/activites-famille-recomposee-renforcer-liens</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/gerer-differences-culturelles-famille-recomposee</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/adaptation-enfant-famille-recomposee</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/articles/liens-solides-belles-soeurs-beaux-freres-famille-recomposee</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.64</priority>
-    </url>
-
-    <url>
-        <loc>https://smoozy-app.com/blog?page=1</loc>
-        <lastmod>2024-06-29T22:56:56+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.51</priority>
-    </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.smoozy-app.com/</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/5-conseils-entente-fratries-famille-recomposee</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/7-astuces-communication-famille-recomposee</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/activites-famille-recomposee-renforcer-liens</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/adaptation-enfant-famille-recomposee</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/comment-gerer-budget-famille-recomposee-sans-stress</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/comment-vivre-famille-recomposee-enfant</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/gerer-differences-culturelles-famille-recomposee</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/liens-solides-belles-soeurs-beaux-freres-famille-recomposee</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/reduire-conflits-famille-recomposee-5-strategies</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/articles/top-5-jeux-societe-familles</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/blog</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/blog?page=1</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/blog?page=2</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/contact</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/faq</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/maintenance</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/mentionslegales</loc>
+</url>
+<url>
+<loc>https://www.smoozy-app.com/politiqueconfidentialite</loc>
+</url>
 </urlset>
