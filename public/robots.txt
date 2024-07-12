@@ -1,0 +1,11 @@
+# Bloc général : Autorise tous les moteurs de recherche à explorer le site
+User-agent: *
+Disallow:
+
+# Bloque l'accès à certains répertoires sensibles
+Disallow: /admin/
+Disallow: /login/
+Disallow: /test/
+
+# Indique l'emplacement de votre sitemap
+Sitemap: https://www.smoozy-app.com/sitemap.xml
