@@ -12,8 +12,8 @@ Smoozy est une application web conçue pour améliorer la vie quotidienne des fa
 
 ## 💻 Technologies utilisées
 
-- ⚛️ **Frontend** : Next.js pour une interface utilisateur réactive et performante.
-- 🌐 **Backend** : Node.js avec Express pour gérer les requêtes et la logique métier.
+- 🚀 **Backend** : NestJS pour une architecture backend modulable et performante.
+- 🌐 **API** : Node.js avec Express pour gérer les requêtes et la logique métier.
 - 🍃 **Base de données** : MongoDB pour le stockage des données utilisateurs et des configurations.
 - 🔐 **Authentification** : JWT (JSON Web Tokens) pour sécuriser les sessions utilisateurs.
 - 🎨 **Style** : Tailwind CSS pour un design moderne et responsive.
@@ -45,7 +45,7 @@ Smoozy est une application web conçue pour améliorer la vie quotidienne des fa
 4. **Lancer l'application** :
 
    ```bash
-   npm run dev
+   npm run start:dev
    ```
 
    🌍 L'application sera accessible sur `http://localhost:3000`.
