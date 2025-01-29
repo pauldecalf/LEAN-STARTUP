@@ -17,6 +17,7 @@ import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtAuthGuard } from './jwt-auth.guard'; // Assurez-vous que ce chemin est correct
 import { AuthMiddleware } from './auth.middleware';
+import * as process from "node:process";
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { AuthMiddleware } from './auth.middleware';
       serveRoot: '/',
     }),
     MongooseModule.forRoot(
-      'mongodb+srv://admin:admin@atlascluster.vfolo9m.mongodb.net/',
+      process.env.MONGODB_URI,
     ),
     ArticlesModule,
     UtilisateursModule,
