@@ -5,9 +5,13 @@ import { PrisedeconnaissanceController } from './prisedeconnaissance.controller'
 import { PrisedeconnaissanceSchema } from './schemas/prisedeconnaissance.schema';
 
 @Module({
-    imports: [MongooseModule.forFeature([{ name: 'Prisedeconnaissance', schema: PrisedeconnaissanceSchema }])],
-    providers: [PrisedeconnaissanceService],
-    controllers: [PrisedeconnaissanceController],
-    exports: [PrisedeconnaissanceService] // Ajoutez cette ligne pour exporter FamillesService
+  imports: [
+    MongooseModule.forFeature([
+      { name: 'Prisedeconnaissance', schema: PrisedeconnaissanceSchema },
+    ]),
+  ],
+  providers: [PrisedeconnaissanceService],
+  controllers: [PrisedeconnaissanceController],
+  exports: [PrisedeconnaissanceService], // Ajoutez cette ligne pour exporter FamillesService
 })
 export class PrisedeconnaissanceModule {}

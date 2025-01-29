@@ -5,9 +5,11 @@ import { FamillesController } from './familles.controller';
 import { FamilleSchema } from './schemas/famille.schema';
 
 @Module({
-    imports: [MongooseModule.forFeature([{ name: 'Famille', schema: FamilleSchema }])],
-    providers: [FamillesService],
-    controllers: [FamillesController],
-    exports: [FamillesService] // Ajoutez cette ligne pour exporter FamillesService
+  imports: [
+    MongooseModule.forFeature([{ name: 'Famille', schema: FamilleSchema }]),
+  ],
+  providers: [FamillesService],
+  controllers: [FamillesController],
+  exports: [FamillesService], // Ajoutez cette ligne pour exporter FamillesService
 })
 export class FamillesModule {}

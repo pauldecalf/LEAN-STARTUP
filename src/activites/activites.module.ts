@@ -5,9 +5,11 @@ import { ActivitesController } from './activites.controller';
 import { ActivitesSchema } from './schemas/activites.schema';
 
 @Module({
-    imports: [MongooseModule.forFeature([{ name: 'Activites', schema: ActivitesSchema }])],
-    providers: [ActivitesService],
-    controllers: [ActivitesController],
-    exports: [ActivitesService] // Ajoutez cette ligne pour exporter FamillesService
+  imports: [
+    MongooseModule.forFeature([{ name: 'Activites', schema: ActivitesSchema }]),
+  ],
+  providers: [ActivitesService],
+  controllers: [ActivitesController],
+  exports: [ActivitesService], // Ajoutez cette ligne pour exporter FamillesService
 })
 export class ActivitesModule {}

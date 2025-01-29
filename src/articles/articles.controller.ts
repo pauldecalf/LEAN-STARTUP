@@ -5,15 +5,15 @@ import { Article } from './interfaces/article.interface';
 
 @Controller('articles')
 export class ArticlesController {
-    constructor(private readonly articlesService: ArticlesService) {}
+  constructor(private readonly articlesService: ArticlesService) {}
 
-    @Post()
-    async create(@Body() createArticleDto: CreateArticleDto) {
-        return this.articlesService.create(createArticleDto);
-    }
+  @Post()
+  async create(@Body() createArticleDto: CreateArticleDto) {
+    return this.articlesService.create(createArticleDto);
+  }
 
-    @Get()
-    async findAll(): Promise<Article[]> {
-        return this.articlesService.findAll();
-    }
+  @Get()
+  async findAll(): Promise<Article[]> {
+    return this.articlesService.findAll();
+  }
 }

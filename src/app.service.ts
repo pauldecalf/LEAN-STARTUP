@@ -4,9 +4,7 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   constructor() {}
 
-
-
-  getHome() {};
+  getHome() {}
 
   getContact() {}
 
@@ -53,5 +51,4 @@ export class AppService {
   geProfilOnboarding2() {}
 
   geProfilOnboarding3() {}
-
 }

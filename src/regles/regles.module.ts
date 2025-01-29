@@ -5,9 +5,11 @@ import { ReglesController } from './regles.controller';
 import { RegleSchema } from './schemas/regle.schema';
 
 @Module({
-    imports: [MongooseModule.forFeature([{ name: 'Regle', schema: RegleSchema }])],
-    providers: [ReglesService],
-    controllers: [ReglesController],
-    exports: [ReglesService] // Ajoutez cette ligne pour exporter FamillesService
+  imports: [
+    MongooseModule.forFeature([{ name: 'Regle', schema: RegleSchema }]),
+  ],
+  providers: [ReglesService],
+  controllers: [ReglesController],
+  exports: [ReglesService], // Ajoutez cette ligne pour exporter FamillesService
 })
 export class ReglesModule {}

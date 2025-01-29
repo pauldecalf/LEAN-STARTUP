@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Req, Res, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Req,
+  Res,
+  HttpStatus,
+} from '@nestjs/common';
 import { FamillesService } from './familles.service';
 import { CreateFamilleDto } from './dto/create-famille.dto';
 import { Famille } from './interfaces/famille.interface';
@@ -9,14 +17,23 @@ export class FamillesController {
   constructor(private readonly familleService: FamillesService) {}
 
   @Post('/create-family')
-  async create(@Body() createFamilleDto: CreateFamilleDto, @Req() req: Request, @Res() res: Response) {
-    console.log('Received request to create family with nom:', createFamilleDto.nom);
+  async create(
+    @Body() createFamilleDto: CreateFamilleDto,
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
+    console.log(
+      'Received request to create family with nom:',
+      createFamilleDto.nom,
+    );
 
     try {
       if (!req['user']) {
         console.error('User not found in request');
         console.log('Request object:', req); // Log pour vérifier l'objet requête
-        return res.status(HttpStatus.UNAUTHORIZED).json({ message: 'Utilisateur non authentifié' });
+        return res
+          .status(HttpStatus.UNAUTHORIZED)
+          .json({ message: 'Utilisateur non authentifié' });
       }
 
       console.log('Request user object:', req['user']); // Ajoutez ce log pour vérifier l'objet utilisateur
@@ -26,7 +43,7 @@ export class FamillesController {
       const famille = {
         nom: createFamilleDto.nom,
         createdBy: userId,
-        createdAt: new Date()
+        createdAt: new Date(),
       };
 
       console.log('Creating family with details:', famille);
@@ -37,12 +54,16 @@ export class FamillesController {
 
       return res.status(HttpStatus.CREATED).json({
         message: 'Famille créée avec succès',
-        invitationCode: invitationCode
+        invitationCode: invitationCode,
       });
     } catch (error) {
-      console.error('Error during family creation:', error.message, error.stack);
+      console.error(
+        'Error during family creation:',
+        error.message,
+        error.stack,
+      );
       return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-        message: 'Une erreur est survenue lors de la création de la famille'
+        message: 'Une erreur est survenue lors de la création de la famille',
       });
     }
   }

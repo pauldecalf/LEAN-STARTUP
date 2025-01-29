@@ -7,7 +7,10 @@ import { Response } from 'express';
 import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class AuthService {
-  constructor(private configService: ConfigService,private jwtService: JwtService) {}
+  constructor(
+    private configService: ConfigService,
+    private jwtService: JwtService,
+  ) {}
 
   private readonly saltRounds = 10;
 
@@ -16,7 +19,10 @@ export class AuthService {
     return await bcrypt.hash(password, salt);
   }
 
-  async comparePasswords(password: string, storedPasswordHash: string): Promise<boolean> {
+  async comparePasswords(
+    password: string,
+    storedPasswordHash: string,
+  ): Promise<boolean> {
     return bcrypt.compare(password, storedPasswordHash);
   }
 
