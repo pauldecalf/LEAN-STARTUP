@@ -26,7 +26,7 @@ import * as process from "node:process";
       serveRoot: '/',
     }),
     MongooseModule.forRoot(
-      process.env.MONGODB_URI,
+      process.env.DATABASE_URL,
     ),
     ArticlesModule,
     UtilisateursModule,
