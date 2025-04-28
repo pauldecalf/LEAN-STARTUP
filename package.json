@@ -19,6 +19,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./public/styles.css",
+    "vercel-build": "npm run build && npm run build:css && cp -r views public dist/",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {

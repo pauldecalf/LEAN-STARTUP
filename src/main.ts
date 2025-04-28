@@ -1,4 +1,9 @@
 import 'reflect-metadata';
+
+if (!(Reflect && Reflect.getMetadata)) {
+  throw new Error('reflect-metadata shim is required! Please add "import \'reflect-metadata\';" to the top of your entry point.');
+}
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -11,8 +16,17 @@ import { configureHandlebars } from './handlebars.config';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.useStaticAssets(join(__dirname, '..', 'public'));
-  app.setBaseViewsDir(join(__dirname, '..', 'views'));
+  // Configuration des chemins pour l'environnement serverless
+  const isProduction = process.env.NODE_ENV === 'production';
+  const rootPath = isProduction ? process.cwd() : join(__dirname, '..');
+
+  // Configuration des assets statiques
+  app.useStaticAssets(join(rootPath, 'public'), {
+    prefix: '/public/',
+  });
+
+  // Configuration des vues
+  app.setBaseViewsDir(join(rootPath, 'views'));
   app.setViewEngine('hbs');
 
   // Configuration des helpers Handlebars
