@@ -1,40 +1,61 @@
-import 'reflect-metadata';
-
-if (!(Reflect && Reflect.getMetadata)) {
-  throw new Error('reflect-metadata shim is required! Please add "import \'reflect-metadata\';" to the top of your entry point.');
-}
-
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
-import { Express } from 'express';
-import * as express from 'express';
 import * as hbs from 'hbs';
-import { configureHandlebars } from './handlebars.config';
-
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  // Configuration des chemins pour l'environnement serverless
-  const isProduction = process.env.NODE_ENV === 'production';
-  const rootPath = isProduction ? process.cwd() : join(__dirname, '..');
-
-  // Configuration des assets statiques
-  app.useStaticAssets(join(rootPath, 'public'), {
-    prefix: '/public/',
-  });
-
-  // Configuration des vues
-  app.setBaseViewsDir(join(rootPath, 'views'));
+  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
 
-  // Configuration des helpers Handlebars
-  configureHandlebars();
+  hbs.registerHelper('formatDate', function (date: Date) {
+    const d = new Date(date);
+    const day = ('0' + d.getDate()).slice(-2);
+    const month = ('0' + (d.getMonth() + 1)).slice(-2);
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  });
 
-  // Configuration des middlewares Express
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  hbs.registerHelper('limit', function (arr, limit) {
+    if (!Array.isArray(arr)) {
+      return [];
+    }
+    return arr.slice(0, limit);
+  });
+
+  hbs.registerHelper('range', function (start, end) {
+    const range = [];
+    for (let i = start; i <= end; i++) {
+      range.push(i);
+    }
+    return range;
+  });
+
+  hbs.registerHelper('subtract', function (a, b) {
+    return a - b;
+  });
+
+  hbs.registerHelper('add', function (a, b) {
+    return a + b;
+  });
+
+  hbs.registerHelper('gt', function (a, b) {
+    return a > b;
+  });
+
+  hbs.registerHelper('lt', function (a, b) {
+    return a < b;
+  });
+
+  hbs.registerHelper('eq', function (a, b) {
+    return a === b;
+  });
+
+  hbs.registerHelper('isCurrentPage', function (page, currentPage, options) {
+    return page === currentPage ? options.fn(this) : options.inverse(this);
+  });
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
