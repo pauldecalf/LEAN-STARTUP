@@ -5,7 +5,12 @@
       "src": "serverless.js",
       "use": "@vercel/node",
       "config": {
-        "buildCommand": "bash vercel-build.sh"
+        "buildCommand": "bash vercel-build.sh",
+        "includeFiles": [
+          "src/**",
+          "views/**",
+          "public/**"
+        ]
       }
     }
   ],

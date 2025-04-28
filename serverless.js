@@ -1,10 +1,10 @@
 const { NestFactory } = require('@nestjs/core');
-const { AppModule } = require('./dist/app.module');
+const { AppModule } = require('./src/app.module');
 const { NestExpressApplication } = require('@nestjs/platform-express');
 const { join } = require('path');
 const express = require('express');
 const hbs = require('hbs');
-const { configureHandlebars } = require('./dist/handlebars.config');
+const { configureHandlebars } = require('./src/handlebars.config');
 
 let app;
 

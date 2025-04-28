@@ -1,6 +1,14 @@
 #!/bin/bash
+
+# Installation des dépendances
 npm install
+
+# Compilation TypeScript
 npm run build
-# Copier les fichiers nécessaires
-cp -r views dist/
-cp -r public dist/ 
+
+# Copie des fichiers statiques
+cp -r views .
+cp -r public .
+
+# Copie des fichiers source TypeScript pour le serverless
+cp -r src . 
