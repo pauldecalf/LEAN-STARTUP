@@ -2,7 +2,6 @@ import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { join } from 'path';
 import { AppService } from './app.service';
-import { ServeStaticModule } from '@nestjs/serve-static';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ArticlesModule } from './articles/articles.module';
 import { UtilisateursModule } from './utilisateurs/utilisateurs.module';
@@ -15,16 +14,12 @@ import { ActivitesModule } from './activites/activites.module';
 import { AuthService } from './auth.service';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtAuthGuard } from './jwt-auth.guard'; // Assurez-vous que ce chemin est correct
+import { JwtAuthGuard } from './jwt-auth.guard';
 import { AuthMiddleware } from './auth.middleware';
 import * as process from "node:process";
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
-      serveRoot: '/',
-    }),
     MongooseModule.forRoot(
       process.env.DATABASE_URL,
     ),
@@ -40,7 +35,7 @@ import * as process from "node:process";
       isGlobal: true,
     }),
     JwtModule.register({
-      secret: process.env.JWT_SECRET || 'default-secret', // Remplacez par votre clé secrète
+      secret: process.env.JWT_SECRET || 'default-secret',
       signOptions: { expiresIn: '1h' },
     }),
   ],

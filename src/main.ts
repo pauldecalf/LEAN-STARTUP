@@ -3,6 +3,9 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import * as hbs from 'hbs';
+import { Express } from 'express';
+import * as express from 'express';
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
@@ -56,6 +59,9 @@ async function bootstrap() {
   hbs.registerHelper('isCurrentPage', function (page, currentPage, options) {
     return page === currentPage ? options.fn(this) : options.inverse(this);
   });
+
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
