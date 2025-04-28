@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/main.ts",
+      "src": "serverless.js",
       "use": "@vercel/node",
       "config": {
         "buildCommand": "bash vercel-build.sh"
@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/main.ts"
+      "dest": "serverless.js"
     }
   ]
 }
