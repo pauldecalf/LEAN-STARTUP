@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -15,13 +16,7 @@ async function bootstrap() {
   app.setViewEngine('hbs');
 
   // Configuration des helpers Handlebars
-  const handlebars = configureHandlebars();
-  
-  // Enregistrer les helpers directement
-  Object.keys(handlebars.helpers).forEach(helperName => {
-    // @ts-ignore
-    hbs.registerHelper(helperName, handlebars.helpers[helperName]);
-  });
+  configureHandlebars();
 
   // Configuration des middlewares Express
   app.use(express.json());

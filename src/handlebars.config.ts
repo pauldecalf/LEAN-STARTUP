@@ -1,11 +1,8 @@
 import * as hbs from 'hbs';
 
-export function configureHandlebars(): any {
-  // Créer une instance de Handlebars
-  const handlebars = hbs.create();
-  
-  // Enregistrer les helpers
-  handlebars.registerHelper('formatDate', function (date: Date) {
+export function configureHandlebars(): void {
+  // Enregistrer les helpers directement sur hbs
+  hbs.registerHelper('formatDate', function (date: Date) {
     const d = new Date(date);
     const day = ('0' + d.getDate()).slice(-2);
     const month = ('0' + (d.getMonth() + 1)).slice(-2);
@@ -13,14 +10,14 @@ export function configureHandlebars(): any {
     return `${day}/${month}/${year}`;
   });
 
-  handlebars.registerHelper('limit', function (arr, limit) {
+  hbs.registerHelper('limit', function (arr, limit) {
     if (!Array.isArray(arr)) {
       return [];
     }
     return arr.slice(0, limit);
   });
 
-  handlebars.registerHelper('range', function (start, end) {
+  hbs.registerHelper('range', function (start, end) {
     const range = [];
     for (let i = start; i <= end; i++) {
       range.push(i);
@@ -28,29 +25,27 @@ export function configureHandlebars(): any {
     return range;
   });
 
-  handlebars.registerHelper('subtract', function (a, b) {
+  hbs.registerHelper('subtract', function (a, b) {
     return a - b;
   });
 
-  handlebars.registerHelper('add', function (a, b) {
+  hbs.registerHelper('add', function (a, b) {
     return a + b;
   });
 
-  handlebars.registerHelper('gt', function (a, b) {
+  hbs.registerHelper('gt', function (a, b) {
     return a > b;
   });
 
-  handlebars.registerHelper('lt', function (a, b) {
+  hbs.registerHelper('lt', function (a, b) {
     return a < b;
   });
 
-  handlebars.registerHelper('eq', function (a, b) {
+  hbs.registerHelper('eq', function (a, b) {
     return a === b;
   });
 
-  handlebars.registerHelper('isCurrentPage', function (page, currentPage, options) {
+  hbs.registerHelper('isCurrentPage', function (page, currentPage, options) {
     return page === currentPage ? options.fn(this) : options.inverse(this);
   });
-
-  return handlebars;
 } 
