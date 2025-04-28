@@ -2,9 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
-import * as hbs from 'hbs';
 import { Express } from 'express';
 import * as express from 'express';
+import * as hbs from 'hbs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -13,7 +13,10 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
 
-  hbs.registerHelper('formatDate', function (date: Date) {
+  // Configuration des helpers Handlebars
+  const handlebars = hbs.create();
+  
+  handlebars.registerHelper('formatDate', function (date: Date) {
     const d = new Date(date);
     const day = ('0' + d.getDate()).slice(-2);
     const month = ('0' + (d.getMonth() + 1)).slice(-2);
@@ -21,14 +24,14 @@ async function bootstrap() {
     return `${day}/${month}/${year}`;
   });
 
-  hbs.registerHelper('limit', function (arr, limit) {
+  handlebars.registerHelper('limit', function (arr, limit) {
     if (!Array.isArray(arr)) {
       return [];
     }
     return arr.slice(0, limit);
   });
 
-  hbs.registerHelper('range', function (start, end) {
+  handlebars.registerHelper('range', function (start, end) {
     const range = [];
     for (let i = start; i <= end; i++) {
       range.push(i);
@@ -36,30 +39,31 @@ async function bootstrap() {
     return range;
   });
 
-  hbs.registerHelper('subtract', function (a, b) {
+  handlebars.registerHelper('subtract', function (a, b) {
     return a - b;
   });
 
-  hbs.registerHelper('add', function (a, b) {
+  handlebars.registerHelper('add', function (a, b) {
     return a + b;
   });
 
-  hbs.registerHelper('gt', function (a, b) {
+  handlebars.registerHelper('gt', function (a, b) {
     return a > b;
   });
 
-  hbs.registerHelper('lt', function (a, b) {
+  handlebars.registerHelper('lt', function (a, b) {
     return a < b;
   });
 
-  hbs.registerHelper('eq', function (a, b) {
+  handlebars.registerHelper('eq', function (a, b) {
     return a === b;
   });
 
-  hbs.registerHelper('isCurrentPage', function (page, currentPage, options) {
+  handlebars.registerHelper('isCurrentPage', function (page, currentPage, options) {
     return page === currentPage ? options.fn(this) : options.inverse(this);
   });
 
+  // Configuration des middlewares Express
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
