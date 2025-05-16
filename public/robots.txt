@@ -1,11 +1,19 @@
-# Bloc général : Autorise tous les moteurs de recherche à explorer le site
-User-agent: *
-Disallow:
+# Configuration des robots pour Smoozy - Application de gestion de famille recomposée
 
-# Bloque l'accès à certains répertoires sensibles
+# Autorise tous les moteurs de recherche à explorer le site public
+User-agent: *
+Allow: /
+Disallow: /api/
 Disallow: /admin/
 Disallow: /login/
+Disallow: /register/
+Disallow: /dashboard/
+Disallow: /profile/
+Disallow: /family/
 Disallow: /test/
 
-# Indique l'emplacement de votre sitemap
+# Ajoute un délai entre les requêtes pour éviter de surcharger le serveur
+Crawl-delay: 10
+
+# Indique l'emplacement du sitemap
 Sitemap: https://www.smoozy-app.com/sitemap.xml
