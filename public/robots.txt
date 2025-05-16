@@ -16,4 +16,4 @@ Disallow: /test/
 Crawl-delay: 10
 
 # Indique l'emplacement du sitemap
-Sitemap: https://www.smoozy-app.com/sitemap.xml
+Sitemap: https://smoozy.pauldecalf.fr/sitemap.xml
