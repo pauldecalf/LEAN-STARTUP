@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (emailShareButton) {
       emailShareButton.addEventListener('click', function() {
         const subject = encodeURIComponent('Invitation à rejoindre notre famille');
-        const body = encodeURIComponent(`Rejoignez notre famille sur cette application en utilisant le lien suivant : https://smoozy-app.com/loading`);
+        const body = encodeURIComponent(`Rejoignez notre famille sur cette application en utilisant le lien suivant : https://smoozy.pauldecalf.fr/loading`);
         window.location.href = `mailto:?subject=${subject}&body=${body}`;
       });
     }
